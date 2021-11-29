@@ -5,7 +5,7 @@ function RegisterMedicine(){
     localStorage.clear();
     return (
         <>
-        <h1>Register Medicine</h1>
+     <center> <h1>Register Medicine</h1></center>  
         <MyForm/>
         </>
     );
@@ -42,64 +42,66 @@ function MyForm(props){
 
     return(
         <>
+        <div className="form">
         <form onSubmit = {handleSubmit}>
         <div>
-                <label>Medicine Name :</label>
+                <label className="label">Medicine Name </label>
                 <div>
-                    <input type = "text" name = "med_name" placeholder = "Enter medicine name"
+                    <input className="input" type = "text" name = "med_name" placeholder = "Enter medicine name"
                         value = {inputs.med_name || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Medicine Company :</label>
+                <label className="label">Medicine Company </label>
                 <div>
-                    <input type = "text" name = "company_name" placeholder = "Enter company name"
+                    <input className="input" type = "text" name = "company_name" placeholder = "Enter company name"
                         value = {inputs.company_name || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Amount :</label>
+                <label className="label">Amount </label>
                 <div>
-                    <input type = "text" name = "amount" placeholder = "Enter amount"
+                    <input className="input" type = "text" name = "amount" placeholder = "Enter amount"
                         value = {inputs.amount || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Manufacturing Date :</label>
+                <label className="label">Manufacturing Date </label>
                 <div>
-                    <input type = "date" name = "date_of_manu"
+                    <input className="input" type = "date" name = "date_of_manu"
                         value = {inputs.date_of_manu || ''} onChange = {handleChange}
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Expiry Date :</label>
+                <label className="label">Expiry Date </label>
                 <div>
-                    <input type = "date" name = "date_of_exp"
+                    <input className="input" type = "date" name = "date_of_exp"
                         value = {inputs.date_of_exp || ''} onChange = {handleChange}
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Medicine Dosage :</label>
+                <label className="label">Medicine Dosage </label>
                 <div>
-                    <input type = "text" name = "dosage" placeholder = "Enter dosage"
+                    <input className="input" type = "text" name = "dosage" placeholder = "Enter dosage"
                         value = {inputs.dosage || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
-            <input type = 'submit' ></input> &nbsp;
-            <button onClick = {goToHome}>Cancel</button>
+            <input className="btn-submit" type = 'submit' ></input> &nbsp;
+            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
         </form>
+        </div>
         </>
     );
 

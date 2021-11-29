@@ -5,7 +5,7 @@ function RegisterPatient(){
     localStorage.clear();
     return (
         <>
-        <h1>Register Staff</h1>
+       <center> <h1>Register Staff</h1></center>
         <MyForm/>
         </>
     );
@@ -42,61 +42,63 @@ function MyForm(props){
 
     return(
         <>
+        <div className="form">
         <form onSubmit = {handleSubmit}>
         <div>
-                <label>Full Name :</label>
+                <label className="label">Full Name </label>
                 <div>
-                    <input type = "text" name = "full_name" placeholder = "Enter full name"
+                    <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
                         value = {inputs.full_name || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Date of Birth :</label>
+                <label  className="label">Date of Birth </label>
                 <div>
-                    <input type = "date" name = "date_of_birth"
+                    <input className="input"  type = "date" name = "date_of_birth"
                         value = {inputs.date_of_birth || ''} onChange = {handleChange}
                         required></input>
                 </div> 
             </div>   
 
             <div>
-                <label>Gender :</label>
+                <label  className="label">Gender </label><br/>
                 <div>
-                    <input type = "radio" name = "gender"
+                    <br/>
+                    <input  type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label>Male</label>
-                    <input type = "radio" name = "gender"
+                    <label className="rdo" >Male</label>
+                    <input  type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label>Female</label>
+                    <label className="rdo" >Female</label>
                 </div> 
-            </div>
+            </div><br/>
 
             <div>
-                <label>Address :</label>
+                <label  className="label">Address </label>
                 <div>
-                    <input type = "text" name = "address" placeholder = "Enter Address"
+                    <input className="input"  type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Phone :</label>
+                <label  className="label">Phone </label>
                 <div>
-                    <input type = "text" name = "phoneno" placeholder = "Enter phone number"
+                    <input className="input"  type = "text" name = "phoneno" placeholder = "Enter phone number"
                         value = {inputs.phoneno || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Blood Group :</label>
+                <label  className="label">Blood Group </label>
                 <div>
-                    <select name = 'bloodgroup'>
+                    <select name = 'bloodgroup' className="bld" >
                         <option>Choose one</option>
                         <option value = 'a+'>A+</option>
                         <option value = 'a-'>A-</option>
@@ -109,10 +111,12 @@ function MyForm(props){
                     </select>
                 </div> 
             </div>
+            <br/>
 
-            <input type = 'submit' ></input> &nbsp;
-            <button onClick = {goToHome}>Cancel</button>
+            <input className="btn-submit" type = 'submit' ></input> &nbsp;
+            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
         </form>
+        </div>
         </>
     );
 

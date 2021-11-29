@@ -1,8 +1,8 @@
 function About(){
     return(
       <>
-      <div>
-        <h1>About Us</h1>
+      <div className="home">
+      <center>  <h1>About Us</h1></center><hr/>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
           Morbi sit amet gravida sem, a faucibus tortor. 
           Vivamus eleifend vulputate orci, a iaculis lectus cursus nec. 

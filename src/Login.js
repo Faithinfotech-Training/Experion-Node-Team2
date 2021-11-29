@@ -5,7 +5,7 @@ function LoginForm(){
     localStorage.clear();
     return (
         <>
-        <h1>Enter Login Details</h1>
+      <center>  <h1>Enter Login Details</h1></center>
         <MyForm/>
         </>
     );
@@ -41,31 +41,32 @@ function MyForm(props){
     }
 
     return(
-        <>
+        <><div className="form">
         <form onSubmit = {handleSubmit}>
 
             <div>
-                <label>User Name : :</label>
+                <label className="label">User Name </label>
                 <div>
-                    <input type = "email" name = "email" placeholder = "Enter your email"
+                    <input className="input" type = "email" name = "email" placeholder = "Enter your email"
                         value = {inputs.email || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Password :</label>
+                <label className="label">Password </label>
                 <div>
-                    <input type = "password" name = "password" placeholder = "Enter password"
+                    <input className="input" type = "password" name = "password" placeholder = "Enter password"
                         value = {inputs.password || ''} onChange = {handleChange}
                         required></input>
                 </div> 
             </div>
 
-            <input type = 'submit' ></input> &nbsp;
-            <button onClick = {goToHome}>Cancel</button>
+            <input className="btn-submit" type = 'submit' ></input> &nbsp;
+            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
             
         </form>
+        </div>
         </>
     );
 

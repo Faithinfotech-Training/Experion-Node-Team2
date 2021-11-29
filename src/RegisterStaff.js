@@ -42,52 +42,53 @@ function MyForm(props){
 
     return(
         <>
+        <div className="form">
         <form onSubmit = {handleSubmit}>
         <div>
-                <label>Full Name :</label>
+                <label className="label">Full Name </label>
                 <div>
-                    <input type = "text" name = "full_name" placeholder = "Enter full name"
+                    <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
                         value = {inputs.full_name || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Qualification :</label>
+                <label className="label">Qualification </label>
                 <div>
-                    <input type = "text" name = "qualification" placeholder = "Enter qualification"
+                    <input className="input" type = "text" name = "qualification" placeholder = "Enter qualification"
                         value = {inputs.qualification || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
                 
             <div>
-                <label>Gender :</label>
+                <label className="label">Gender </label><br/>
                 <div>
                     <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label>Male</label>
+                    <label className="rdo">Male</label>
                     <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label>Female</label>
-                </div> 
+                    <label className="rdo">Female</label>
+                </div> <br/>
             </div>
 
             <div>
-                <label>Date of Birth :</label>
+                <label className="label">Date of Birth </label>
                 <div>
-                    <input type = "date" name = "date_of_birth"
+                    <input className="input" type = "date" name = "date_of_birth"
                         value = {inputs.date_of_birth || ''} onChange = {handleChange}
                         required></input>
                 </div> 
             </div>   
 
             <div>
-                <label>Staff Type :</label>
+                <label className="label">Staff Type </label>
                 <div>
-                    <select name = 'stafftype'>
+                    <select name = 'stafftype' className="bld">
                         <option>Choose one</option>
                         <option value = 'admin'>Admin</option>
                         <option value = 'doctor'>Doctor</option>
@@ -95,56 +96,58 @@ function MyForm(props){
                         <option value = 'labtechnician'>Lab Technician</option>
                     </select>
                 </div> 
+                <br/>
             </div>
 
             <div>
-                <label>Address :</label>
+                <label className="label">Address </label>
                 <div>
-                    <input type = "text" name = "address" placeholder = "Enter Address"
+                    <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Date of Join :</label>
+                <label className="label">Date of Join </label>
                 <div>
-                    <input type = "date" name = "date_of_join"
+                    <input className="input" type = "date" name = "date_of_join"
                         value = {inputs.date_of_join || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Phone :</label>
+                <label className="label">Phone </label>
                 <div>
-                    <input type = "text" name = "phoneno" placeholder = "Enter phone number"
+                    <input className="input" type = "text" name = "phoneno" placeholder = "Enter phone number"
                         value = {inputs.phoneno || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Experience :</label>
+                <label className="label">Experience </label>
                 <div>
-                    <input type = "text" name = "experience" placeholder = "Enter experience"
+                    <input className="input" type = "text" name = "experience" placeholder = "Enter experience"
                         value = {inputs.experience || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
             <div>
-                <label>Email :</label>
+                <label className="label"> Email </label>
                 <div>
-                    <input type = "email" name = "email" placeholder = "Enter email"
+                    <input className="input" type = "email" name = "email" placeholder = "Enter email"
                         value = {inputs.email || ''} onChange = {handleChange} 
                         required></input>
                 </div> 
             </div>
 
-            <input type = 'submit' ></input> &nbsp;
-            <button onClick = {goToHome}>Cancel</button>
+            <input className="btn-submit" type = 'submit' ></input> &nbsp;
+            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
         </form>
+        </div>
         </>
     );
 

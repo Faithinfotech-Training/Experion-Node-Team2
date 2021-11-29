@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+import "./App.css";
 import Home from './Homepage';
 import LoginForm from "./Login";
 import RegisterUser from "./RegisterUser";
@@ -13,43 +14,62 @@ import NoMatch from "./NoMatch";
 function App() {
   return (
     <>
-    <MyRouter/>
+      <MyRouter />
     </>
   );
 };
 
-function MyRouter(){
-  return(
+function MyRouter() {
+  return (
     <Router>
-      <h1>Clinic Management System</h1>
-      <h3>Phasellus efficitur condimentum ipsum ut vestibulum.</h3>
-      <div>
-      <div><Link to = "/">Home</Link></div>
-      <div><Link to = "/userreg">Register</Link></div>
-      <div><Link to = "/login">LogIn</Link></div>
-      <div><Link to = "/staffreg">Register Staff</Link></div>
-      <div><Link to = "/patientreg">Register Patient</Link></div>
-      <div><Link to = "/medreg">Register Medicine</Link></div>
-      <div><Link to = "/PatientAppointment">Patient Appointment</Link></div>
-      <div><Link  to = "/about">About Us</Link></div>
+     <center> <h1 className="h">Clinic Management System</h1></center>
+     {/*  <h3>Phasellus efficitur condimentum ipsum ut vestibulum.</h3> */}
+      <div >
+        <ul class="nav">
+          <li className="list">
+            <Link className="link" to="/">Home</Link>
+          </li>
+          <li className="list">
+            <Link className="link" to="/userreg">Register</Link>
+          </li >
+          <li className="list">
+            <Link className="link" to="/login">LogIn</Link>
+          </li>
+          <li className="list">
+            <Link className="link" to="/staffreg">Register Staff</Link>
+          </li>
+          <li className="list">
+            <Link className="link" to="/patientreg">Register Patient</Link>
+          </li>
+          <li className="list">
+            <Link className="link" to="/medreg">Register Medicine</Link>
+          </li>
+          <li className="list">
+            <Link className="link" to="/PatientAppointment">Patient Appointment</Link>
+          </li >
+          <li className="list">
+          <Link className="link" to="/about">About Us</Link>
+          </li>
+        </ul>
 
       </div>
+      <br/>
       <Routes>
-        <Route path = "/" element = {<Home />}/>
-        <Route path = "/about" element = {<About />}/>
-        <Route path = "/login" element = {<LoginForm />}/>
-        <Route path = "/userreg" element = {<RegisterUser />}/>
-        <Route path = "/staffreg" element = {<RegisterStaff />}/>
-        <Route path = "/patientreg" element = {<RegisterPatient />}/>
-        <Route path = "/medreg" element = {<RegisterMedicine />}/>
-        <Route path="/PatientAppointment" element={<PatientAppointment/>}/>
-        <Route path = "*" element = {<NoMatch />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/userreg" element={<RegisterUser />} />
+        <Route path="/staffreg" element={<RegisterStaff />} />
+        <Route path="/patientreg" element={<RegisterPatient />} />
+        <Route path="/medreg" element={<RegisterMedicine />} />
+        <Route path="/PatientAppointment" element={<PatientAppointment />} />
+        <Route path="*" element={<NoMatch />}></Route>
 
-        
+
       </Routes>
 
-      <br/><br/>
-      <footer>copyright@2021</footer>
+      <br /><br />
+      <footer className="footer">copyright@clinicmanagement2021</footer>
     </Router>
   );
 };
