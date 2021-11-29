@@ -1,2 +1,4 @@
 //code for the prescription form here
-const a =25;
+
+const a = 100;
+
