@@ -30,6 +30,7 @@ function MyRouter(){
       <div><Link to = "/staffreg">Register Staff</Link></div>
       <div><Link to = "/patientreg">Register Patient</Link></div>
       <div><Link to = "/medreg">Register Medicine</Link></div>
+      <div><Link to = "/medreg">Patient Appointment</Link></div>
       <div><Link  to = "/about">About Us</Link></div>
 
       </div>
@@ -41,7 +42,7 @@ function MyRouter(){
         <Route path = "/staffreg" element = {<RegisterStaff />}/>
         <Route path = "/patientreg" element = {<RegisterPatient />}/>
         <Route path = "/medreg" element = {<RegisterMedicine />}/>
-        <div><Link to="/PatientAppointment">Patient Appointment</Link></div>
+        <Route path="/PatientAppointment" element={<PatientAppointment/>}/>
         <Route path = "*" element = {<NoMatch />}></Route>
 
         
