@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 
-function RegisterMedicine(){
+function PatientAppointment(){
     localStorage.clear();
     return (
         <>
@@ -90,4 +90,4 @@ function MyForm(props){
     );
 
 };
-export default RegisterMedicine;
+export default  PatientAppointment ;
