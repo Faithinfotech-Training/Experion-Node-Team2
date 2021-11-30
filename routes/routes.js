@@ -7,6 +7,13 @@ const clinicRoutes = require('./clinic.route');
 const patientRoutes = require('./patient.route');
 const roleRoutes = require('./role.route');
 const userRoutes = require('./user.route');
+const labRoute = require('./labReport.route');
+const medicineRoute = require('./labReport.route');
+const priscriptionInfoRoute=require('./prescriptionInfoRoute');
+const priscriptionMedicineRoute=require('./prescriptionMedicine.route');
+const testDetailRoute = require('./testDetails.route');
+const testInfoRoute = require('./testInfo.route');
+
 
 
 
@@ -17,5 +24,11 @@ router.use('/clinics', clinicRoutes);
 router.use('/patients', patientRoutes);
 router.use('/roles', roleRoutes);
 router.use('/users', userRoutes);
+router.use('/labs', labRoute);
+router.use('/medicines',medicineRoute);
+router.use('/pres',priscriptionInfoRoute);
+router.use('/presmedi',priscriptionMedicineRoute);
+router.use('/testdetail',testDetailRoute);
+router.use('/test',testInfoRoute);
 
 module.exports = router;
