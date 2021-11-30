@@ -33,7 +33,7 @@ function MyRouter() {
             <Link className="link" to="/userreg">Register</Link>
           </li >
           <li className="list">
-            <Link className="link" to="/login">LogIn</Link>
+            <Link className="link" to="/login">Log In</Link>
           </li>
           <li className="list">
             <Link className="link" to="/staffreg">Register Staff</Link>

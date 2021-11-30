@@ -113,8 +113,11 @@ function MyForm(props){
             </div>
             <br/>
 
+            <center>
             <input className="btn-submit" type = 'submit' ></input> &nbsp;
             <button className="btn-reset" onClick = {goToHome}>Cancel</button>
+            </center>
+
         </form>
         </div>
         </>

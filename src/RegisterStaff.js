@@ -5,7 +5,7 @@ function RegisterStaff(){
     localStorage.clear();
     return (
         <>
-        <h1>Register Staff</h1>
+        <center><h1>Register Staff</h1></center>
         <MyForm/>
         </>
     );
@@ -144,8 +144,10 @@ function MyForm(props){
                 </div> 
             </div>
 
+            <center>
             <input className="btn-submit" type = 'submit' ></input> &nbsp;
             <button className="btn-reset" onClick = {goToHome}>Cancel</button>
+            </center>
         </form>
         </div>
         </>
