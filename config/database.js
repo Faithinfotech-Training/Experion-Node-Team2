@@ -1,10 +1,8 @@
 const { Sequelize } = require('sequelize');
 const db = new Sequelize('ClinicManagementSystem', 'sqlite', 'sqlite123', {
     host: 'localhost',
-    storage:'crm.sqlite',
+    storage:'cms.sqlite',
     dialect: 'sqlite',
-    
-
     pool: {
         max: 5,
         min: 0,

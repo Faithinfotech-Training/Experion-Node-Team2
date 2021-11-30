@@ -1,24 +1,15 @@
-const Sequelize = require('sequelize');
-const db = require('../config/database');
+const database = require('../config/UserAuth');
 
-const userInfo = db.define('UserInfo', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    userName: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    userPassword: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    roleId:{
-        type: Sequelize.NUMBER,
-        allowNull:false}
-    
-});
+const userInfo = () => {
+    const sqlQuery = `
+        CREATE TABLE IF NOT EXISTS userInfo (
+            id integer PRIMARY KEY,
+            userName text UNIQUE,
+            password text,
+            roleId integer
+        )`
+    return database.run(sqlQuery);
+}
+userInfo();
 
-module.exports = userInfo;
+module.exports = database;
