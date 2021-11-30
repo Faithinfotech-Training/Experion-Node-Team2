@@ -14,6 +14,7 @@ import PatientDetails from "./PatientDetails";
 import About from "./About";
 import NoMatch from "./NoMatch";
 import PrescriptionAdd from "./PrescriptionAdd";
+import LabreportGenerate from "./LabreportGenerate";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function MyRouter() {
               <Link className="link" to="/patientappoint">Patient Appointment</Link>
               <Link className="link" to="/appointmentlist">Appoinment List</Link>
               <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>
+              <Link className="link" to="/labreportGenerate">Generate Report</Link>
               <Link className="link" to="/about">About Us</Link>
             </Nav>
           </Navbar.Collapse>
@@ -71,6 +73,7 @@ function MyRouter() {
         <Route path="/appointmentlist" element={<Appoinments />} />
         <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="/PrescriptionAdd" element={<PrescriptionAdd/>}/>
+        <Route path="/LabreportGenerate" element={<LabreportGenerate/>}/>
         <Route path="*" element={<NoMatch />}></Route>
 
 
