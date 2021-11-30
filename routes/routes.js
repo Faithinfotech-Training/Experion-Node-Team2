@@ -15,15 +15,15 @@ const testDetailRoute = require('./testDetails.route');
 const testInfoRoute = require('./testInfo.route');
 const staff = require('./Staff.route');
 const Lab_Tech = require('./Lab_Tech.route');
-const Front_off=require('./Front_off.route');
-const Doctor=require('./Doc.route');
-const Dept= require('./Dept.route');
+const frontOffice=require('./frontOffice.route');
+const doctor=require('./doctor.route');
+const dept= require('./department.route');
 
 
 
-router.use('/admins', adminRoutes);
-router.use('/appointments', appoinmentRoutes);
-router.use('/bills', billRoutes);
+router.use('/admin', adminRoutes);
+router.use('/appointment', appoinmentRoutes);
+router.use('/bill', billRoutes);
 router.use('/clinics', clinicRoutes);
 router.use('/patients', patientRoutes);
 router.use('/roles', roleRoutes);
@@ -36,8 +36,8 @@ router.use('/testdetail',testDetailRoute);
 router.use('/test',testInfoRoute);
 router.use('/Staff_info', staff);
 router.use('/Lab_Tech_info',Lab_Tech);
-router.use('/Front_off_info',Front_off);
-router.use('/Doctor_info',Doctor);
-router.use('/Dept_info',Dept);
+router.use('/frontoffice',frontOffice);
+router.use('/doctor',doctor);
+router.use('/dept',dept);
 
 module.exports = router;

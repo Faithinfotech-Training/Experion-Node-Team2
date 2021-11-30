@@ -1,16 +1,16 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const CMS = db.define('Dept_info',
+const dept = db.define('DeptInfo',
  {
-    Dept_id: {
+    deptId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    Dept_Name: {
+    deptName: {
         type: Sequelize.STRING,
     },
 });
 
-module.exports = CMS;
+module.exports = dept;

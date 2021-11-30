@@ -1,4 +1,4 @@
-const Staff_Dao = require('../dao/Frontoff.dao');
+const Staff_Dao = require('../dao/Staff.dao');
 var Staff_controller = {
     add: add,
     find: find,

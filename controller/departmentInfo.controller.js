@@ -1,5 +1,5 @@
-const Frontoff_Dao = require('../dao/Frontoff.dao');
-var Front_Off_controller = {
+const deptDao = require('../dao/departmentInfo.dao');
+var deptController = {
     add: add,
     find: find,
     findById: findById,
@@ -8,8 +8,8 @@ var Front_Off_controller = {
 }
 
 function add(req, res) {
-    let Front_off  = req.body;
-    Frontoff_Dao.create(Front_off).
+    let dept  = req.body;
+    deptDao.create(dept).
         then((data) => {
             res.send(data);
         })
@@ -19,7 +19,7 @@ function add(req, res) {
 }
 
 function findById(req, res) {
-    Frontoff_Dao.findById(req.params.Front_off_id).
+    deptDao.findById(req.params.deptid).
         then((data) => {
             res.send(data);
         })
@@ -29,10 +29,10 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    Frontoff_Dao.deleteById(req.params.Front_off_id).
+    deptDao.deleteById(req.params.deptId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office deleted successfully",
+                message: "Department deleted successfully",
                 dept: data
             })
         })
@@ -42,11 +42,11 @@ function deleteById(req, res) {
 }
 
 function update(req, res) {
-    Frontoff_Dao.update(req.body, req.params.Front_off_id).
+    deptDao.update(req.body, req.params.deptId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office updated successfully",
-                Doctor: data
+                message: "Department updated successfully",
+                dept: data
             })
         })
         .catch((error) => {
@@ -55,7 +55,7 @@ function update(req, res) {
 }
 
 function find(req, res) {
-    Frontoff_Dao.findAll().
+    deptDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -64,4 +64,4 @@ function find(req, res) {
         });
 }
 
-module.exports = Front_Off_controller;
+module.exports = deptController;

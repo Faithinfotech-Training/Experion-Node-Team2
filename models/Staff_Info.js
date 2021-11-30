@@ -33,7 +33,7 @@ const CMS = db.define('Staff_info',
         allowNull: false
     },
     Email: {
-        type: Sequelize.Email,
+        type: Sequelize.STRING,
         allowNull: false
     },
     EXP: {

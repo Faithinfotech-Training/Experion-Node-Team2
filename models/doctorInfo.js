@@ -1,22 +1,26 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const CMS = db.define('Front_off_Info',
+const doctorInfo = db.define('DoctorInfo',
  {
-    Front_Off_id: {
+    staffId: {
+        type: Sequelize.INTEGER,
+        ForeignKey: true,
+
+    },
+    doctorId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    Front_Off_Name: {
+    doctorName: {
         type: Sequelize.STRING,
-        allowNull: false
-    }, 
-    Staff_id: {
+    },
+    deptId: {
         type: Sequelize.INTEGER,
-        ForeignKey : true,
+        ForeignKey: true,
         allowNull: false
     },
-  });
+});
 
-module.exports = CMS;
+module.exports = doctorInfo;
