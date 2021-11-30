@@ -26,12 +26,12 @@ function create(test_info) {
 
 function updateTest_info(test_info, test_info_id) {
     var updateTest_info = {
-        first_name : test_info.first_name,
-        last_name : test_info.last_name,
-        email: test_info.email,
-        password : test_info.password,
-        joining_date : test_info.joining_date,
-        mobile_no:test_info.mobile_no
+        test_info_id: test_info.test_info_id,
+        test_id: test_info.test_id,
+        range: test_info.range,
+        description: test_info.description,
+        report_id: test_info.report_id,
+
     };
     return Test_info.update(updateTest_info, { where: { test_info_id: test_info_id } });
 }

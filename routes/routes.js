@@ -13,7 +13,11 @@ const priscriptionInfoRoute=require('./prescriptionInfoRoute');
 const priscriptionMedicineRoute=require('./prescriptionMedicine.route');
 const testDetailRoute = require('./testDetails.route');
 const testInfoRoute = require('./testInfo.route');
-
+const staff = require('./Staff.route');
+const Lab_Tech = require('./Lab_Tech.route');
+const Front_off=require('./Front_off.route');
+const Doctor=require('./Doc.route');
+const Dept= require('./Dept.route');
 
 
 
@@ -30,5 +34,10 @@ router.use('/pres',priscriptionInfoRoute);
 router.use('/presmedi',priscriptionMedicineRoute);
 router.use('/testdetail',testDetailRoute);
 router.use('/test',testInfoRoute);
+router.use('/Staff_info', staff);
+router.use('/Lab_Tech_info',Lab_Tech);
+router.use('/Front_off_info',Front_off);
+router.use('/Doctor_info',Doctor);
+router.use('/Dept_info',Dept);
 
 module.exports = router;

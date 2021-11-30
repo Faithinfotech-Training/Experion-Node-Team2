@@ -1,13 +1,15 @@
-const { Sequelize } = require('sequelize');
-const db = new Sequelize('ClinicManagementSystem', 'sqlite', 'sqlite123', {
+const { Sequelize } = require('sequelize')
+const db = new Sequelize('crmdb', 'sqlite', 'Welcome123', {
     host: 'localhost',
-    storage:'cms.sqlite',
+    storage:'crm.sqlite',
     dialect: 'sqlite',
+
     pool: {
         max: 5,
         min: 0,
         acquire: 30000,
         idle: 10000
+
     }
 });
 

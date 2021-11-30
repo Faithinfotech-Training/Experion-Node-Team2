@@ -11,12 +11,12 @@ function findAll() {
     return Prescription_medicine.findAll();
 }
 
-function findById(prescription_id) {
-    return Prescription_medicine.findByPk(prescription_id);
+function findById(prescription_med_id) {
+    return Prescription_medicine.findByPk(prescription_med_id);
 }
 
-function deleteById(prescription_id) {
-    return Prescription_medicine.destroy({ where: { prescription_id: prescription_id } });
+function deleteById(prescription_med_id) {
+    return Prescription_medicine.destroy({ where: { prescription_med_id: prescription_med_id } });
 }
 
 function create(prescription_medicine) {
@@ -24,15 +24,15 @@ function create(prescription_medicine) {
     return newPrescription_medicine.save();
 }
 
-function updatePrescription_medicine(prescription_medicine, prescription_id) {
+function updatePrescription_medicine(prescription_medicine, prescription_med_id) {
     var updatePrescription_medicine = {
-        first_name : prescription_medicine.first_name,
-        last_name : prescription_medicine.last_name,
-        email: prescription_medicine.email,
-        password : prescription_medicine.password,
-        joining_date : prescription_medicine.joining_date,
-        mobile_no:prescription_medicine.mobile_no
+        prescription_med_id : prescription_medicine.prescription_med_id,
+        medicine_id : prescription_medicine.medicine_id,
+        dosage_frequency: prescription_medicine.dosage_frequency,
+        no_of_days : prescription_medicine.no_of_days,
+        prescription_id : prescription_medicine.prescription_id,
+
     };
-    return Prescription_medicine.update(updatePrescription_medicine, { where: { prescription_id: prescription_id } });
+    return Prescription_medicine.update(updatePrescription_medicine, { where: { prescription_med_id: prescription_med_id } });
 }
 module.exports = prescription_medicineDao;

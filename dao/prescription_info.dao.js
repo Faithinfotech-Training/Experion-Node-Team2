@@ -26,12 +26,14 @@ function create(prescription_info) {
 
 function updatePrescription_info(prescription_info, prescription_info_id) {
     var updatePrescription_info = {
-        first_name : prescription_info.first_name,
-        last_name : prescription_info.last_name,
-        email: prescription_info.email,
-        password : prescription_info.password,
-        joining_date : prescription_info.joining_date,
-        mobile_no:prescription_info.mobile_no
+       prescription_info_id : prescription_info.prescription_info_id,
+       prescription_date : prescription_info.prescription_date,
+       doctor_notes: prescription_info.doctor_notes,
+      test_details : prescription_info.test_details,
+       medicine_id : prescription_info.medicine_id,
+       doctor_id:prescription_info.doctor_id,
+       patient_id:prescription_info.patient_id,
+
     };
     return Prescription_info.update(updatePrescription_info, { where: { prescription_info_id: prescription_info_id } });
 }

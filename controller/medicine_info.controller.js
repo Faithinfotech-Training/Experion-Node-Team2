@@ -1,4 +1,4 @@
-const medicine_infoDao = require('../dao/lab_report.dao');
+const medicine_infoDao = require('../dao/medicine_info.dao');
 var medicine_infoController = {
     addMedicine_info: addMedicine_info,
     findMedicine_infos: findMedicine_infos,

@@ -26,12 +26,14 @@ function create(lab_report) {
 
 function updateLab_report(lab_report, report_id) {
     var updateLab_report = {
-        first_name : lab_report.first_name,
-        last_name : lab_report.last_name,
-        email: lab_report.email,
-        password : lab_report.password,
-        joining_date : lab_report.joining_date,
-        mobile_no:lab_report.mobile_no
+        report_id: lab_report.report_id,
+        report_title: lab_report.report_title,
+        description: lab_report.description,
+        report_date: lab_report.report_date,
+        patient_id: lab_report.patient_id,
+        doctor_id: lab_report.doctor_id,
+        clinic_id: lab_report.clinic_id,
+        lab_techmician_id: lab_report.lab_techmician_id
     };
     return Lab_report.update(updateLab_report, { where: { report_id: report_id } });
 }

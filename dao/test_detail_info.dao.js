@@ -26,12 +26,13 @@ function create(test_detail_info) {
 
 function updateTest_detail_info(test_detail_info, test_id) {
     var updateTest_detail_info = {
-        first_name : test_detail_info.first_name,
-        last_name : test_detail_info.last_name,
-        email: test_detail_info.email,
-        password : test_detail_info.password,
-        joining_date : test_detail_info.joining_date,
-        mobile_no:test_detail_info.mobile_no
+        test_id : test_detail_info.test_id,
+        test_name : test_detail_info.test_name,
+        test_date: test_detail_info.test_date,
+        test_time : test_detail_info.test_time,
+        test_unit : test_detail_info.test_unit,
+        test_amount:test_detail_info.test_amount,
+        test_description:test_detail_info.test_description
     };
     return Test_detail_info.update(updateTest_detail_info, { where: { test_id: test_id } });
 }

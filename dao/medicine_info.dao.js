@@ -26,12 +26,13 @@ function create(medicine_info) {
 
 function updateMedicine_info(medicine_info, medicine_id) {
     var updateMedicine_info = {
-        first_name : medicine_info.first_name,
-        last_name : medicine_info.last_name,
-        email: medicine_info.email,
-        password : medicine_info.password,
-        joining_date : medicine_info.joining_date,
-        mobile_no:medicine_info.mobile_no
+        medicine_id : medicine_info.medicine_id,
+        medicine_name : medicine_info.medicine_name,
+        medicine_company: medicine_info.medicine_company,
+        medicine_amount : medicine_info.medicine_amount,
+        manufacturing_date: medicine_info.manufacturing_date,
+        expiry_date:medicine_info.expiry_date,
+        medicine_dosage:medicine_info.medicine_dosage
     };
     return Medicine_info.update(updateMedicine_info, { where: { medicine_id: medicine_id } });
 }

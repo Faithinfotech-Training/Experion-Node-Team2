@@ -1,4 +1,4 @@
-const test_detail_infoDao = require('../dao/lab_report.dao');
+const test_detail_infoDao = require('../dao/test_detail_info.dao');
 var test_detail_infoController = {
     addTest_detail_info: addTest_detail_info,
     findTest_detail_infos: findTest_detail_infos,

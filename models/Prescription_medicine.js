@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../config/database')
 
 const Prescription_medicine = db.define('presmedi', {
-    prescription_id: {
+    prescription_med_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true

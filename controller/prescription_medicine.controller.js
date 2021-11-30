@@ -1,4 +1,4 @@
-const prescription_medicineDao = require('../dao/lab_report.dao');
+const prescription_medicineDao = require('../dao/prescription_medicine.dao');
 var prescription_medicineController = {
     addPrescription_medicine: addPrescription_medicine,
     findPrescription_medicines: findPrescription_medicines,
@@ -19,7 +19,7 @@ function addPrescription_medicine(req, res) {
 }
 
 function findPrescription_medicineById(req, res) {
-    prescription_medicineDao.findById(req.params.prescription_id).
+    prescription_medicineDao.findById(req.params.prescription_med_id).
         then((data) => {
             res.send(data);
         })
@@ -29,7 +29,7 @@ function findPrescription_medicineById(req, res) {
 }
 
 function deleteById(req, res) {
-    prescription_medicineDao.deleteById(req.params.prescription_id).
+    prescription_medicineDao.deleteById(req.params.prescription_med_id).
         then((data) => {
             res.status(200).json({
                 message: "prescription_medicine deleted successfully",
@@ -42,7 +42,7 @@ function deleteById(req, res) {
 }
 
 function updatePrescription_medicine(req, res) {
-    prescription_medicineDao.updatePrescription_medicine(req.body, req.params.prescription_id).
+    prescription_medicineDao.updatePrescription_medicine(req.body, req.params.prescription_med_id).
         then((data) => {
             res.status(200).json({
                 message: "prescription_medicine updated successfully",
