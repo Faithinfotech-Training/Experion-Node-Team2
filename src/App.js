@@ -25,7 +25,7 @@ function MyRouter() {
      <center> <h1 className="h">Clinic Management System</h1></center>
      {/*  <h3>Phasellus efficitur condimentum ipsum ut vestibulum.</h3> */}
       <div >
-        <ul class="nav">
+        <ul className="nav">
           <li className="list">
             <Link className="link" to="/">Home</Link>
           </li>
