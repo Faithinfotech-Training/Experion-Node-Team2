@@ -7,7 +7,9 @@ import RegisterUser from "./RegisterUser";
 import RegisterStaff from "./RegisterStaff";
 import RegisterPatient from "./RegisterPatient";
 import RegisterMedicine from "./RegisterMedicine";
-import PatientAppointment from "./PatientAppointment"
+import PatientAppointment from "./PatientAppointment";
+import Appoinments from "./AppointmentList";
+import PatientDetails from "./PatientDetails";
 import About from "./About";
 import NoMatch from "./NoMatch";
 
@@ -50,6 +52,9 @@ function MyRouter() {
           <li className="list">
           <Link className="link" to="/about">About Us</Link>
           </li>
+          <li className="list">
+          <Link className="link" to="/appoinmentlist">Appoinment List</Link>
+          </li>
         </ul>
 
       </div>
@@ -63,6 +68,8 @@ function MyRouter() {
         <Route path="/patientreg" element={<RegisterPatient />} />
         <Route path="/medreg" element={<RegisterMedicine />} />
         <Route path="/PatientAppointment" element={<PatientAppointment />} />
+        <Route path="/appoinmentlist" element={<Appoinments />} />
+        <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="*" element={<NoMatch />}></Route>
 
 

@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(12, 99, 170);
   text-decoration: None;
 }
 
@@ -21,12 +21,12 @@
         font-family: 'Times New Roman', Times, serif;
     }
     .h{
-      color:brown;
+      color:rgb(90, 180, 233);
     }
 
     
 .link:hover{
-  background-color:darkgreen;
+  background-color:rgb(79, 80, 79);
   color: aliceblue;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .btn-reset{
-  background-color:red;
+  background-color:rgb(105, 105, 105);
   color: white;
   padding: 12px 20px;
   border: none;
