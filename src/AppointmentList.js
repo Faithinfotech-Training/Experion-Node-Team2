@@ -1,8 +1,10 @@
 import {useState,useEffect} from "react"
 import Patients from './PatientList'
 import axios from "axios";
+
 function PatientList(){
-    const[patients, setPatients]=useState([]);
+    const[patients, setPatients] = useState([]);
+
     useEffect(()=>{
         axios
         .get("http://localhost:4000/appoinments")
@@ -13,9 +15,18 @@ function PatientList(){
         })})
         
 
-        return(<>
-        <h2>APPOINMENTS</h2>
-                 <div>{patients.map(patient=><div key={patient.id}> <Patients details= {patient}/></div>)}</div></>);
+        return(
+        <>
+        <center><h2>Appoitments</h2></center>
+        
+        <div>
+            {patients.map(patient => 
+                <div key={patient.id}> 
+                    <Patients details= {patient}/>
+                </div>)}
+        </div>
+        </>
+        );
    
    }
 

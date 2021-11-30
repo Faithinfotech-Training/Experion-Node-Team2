@@ -1,25 +1,26 @@
 import React from "react"
-import {useState,useEffect} from "react"
+import {useState, useEffect} from "react"
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 
-function PatientDetails(){
-    const[patients, setPatients]=useState([]);
-    const {id}=useParams()
-    const navigate=useNavigate();
-    useEffect(()=>{
+function PatientDetails() {
+    const[patients, setPatients] = useState([]);
+    const {id} = useParams()
+    const navigate = useNavigate();
+    useEffect(() => {
         axios
         .get(`http://localhost:4000/patient/${id}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
             setPatients(response.data)
-        })},[])
+        })},[id])
         
 
-        return(<>
+        return(
+        <>
         <h2>Patient Details</h2>
         
         <div>
@@ -32,7 +33,8 @@ function PatientDetails(){
        </p>
         <a href="/patientlist">Go Back</a>
         </div>
-        </>)}
+        </>
+        )}
 
    
 export default PatientDetails;

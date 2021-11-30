@@ -24,7 +24,10 @@ function App() {
 function MyRouter() {
   return (
     <Router>
-     <center> <h1 className="h">Clinic Management System</h1></center>
+     <center>
+        <h1 className="h">Clinic Management System</h1>
+        <h2>Phasellus efficitur condimentum ipsum ut vestibulum.</h2>
+     </center>
      {/*  <h3>Phasellus efficitur condimentum ipsum ut vestibulum.</h3> */}
       <div >
         <ul className="nav">
@@ -50,11 +53,12 @@ function MyRouter() {
             <Link className="link" to="/PatientAppointment">Patient Appointment</Link>
           </li >
           <li className="list">
-          <Link className="link" to="/about">About Us</Link>
-          </li>
-          <li className="list">
           <Link className="link" to="/appoinmentlist">Appoinment List</Link>
           </li>
+          <li className="list">
+          <Link className="link" to="/about">About Us</Link>
+          </li>
+
         </ul>
 
       </div>
