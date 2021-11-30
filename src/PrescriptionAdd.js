@@ -48,7 +48,7 @@ function MyForm(props) {
                         <label className="label">Patient Name </label>
                         <div>
                             <input className="input" type="text" name="pat_name" placeholder="Enter patient name"
-                                value={inputs.med_name || ''} onChange={handleChange}
+                                value={inputs.pat_name || ''} onChange={handleChange}
                                 required></input>
                         </div>
                     </div>
@@ -56,8 +56,8 @@ function MyForm(props) {
                     <div>
                         <label className="label">Age </label>
                         <div>
-                            <input className="input" type="text" name="company_name" placeholder="Enter age"
-                                value={inputs.company_name || ''} onChange={handleChange}
+                            <input className="input" type="number" name="age" placeholder="Enter age"
+                                value={inputs.age || ''} onChange={handleChange}
                                 required></input>
                         </div>
                     </div>
@@ -65,8 +65,10 @@ function MyForm(props) {
                     <div>
                         <label className="label">Add Medicine </label>
                         <div>
-                            <textarea id="medicine" name="medicine" rows="4" cols="50">
-                                Add Medicines here
+                            <textarea id="medicine" name="medicine" rows="4" cols="50" 
+                             placeholder=" Add Medicines here"
+                             value={inputs.medicine || ''} onChange={handleChange}> 
+                               
                             </textarea>
                         </div>
                     </div>
@@ -74,8 +76,9 @@ function MyForm(props) {
                     <div>
                         <label className="label">Add Lab Tests</label>
                         <div>
-                        <textarea id="labtest" name="labtest" rows="4" cols="50">
-                                Add Lab Tests here
+                        <textarea id="labtest" name="labtest" rows="4" cols="50" placeholder="  Add Lab Tests here"
+                          value={inputs.labtest || ''} onChange={handleChange}>
+                              
                             </textarea>
                         </div>
                     </div>
@@ -83,8 +86,8 @@ function MyForm(props) {
                     <div>
                         <label className="label">Next Visit Time </label>
                         <div>
-                            <input className="input" type="date" name="date_of_exp"
-                                value={inputs.date_of_exp || ''} onChange={handleChange}
+                            <input className="input" type="date" name="next_visit"
+                                value={inputs.next_visit || ''} onChange={handleChange}
                                 required></input>
                         </div>
                     </div>
