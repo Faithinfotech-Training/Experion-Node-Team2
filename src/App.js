@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { Navbar, Container, Nav } from "react-bootstrap";
 import "./App.css";
+
 import Home from './Homepage';
 import LoginForm from "./Login";
 import RegisterUser from "./RegisterUser";
@@ -16,6 +17,11 @@ import NoMatch from "./NoMatch";
 function App() {
   return (
     <>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous"/>
       <MyRouter />
     </>
   );
@@ -23,45 +29,33 @@ function App() {
 
 function MyRouter() {
   return (
+    <>
     <Router>
-     <center>
+    <center>
         <h1 className="h">Clinic Management System</h1>
         <h2>Phasellus efficitur condimentum ipsum ut vestibulum.</h2>
      </center>
-     {/*  <h3>Phasellus efficitur condimentum ipsum ut vestibulum.</h3> */}
-      <div >
-        <ul className="nav">
-          <li className="list">
-            <Link className="link" to="/">Home</Link>
-          </li>
-          <li className="list">
-            <Link className="link" to="/userreg">Register</Link>
-          </li >
-          <li className="list">
-            <Link className="link" to="/login">Log In</Link>
-          </li>
-          <li className="list">
-            <Link className="link" to="/staffreg">Register Staff</Link>
-          </li>
-          <li className="list">
-            <Link className="link" to="/patientreg">Register Patient</Link>
-          </li>
-          <li className="list">
-            <Link className="link" to="/medreg">Register Medicine</Link>
-          </li>
-          <li className="list">
-            <Link className="link" to="/PatientAppointment">Patient Appointment</Link>
-          </li >
-          <li className="list">
-          <Link className="link" to="/appoinmentlist">Appoinment List</Link>
-          </li>
-          <li className="list">
-          <Link className="link" to="/about">About Us</Link>
-          </li>
+    <Navbar bg="primary" expand="lg" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">CMS</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Link className="link" to="/">Home</Link>
+              <Link className="link" to="/userreg">Register</Link>
+              <Link className="link" to="/login">Log In</Link>
+              <Link className="link" to="/staffreg">Register Staff</Link>
+              <Link className="link" to="/patientreg">Register Patient</Link>
+              <Link className="link" to="/medreg">Register Medicine</Link>
+              <Link className="link" to="/patientappoint">Patient Appointment</Link>
+              <Link className="link" to="/appointmentlist">Appoinment List</Link>
+              <Link className="link" to="/about">About Us</Link>
+            </Nav>
+          </Navbar.Collapse>
+       </Container>
+    </Navbar>
 
-        </ul>
-
-      </div>
+    
       <br/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -71,8 +65,8 @@ function MyRouter() {
         <Route path="/staffreg" element={<RegisterStaff />} />
         <Route path="/patientreg" element={<RegisterPatient />} />
         <Route path="/medreg" element={<RegisterMedicine />} />
-        <Route path="/PatientAppointment" element={<PatientAppointment />} />
-        <Route path="/appoinmentlist" element={<Appoinments />} />
+        <Route path="/patientappoint" element={<PatientAppointment />} />
+        <Route path="/appointmentlist" element={<Appoinments />} />
         <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="*" element={<NoMatch />}></Route>
 
@@ -82,6 +76,7 @@ function MyRouter() {
       <br /><br />
       <footer className="footer">copyright@clinicmanagement2021</footer>
     </Router>
+    </>
   );
 };
 
