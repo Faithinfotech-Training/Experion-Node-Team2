@@ -26,16 +26,18 @@ function MyForm(props) {
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/register`, inputs)
+        axios.post(`http://localhost:4000/medicines`, inputs)
             .then(response => {
-                localStorage.setItem('mytoken', response.data.accessToken)
+               // localStorage.setItem('mytoken', response.data.accessToken)
+               setInputs(response.data);
+               alert('Appointment confirmed');
             })
-            .catch(error => {
+           /*  .catch(error => {
                 localStorage.clear();
                 if (error.response) {
                     alert(error.response.data)  //=> response payload
                 }
-            })
+            }) */
     };
 
     function goToHome() {
@@ -47,6 +49,13 @@ function MyForm(props) {
         <div className="form">
 
         <Form onSubmit = {handleSubmit}>
+
+        <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Appointment ID</Form.Label>
+                <input className="input" type="text" name="appointmentID" placeholder="Enter appointment id"
+                            value={inputs.appointmentID || ''} onChange={handleChange}
+                            required></input>
+            </Form.Group>
             
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Patient Name</Form.Label>

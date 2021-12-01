@@ -25,16 +25,18 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/register`, inputs)
+        axios.post(`http://localhost:4000/patients`, inputs)
             .then(response => { 
-                localStorage.setItem('mytoken', response.data.accessToken)         
+               // localStorage.setItem('mytoken', response.data.accessToken)  
+               setInputs(response.data);
+               alert('patient registered successfully');       
             })
-            .catch(error =>{
+           /*  .catch(error =>{
                 localStorage.clear();
                 if(error.response){
                     alert(error.response.data)  //=> response payload
                 }
-            })
+            }) */
     };
 
     function goToHome(){
@@ -48,30 +50,34 @@ function MyForm(props){
         <Form onSubmit = {handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Full Name</Form.Label>
-                <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
-                        value = {inputs.full_name || ''} onChange = {handleChange} 
+                <input className="input" type = "text" name = "patientName" placeholder = "Enter full name"
+                        value = {inputs.patientName || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Birth</Form.Label>
-            <input className="input" type = "date" name = "date_of_birth"
-                        value = {inputs.date_of_birth || ''} onChange = {handleChange}
+            <input className="input" type = "date" name = "dateOfBirth"
+                        value = {inputs.dateOfBirth || ''} onChange = {handleChange}
                         required></input>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicText">
+            {/*  <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Gender</Form.Label><br/>
+
             <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
+
                     <label className="rdo">Male</label> &nbsp;&nbsp;
+
                     <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
+                        
                     <label className="rdo">Female</label>
-            </Form.Group>
-
+            </Form.Group> 
+ */}
             <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Address</Form.Label>
             <input className="input" type = "text" name = "address" placeholder = "Enter Address"
@@ -79,7 +85,7 @@ function MyForm(props){
                         required></input>
             </Form.Group>
 
-            <Form.Group className="mb-3">
+           {/*  <Form.Group className="mb-3">
             <Form.Label>Blood Group</Form.Label>
                 <select name = 'bloodgroup' className="bld" >
                     <option>Choose one</option>
@@ -92,12 +98,12 @@ function MyForm(props){
                     <option value = 'ab+'>AB+</option>
                     <option value = 'ab-'>AB-</option>
                 </select>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "text" name = "phoneno" placeholder = "Enter phone number"
-                        value = {inputs.phoneno || ''} onChange = {handleChange} 
+            <input className="input" type = "text" name = "phoneNumber" placeholder = "Enter phone number"
+                        value = {inputs.phoneNumber || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>
 
