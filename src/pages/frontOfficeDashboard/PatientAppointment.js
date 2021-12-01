@@ -26,7 +26,7 @@ function MyForm(props) {
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/medicines`, inputs)
+        axios.post(`http://localhost:4000/appointments`, inputs)
             .then(response => {
                // localStorage.setItem('mytoken', response.data.accessToken)
                setInputs(response.data);
@@ -52,36 +52,36 @@ function MyForm(props) {
 
         <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Appointment ID</Form.Label>
-                <input className="input" type="text" name="appointmentID" placeholder="Enter appointment id"
-                            value={inputs.appointmentID || ''} onChange={handleChange}
+                <input className="input" type="text" name="id" placeholder="Enter appointment id"
+                            value={inputs.id || ''} onChange={handleChange}
                             required></input>
             </Form.Group>
             
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Patient Name</Form.Label>
-                <input className="input" type="text" name="pat_name" placeholder="Enter patient name"
-                            value={inputs.pat_name || ''} onChange={handleChange}
+                <input className="input" type="text" name="patientName" placeholder="Enter patient name"
+                            value={inputs.patientName || ''} onChange={handleChange}
                             required></input>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Doctor Name</Form.Label>
-                <input className="input" type="text" name="doctor_name" placeholder="Enter doctor name"
-                            value={inputs.doctor_name || ''} onChange={handleChange}
+                <input className="input" type="text" name="doctorName" placeholder="Enter doctor name"
+                            value={inputs.doctorName || ''} onChange={handleChange}
                             required></input>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Appointment Date</Form.Label>
-            <input className="input" type="date" name="appointment_date" placeholder="Enter amount"
-                            value={inputs.appointment_date || ''} onChange={handleChange}
+            <input className="input" type="date" name="appointmentDate" placeholder="Enter amount"
+                            value={inputs.appointmentDate || ''} onChange={handleChange}
                             required></input>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicTime">
             <Form.Label>Appointment Time</Form.Label>
-            <input className="input" type="time" name="appointment_time" min="09:00" max="18.00"
-                            value={inputs.appointment_time || ''} onChange={handleChange}
+            <input className="input" type="time" name="appointmentTime" min="09:00" max="18.00"
+                            value={inputs.appointmentTime || ''} onChange={handleChange}
                             required></input>
             </Form.Group>
 
