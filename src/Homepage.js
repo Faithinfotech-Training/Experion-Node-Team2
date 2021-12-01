@@ -2,9 +2,9 @@ function HomePage(){
     return(
       <>
       <div className="home">
-        <center><h1>Clinic Management</h1></center><hr/>
+        <center><h1 className="heading">Clinic Management</h1></center><hr/>
 
-        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
           Morbi sit amet gravida sem, a faucibus tortor. 
           Vivamus eleifend vulputate orci, a iaculis lectus cursus nec. 
           Nulla vulputate eros in leo placerat, ullamcorper vestibulum dui malesuada. 

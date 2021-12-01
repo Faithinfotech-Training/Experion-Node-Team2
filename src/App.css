@@ -1,6 +1,7 @@
 body{
   background-color: rgb(129, 214, 248);
 }
+
 .nav{
   list-style-type: None;
   margin: 0;
@@ -26,7 +27,6 @@ body{
     .h{
       color:rgb(12, 99, 170);
     }
-
     
 .link:hover{
   background-color:rgb(79, 80, 79);
@@ -36,11 +36,8 @@ body{
 .home{
   border-radius: 5px;
   background-color: #c5ddee;
- /*  padding: 10px; */
   border: #c1c1c1 solid 1px;
-  font-size: 25px;
   width: 90%;
-  justify-content: center;
   margin-left: 5%
 }
 
@@ -111,5 +108,11 @@ body{
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
 
+p{
+  text-align: justify;
+}
+.heading{
+  padding-top: 10px;
 }
