@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import { Form, Button } from 'react-bootstrap';
 
 function RegisterUser(){
     localStorage.clear();
@@ -43,55 +44,42 @@ function MyForm(props){
     return(
         <>
         <div className="form">
-        <form onSubmit = {handleSubmit}>
-            
-            <div>
-                <label className="label">Full Name </label>
-                <div>
-                    <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
-                        value = {inputs.full_name || ''} onChange = {handleChange} 
-                        required></input>
-                </div> 
-            </div>
 
-            <div>
-                <label className="label">User Name  </label>
-                <div>
-                    <input className="input" type = "email" name = "email" placeholder = "Enter your email"
+        <Form onSubmit = {handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>User Name</Form.Label>
+                <input className="input" type = "email" name = "email" placeholder = "Enter your email"
                         value = {inputs.email || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+                <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
 
-            <div>
-                <label className="label">Password </label>
-                <div>
-                    <input className="input" type = "password" name = "password" placeholder = "Enter a strong password"
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <input className="input" type = "password" name = "password" placeholder = "Enter a strong password"
                         value = {inputs.password || ''} onChange = {handleChange}
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label className="label">Role </label>
-                <div>
-                    <select name = 'role' className="bld">
+            <Form.Group className="mb-3">
+            <Form.Label>Role</Form.Label>
+            <select name = 'role' className="bld">
                         <option>Choose one</option>
                         <option value = 'admin'>Admin</option>
                         <option value = 'doctor'>Doctor</option>
                         <option value = 'frontoffice'>Front Office</option>
                         <option value = 'labtechnician'>Lab Technician</option>
                     </select>
-                </div> 
-                <br/>
-            </div>
+            </Form.Group>
 
             <center>
-            <input className="btn-submit" type = 'submit' ></input> &nbsp;
-            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
+            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
 
-        </form>
+        </Form>
         </div>
         </>
     );
