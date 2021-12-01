@@ -1,11 +1,4 @@
 const adminDao = require('../dao/adminInfo.dao');
-var adminController = {
-    addAdmins: addAdmins,
-    findAdmins: findAdmins,
-    findAdminById: findAdminById,
-    updateAdmin: updateAdmin,
-    deleteById: deleteById
-}
 
 function addAdmins(req, res) {
     let admin = req.body;
@@ -19,7 +12,7 @@ function addAdmins(req, res) {
 }
 
 function findAdminById(req, res) {
-    adminDao.findById(req.params.id).
+    adminDao.findById(req.params.adminId).
         then((data) => {
             res.send(data);
         })
@@ -29,7 +22,7 @@ function findAdminById(req, res) {
 }
 
 function deleteById(req, res) {
-    adminDao.deleteById(req.params.id).
+    adminDao.deleteById(req.params.adminId).
         then((data) => {
             res.status(200).json({
                 message: "Admin deleted successfully",
@@ -42,7 +35,7 @@ function deleteById(req, res) {
 }
 
 function updateAdmin(req, res) {
-    adminDao.updateAdmin(req.body, req.params.id).
+    adminDao.updateAdmin(req.body, req.params.adminId).
         then((data) => {
             res.status(200).json({
                 message: "Admin updated successfully",
@@ -62,6 +55,14 @@ function findAdmins(req, res) {
         .catch((error) => {
             console.log(error);
         });
+}
+
+var adminController = {
+    addAdmins: addAdmins,
+    findAdmins: findAdmins,
+    findAdminById: findAdminById,
+    updateAdmin: updateAdmin,
+    deleteById: deleteById
 }
 
 module.exports = adminController;

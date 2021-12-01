@@ -1,22 +1,15 @@
 const appointmentInfo = require('../models/appointmentInfo');
-var appointmentDao = {
-    findAll: findAll,
-    create: create,
-    findById: findById,
-    deleteById: deleteById,
-    updateAppointment: updateAppointment
-}
 
 function findAll() {
     return appointmentInfo.findAll();
 }
 
-function findById(id) {
-    return appointmentInfo.findByPk(id);
+function findById(appointmentId) {
+    return appointmentInfo.findByPk(appointmentId);
 }
 
-function deleteById(id) {
-    return appointmentInfo.destroy({ where: { id: id } });
+function deleteById(appointmentId) {
+    return appointmentInfo.destroy({ where: { appointmentId: appointmentId } });
 }
 
 function create(appointment) {
@@ -24,7 +17,7 @@ function create(appointment) {
     return newAppointment.save();
 }
 
-function updateAppointment(appointment, id) {
+function updateAppointment(appointment, appointmentId) {
     var updateAppointment = {
         appointmentDate: appointment.appointmentDate,
         appointmentTime: appointment.appointmentTime,
@@ -33,6 +26,15 @@ function updateAppointment(appointment, id) {
         doctorId:appointment.doctorId
         
     };
-    return appointmentInfo.update(updateAppointment, { where: { id: id } });
+    return appointmentInfo.update(updateAppointment, { where: { appointmentId: appointmentId } });
 }
+
+var appointmentDao = {
+    findAll: findAll,
+    create: create,
+    findById: findById,
+    deleteById: deleteById,
+    updateAppointment: updateAppointment
+}
+
 module.exports = appointmentDao;

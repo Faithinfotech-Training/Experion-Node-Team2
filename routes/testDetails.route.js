@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const test_detail_infoController = require('../controller/test_detail_info.controller');
+const test_detail_infoController = require('../controller/testDetailInfo.controller');
 
 router.post('/', test_detail_infoController.addTest_detail_info);
 router.get('/', test_detail_infoController.findTest_detail_infos);

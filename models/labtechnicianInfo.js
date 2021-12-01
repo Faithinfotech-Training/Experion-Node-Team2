@@ -1,21 +1,20 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const doctorInfo = db.define('DoctorInfo',
+const labtechnicianInfo = db.define('LabTechnicianInfo',
  {
     staffId: {
         type: Sequelize.INTEGER,
         ForeignKey: true,
-
     },
-    docId: {
+    labtechnicianId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    docName: {
+    labtechnicianName: {
         type: Sequelize.STRING,
     }
 });
 
-module.exports = doctorInfo;
+module.exports = labtechnicianInfo;

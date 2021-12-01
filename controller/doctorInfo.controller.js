@@ -1,15 +1,8 @@
-const docDao = require('../dao/doctorInfo.dao');
-var docController = {
-    add: add,
-    find: find,
-    findById: findById,
-    update: update,
-    deleteById: deleteById
-}
+const doctorInfoDao = require('../dao/doctorInfo.dao');
 
 function add(req, res) {
-    let doctor  = req.body;
-    docDao.create(doctor).
+    let Doctor  = req.body;
+    doctorInfoDao.create(Doctor).
         then((data) => {
             res.send(data);
         })
@@ -19,7 +12,7 @@ function add(req, res) {
 }
 
 function findById(req, res) {
-    docDao.findById(req.params.doctorId).
+    doctorInfoDao.findById(req.params.doctorId).
         then((data) => {
             res.send(data);
         })
@@ -29,7 +22,7 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    docDao.deleteById(req.params.doctorId).
+    doctorInfoDao.deleteById(req.params.doctorId).
         then((data) => {
             res.status(200).json({
                 message: "Doctor deleted successfully",
@@ -42,11 +35,11 @@ function deleteById(req, res) {
 }
 
 function update(req, res) {
-    docDao.update(req.body, req.params.doctorId).
+    doctorInfoDao.update(req.body, req.params.doctorId).
         then((data) => {
             res.status(200).json({
                 message: "Doctor updated successfully",
-                doctor: data
+                Doctor: data
             })
         })
         .catch((error) => {
@@ -55,7 +48,7 @@ function update(req, res) {
 }
 
 function find(req, res) {
-    docDao.findAll().
+    doctorInfoDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -63,5 +56,12 @@ function find(req, res) {
             console.log(error);
         });
 }
+var doctorInfoController = {
+    add: add,
+    find: find,
+    findById: findById,
+    update: update,
+    deleteById: deleteById
+}
 
-module.exports = docController;
+module.exports = doctorInfoController;

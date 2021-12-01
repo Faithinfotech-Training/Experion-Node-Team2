@@ -1,12 +1,5 @@
 
 const appointmentDao = require('../dao/appointmentInfo.dao');
-var appointmentController = {
-    addAppointments: addAppointments,
-    findAppointments: findAppointments,
-    findAppointmentById: findAppointmentById,
-    updateAppointment: updateAppointment,
-    deleteById: deleteById
-}
 
 function addAppointments(req, res) {
     let appointment = req.body;
@@ -20,7 +13,7 @@ function addAppointments(req, res) {
 }
 
 function findAppointmentById(req, res) {
-    appointmentDao.findById(req.params.id).
+    appointmentDao.findById(req.params.appointmentId).
         then((data) => {
             res.send(data);
         })
@@ -30,7 +23,7 @@ function findAppointmentById(req, res) {
 }
 
 function deleteById(req, res) {
-    appointmentDao.deleteById(req.params.id).
+    appointmentDao.deleteById(req.params.appointmentId).
         then((data) => {
             res.status(200).json({
                 message: "Appointment deleted successfully",
@@ -43,7 +36,7 @@ function deleteById(req, res) {
 }
 
 function updateAppointment(req, res) {
-    appointmentDao.updateAppointment(req.body, req.params.id).
+    appointmentDao.updateAppointment(req.body, req.params.appointmentId).
         then((data) => {
             res.status(200).json({
                 message: "Appointment updated successfully",
@@ -63,6 +56,14 @@ function findAppointments(req, res) {
         .catch((error) => {
             console.log(error);
         });
+}
+
+var appointmentController = {
+    addAppointments: addAppointments,
+    findAppointments: findAppointments,
+    findAppointmentById: findAppointmentById,
+    updateAppointment: updateAppointment,
+    deleteById: deleteById
 }
 
 module.exports = appointmentController;

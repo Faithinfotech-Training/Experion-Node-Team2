@@ -1,12 +1,5 @@
 
 const patientDao = require('../dao/patientInfo.dao');
-var patientController = {
-    addPatients: addPatients,
-    findPatients: findPatients,
-    findPatientById: findPatientById,
-    updatePatient: updatePatient,
-    deleteById: deleteById
-}
 
 function addPatients(req, res) {
     let Patient = req.body;
@@ -20,7 +13,7 @@ function addPatients(req, res) {
 }
 
 function findPatientById(req, res) {
-    patientDao.findById(req.params.id).
+    patientDao.findById(req.params.patientId).
         then((data) => {
             res.send(data);
         })
@@ -30,7 +23,7 @@ function findPatientById(req, res) {
 }
 
 function deleteById(req, res) {
-    patientDao.deleteById(req.params.id).
+    patientDao.deleteById(req.params.patientId).
         then((data) => {
             res.status(200).json({
                 message: "Patient deleted successfully",
@@ -43,7 +36,7 @@ function deleteById(req, res) {
 }
 
 function updatePatient(req, res) {
-    patientDao.updatePatient(req.body, req.params.id).
+    patientDao.updatePatient(req.body, req.params.patientId).
         then((data) => {
             res.status(200).json({
                 message: "Patient updated successfully",
@@ -65,4 +58,12 @@ function findPatients(req, res) {
         });
 }
 
-module.exports = patientController;
+var patientInfoController = {
+    addPatients: addPatients,
+    findPatients: findPatients,
+    findPatientById: findPatientById,
+    updatePatient: updatePatient,
+    deleteById: deleteById
+}
+
+module.exports = patientInfoController;

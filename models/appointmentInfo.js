@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const appointmentInfo = db.define('AppointmentInfo', {
-    id: {
+    appointmenId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true

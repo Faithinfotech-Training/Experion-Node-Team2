@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
-const frontOffice = db.define('FrontOfficeInfo',
+const frontOfficeInfo = db.define('FrontOffInfo',
  {
-    frontId: {
+    frontofficeId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    frontName: {
+    frontofficeName: {
         type: Sequelize.STRING,
         allowNull: false
     }, 
@@ -19,4 +19,4 @@ const frontOffice = db.define('FrontOfficeInfo',
     },
   });
 
-module.exports = frontOffice;
+module.exports = frontOfficeInfo;

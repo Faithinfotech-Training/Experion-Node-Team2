@@ -1,4 +1,4 @@
-const database = require('../config/UserAuth');
+const database = require('../config/userAuth');
 
 const userInfo = () => {
     const sqlQuery = `

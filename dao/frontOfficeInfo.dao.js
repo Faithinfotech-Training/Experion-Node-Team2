@@ -1,5 +1,31 @@
-const frontInfo = require('../models/frontOfficeInfo');
-var frontDao = {
+const frontofficeInfo = require('../models/frontofficeInfo');
+
+function findAll() {
+    return frontofficeInfo.findAll();
+}
+
+function findById(frontofficeId) {
+    return frontofficeInfo.findByPk(frontofficeId);
+}
+
+function deleteById(frontoffId) {
+    return frontofficeInfo.destroy({ where: { frontofficeId: frontofficeId } });
+}
+
+function create(frontoffice) {
+    var newFrontoffice = new frontofficeInfo(frontoffice);
+    return newFrontoffice.save();
+}
+
+function update(frontoffice, frontofficeId) {
+    var updateFrontoffice = {
+        frontofficeId : frontoffice.frontofficeId,
+        frontofficeName : frontoffice.frontofficeName,
+       };
+    return frontofficeInfo.update(updateFrontoffice, { where: { frontofficeId: frontofficeId } });
+}
+
+var frontofficeDao = {
     findAll: findAll,
     create: create,
     findById: findById,
@@ -7,28 +33,4 @@ var frontDao = {
     update: update
 }
 
-function findAll() {
-    return frontInfo.findAll();
-}
-
-function findById(frontId) {
-    return frontInfo.findByPk(frontId);
-}
-
-function deleteById(frontId) {
-    return frontInfo.destroy({ where: { frontId: frontId } });
-}
-
-function create(frontOffice) {
-    var newFrontOffice = new frontInfo(frontOffice);
-    return newFrontOffice.save();
-}
-
-function update(frontOffice, frontId) {
-    var updateFrontOffice = {
-        frontId : frontOffice.frontId,
-        frontName : frontOffice.frontName,
-       };
-    return frontInfo.update(updateFrontOffice, { where: {frontId: frontId } });
-}
-module.exports = frontDao;
+module.exports = frontofficeDao;

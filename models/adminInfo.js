@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const adminInfo = db.define('AdminInfo', {
-    id: {
+    adminId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -14,7 +14,8 @@ const adminInfo = db.define('AdminInfo', {
    
     staffId:{
         type: Sequelize.NUMBER,
-        allowNull:false}
+        allowNull:false
+    }
     
 });
 

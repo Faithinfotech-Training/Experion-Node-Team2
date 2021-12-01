@@ -1,11 +1,4 @@
 const billDao = require('../dao/billInfo.dao');
-var billController = {
-    addBills: addBills,
-    findBills: findBills,
-    findBillById: findBillById,
-    updateBill: updateBill,
-    deleteById: deleteById
-}
 
 function addBills(req, res) {
     let bill = req.body;
@@ -19,7 +12,7 @@ function addBills(req, res) {
 }
 
 function findBillById(req, res) {
-    billDao.findById(req.params.id).
+    billDao.findById(req.params.billId).
         then((data) => {
             res.send(data);
         })
@@ -29,7 +22,7 @@ function findBillById(req, res) {
 }
 
 function deleteById(req, res) {
-    billDao.deleteById(req.params.id).
+    billDao.deleteById(req.params.billId).
         then((data) => {
             res.status(200).json({
                 message: "Bill deleted successfully",
@@ -42,7 +35,7 @@ function deleteById(req, res) {
 }
 
 function updateBill(req, res) {
-    billDao.updateBill(req.body, req.params.id).
+    billDao.updateBill(req.body, req.params.billId).
         then((data) => {
             res.status(200).json({
                 message: "Bill updated successfully",
@@ -63,5 +56,14 @@ function findBills(req, res) {
             console.log(error);
         });
 }
+
+var billController = {
+    addBills: addBills,
+    findBills: findBills,
+    findBillById: findBillById,
+    updateBill: updateBill,
+    deleteById: deleteById
+}
+
 
 module.exports = billController;

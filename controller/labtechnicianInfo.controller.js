@@ -1,8 +1,8 @@
-const frontofficeDao = require('../dao/frontofficeInfo.dao');
+const labtechnicianDao = require('../dao/labtechnicianInfo.dao');
 
 function add(req, res) {
-    let frontofficer  = req.body;
-    frontofficeDao.create(frontofficer).
+    let labTechnician  = req.body;
+    labtechnicianDao.create(labTechnician).
         then((data) => {
             res.send(data);
         })
@@ -12,7 +12,7 @@ function add(req, res) {
 }
 
 function findById(req, res) {
-    frontofficeDao.findById(req.params.frontofficeId).
+    labtechnicianDao.findById(req.params.labtechnicianId).
         then((data) => {
             res.send(data);
         })
@@ -22,10 +22,10 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    frontofficeDao.deleteById(req.params.frontofficeId).
+    labtechnicianDao.deleteById(req.params.labtechnicianId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office deleted successfully",
+                message: "Lab Technician deleted successfully",
                 dept: data
             })
         })
@@ -35,10 +35,10 @@ function deleteById(req, res) {
 }
 
 function update(req, res) {
-    frontofficeDao.update(req.body, req.params.frontofficeId).
+    labtechnicianDao.update(req.body, req.params.labtechnicianId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office updated successfully",
+                message: "Lab Technician updated successfully",
                 Doctor: data
             })
         })
@@ -48,7 +48,7 @@ function update(req, res) {
 }
 
 function find(req, res) {
-    frontofficeDao.findAll().
+    labtechnicianDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -56,8 +56,7 @@ function find(req, res) {
             console.log(error);
         });
 }
-
-var frontOfficeController = {
+var labtechnicianInfoController = {
     add: add,
     find: find,
     findById: findById,
@@ -65,5 +64,4 @@ var frontOfficeController = {
     deleteById: deleteById
 }
 
-
-module.exports = frontOfficeController;
+module.exports = labtechnicianInfoController;

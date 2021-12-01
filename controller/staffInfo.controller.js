@@ -1,8 +1,8 @@
-const frontofficeDao = require('../dao/frontofficeInfo.dao');
+const staffInfoDao = require('../dao/staffInfo.dao');
 
 function add(req, res) {
-    let frontofficer  = req.body;
-    frontofficeDao.create(frontofficer).
+    let Staffs  = req.body;
+    staffInfoDao.create(Staffs).
         then((data) => {
             res.send(data);
         })
@@ -12,7 +12,7 @@ function add(req, res) {
 }
 
 function findById(req, res) {
-    frontofficeDao.findById(req.params.frontofficeId).
+    staffInfoDao.findById(req.params.staffId).
         then((data) => {
             res.send(data);
         })
@@ -22,10 +22,10 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    frontofficeDao.deleteById(req.params.frontofficeId).
+    staffInfoDao.deleteById(req.params.taffId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office deleted successfully",
+                message: "Staff deleted successfully",
                 dept: data
             })
         })
@@ -35,10 +35,10 @@ function deleteById(req, res) {
 }
 
 function update(req, res) {
-    frontofficeDao.update(req.body, req.params.frontofficeId).
+    staffInfoDao. update(req.body, req.params.staffId).
         then((data) => {
             res.status(200).json({
-                message: "Front Office updated successfully",
+                message: "Staff updated successfully",
                 Doctor: data
             })
         })
@@ -48,7 +48,7 @@ function update(req, res) {
 }
 
 function find(req, res) {
-    frontofficeDao.findAll().
+    staffInfoDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -57,7 +57,7 @@ function find(req, res) {
         });
 }
 
-var frontOfficeController = {
+var staffInfoController = {
     add: add,
     find: find,
     findById: findById,
@@ -66,4 +66,4 @@ var frontOfficeController = {
 }
 
 
-module.exports = frontOfficeController;
+module.exports = staffInfoController;

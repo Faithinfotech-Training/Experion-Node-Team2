@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const test_infoController = require('../controller/test_info.controller');
+const test_infoController = require('../controller/testInfo.controller');
 
 router.post('/', test_infoController.addTest_info);
 router.get('/', test_infoController.findTest_infos);

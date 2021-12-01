@@ -1,5 +1,31 @@
-const docInfo = require('../models/doctorInfo');
-var docDao = {
+const doctorInfo = require('../models/DoctorInfo');
+
+function findAll() {
+    return doctorInfo.findAll();
+}
+
+function findById(doctorId) {
+    return doctorInfo.findByPk(doctorId);
+}
+
+function deleteById(doctorId) {
+    return doctorInfo.destroy({ where: { doctorId: doctorId } });
+}
+
+function create(Doctor) {
+    var newDoc = new doctorInfo(Doctor);
+    return newDoc.save();
+}
+
+function update(Doctor, doctorId) {
+    var updateDoctorInfo = {
+        doctorId : Doctor.doctorId,
+        doctorName : Doctor.doctorName,
+       };
+    return doctorInfo.update(updateDoctorInfo, { where: { doctorId: doctorId } });
+}
+
+var doctorInfoDao = {
     findAll: findAll,
     create: create,
     findById: findById,
@@ -7,28 +33,4 @@ var docDao = {
     update: update
 }
 
-function findAll() {
-    return docInfo.findAll();
-}
-
-function findById(doctorId) {
-    return docInfo.findByPk(doctorId);
-}
-
-function deleteById(doctorId) {
-    return docInfo.destroy({ where: { doctorId: doctorId } });
-}
-
-function create(doctor) {
-    var newDoctor = new docInfo(doctor);
-    return newDoctor.save();
-}
-
-function update(doctor, doctorId) {
-    var updateDoctorInfo = {
-        doctorId : doctor.doctorId,
-        doctorName : doctor.doctorName,
-       };
-    return docInfo.update(updateDoctorInfo, { where: { doctorId: doctorId } });
-}
-module.exports = docDao;
+module.exports = doctorInfoDao;

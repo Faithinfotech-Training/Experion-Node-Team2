@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const lab_reportController = require('../controller/lab_report.controller');
+const lab_reportController = require('../controller/labReport.controller');
 
 router.post('/', lab_reportController.addLab_report);
 router.get('/', lab_reportController.findLab_reports);

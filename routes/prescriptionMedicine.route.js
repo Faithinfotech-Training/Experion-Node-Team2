@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const prescription_medicineController=require('../controller/prescription_medicine.controller');
+const prescription_medicineController=require('../controller/prescriptionMedicine.controller');
 
 router.post('/', prescription_medicineController.addPrescription_medicine);
 router.get('/', prescription_medicineController.findPrescription_medicines);
