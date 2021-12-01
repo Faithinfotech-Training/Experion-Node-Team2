@@ -1,11 +1,12 @@
 import {useState} from 'react';
 import axios from 'axios';
+import { Form, Button } from 'react-bootstrap';
 
 function RegisterPatient(){
     localStorage.clear();
     return (
         <>
-       <center> <h1>Register Staff</h1></center>
+       <center> <h1>Register Patient</h1></center>
         <MyForm/>
         </>
     );
@@ -43,82 +44,70 @@ function MyForm(props){
     return(
         <>
         <div className="form">
-        <form onSubmit = {handleSubmit}>
-        <div>
-                <label className="label">Full Name </label>
-                <div>
-                    <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
+
+        <Form onSubmit = {handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Full Name</Form.Label>
+                <input className="input" type = "text" name = "full_name" placeholder = "Enter full name"
                         value = {inputs.full_name || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label  className="label">Date of Birth </label>
-                <div>
-                    <input className="input"  type = "date" name = "date_of_birth"
+            <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Date of Birth</Form.Label>
+            <input className="input" type = "date" name = "date_of_birth"
                         value = {inputs.date_of_birth || ''} onChange = {handleChange}
                         required></input>
-                </div> 
-            </div>   
+            </Form.Group>
 
-            <div>
-                <label  className="label">Gender </label><br/>
-                <div>
-                    <br/>
-                    <input  type = "radio" name = "gender"
+            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Label>Gender</Form.Label><br/>
+            <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label className="rdo" >Male</label>
-                    <input  type = "radio" name = "gender"
+                    <label className="rdo">Male</label> &nbsp;&nbsp;
+                    <input type = "radio" name = "gender"
                         value = {inputs.gender || ''} onChange = {handleChange}
                         required></input>
-                    <label className="rdo" >Female</label>
-                </div> 
-            </div><br/>
+                    <label className="rdo">Female</label>
+            </Form.Group>
 
-            <div>
-                <label  className="label">Address </label>
-                <div>
-                    <input className="input"  type = "text" name = "address" placeholder = "Enter Address"
+            <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Label>Address</Form.Label>
+            <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label  className="label">Phone </label>
-                <div>
-                    <input className="input"  type = "text" name = "phoneno" placeholder = "Enter phone number"
+            <Form.Group className="mb-3">
+            <Form.Label>Blood Group</Form.Label>
+                <select name = 'bloodgroup' className="bld" >
+                    <option>Choose one</option>
+                    <option value = 'a+'>A+</option>
+                    <option value = 'a-'>A-</option>
+                    <option value = 'b+'>B+</option>
+                    <option value = 'b-'>B-</option>
+                    <option value = 'o+'>O+</option>
+                    <option value = 'o-'>O-</option>
+                    <option value = 'ab+'>AB+</option>
+                    <option value = 'ab-'>AB-</option>
+                </select>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicNumber">
+            <Form.Label>Phone</Form.Label>
+            <input className="input" type = "text" name = "phoneno" placeholder = "Enter phone number"
                         value = {inputs.phoneno || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
-
-            <div>
-                <label  className="label">Blood Group </label>
-                <div>
-                    <select name = 'bloodgroup' className="bld" >
-                        <option>Choose one</option>
-                        <option value = 'a+'>A+</option>
-                        <option value = 'a-'>A-</option>
-                        <option value = 'b+'>B+</option>
-                        <option value = 'b-'>B-</option>
-                        <option value = 'o+'>O+</option>
-                        <option value = 'o-'>O-</option>
-                        <option value = 'ab+'>AB+</option>
-                        <option value = 'ab-'>AB-</option>
-                    </select>
-                </div> 
-            </div>
-            <br/>
+            </Form.Group>
 
             <center>
-            <input className="btn-submit" type = 'submit' ></input> &nbsp;
-            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
+            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
 
-        </form>
+        </Form>
+
         </div>
         </>
     );

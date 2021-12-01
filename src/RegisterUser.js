@@ -65,13 +65,13 @@ function MyForm(props){
 
             <Form.Group className="mb-3">
             <Form.Label>Role</Form.Label>
-            <select name = 'role' className="bld">
-                        <option>Choose one</option>
-                        <option value = 'admin'>Admin</option>
-                        <option value = 'doctor'>Doctor</option>
-                        <option value = 'frontoffice'>Front Office</option>
-                        <option value = 'labtechnician'>Lab Technician</option>
-                    </select>
+                <select name = 'role' className="bld">
+                    <option>Choose one</option>
+                    <option value = 'admin'>Admin</option>
+                    <option value = 'doctor'>Doctor</option>
+                    <option value = 'frontoffice'>Front Office</option>
+                    <option value = 'labtechnician'>Lab Technician</option>
+                </select>
             </Form.Group>
 
             <center>
