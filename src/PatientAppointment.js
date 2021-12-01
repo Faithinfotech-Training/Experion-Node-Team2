@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-
+import { Form, Button } from 'react-bootstrap';
 
 
 function PatientAppointment() {
@@ -45,51 +45,44 @@ function MyForm(props) {
     return (
         <>
         <div className="form">
-            <form onSubmit={handleSubmit}>
-                
-                <div>
-                    <label className="label">Patient Name </label>
-                    <div >
-                        <input className="input" type="text" name="pat_name" placeholder="Enter patient name"
+
+        <Form onSubmit = {handleSubmit}>
+            
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Patient Name</Form.Label>
+                <input className="input" type="text" name="pat_name" placeholder="Enter patient name"
                             value={inputs.pat_name || ''} onChange={handleChange}
                             required></input>
-                    </div>
-                </div>
+            </Form.Group>
 
-                <div>
-                    <label className="label">Doctor Name </label>
-                    <div >
-                        <input className="input" type="text" name="doctor_name" placeholder="Enter doctor name"
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Doctor Name</Form.Label>
+                <input className="input" type="text" name="doctor_name" placeholder="Enter doctor name"
                             value={inputs.doctor_name || ''} onChange={handleChange}
                             required></input>
-                    </div>
-                </div>
+            </Form.Group>
 
-                <div>
-                    <label className="label">Appointment Date </label>
-                    <div >
-                        <input className="input" type="date" name="appointment_date" placeholder="Enter amount"
+            <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Appointment Date</Form.Label>
+            <input className="input" type="date" name="appointment_date" placeholder="Enter amount"
                             value={inputs.appointment_date || ''} onChange={handleChange}
                             required></input>
-                    </div>
-                </div>
+            </Form.Group>
 
-                <div>
-                    <label className="label">Appointment Time  </label>
-                    <div >
-                        <input className="input" type="time" name="appointment_time" min="09:00" max="18.00"
+            <Form.Group className="mb-3" controlId="formBasicTime">
+            <Form.Label>Appointment Time</Form.Label>
+            <input className="input" type="time" name="appointment_time" min="09:00" max="18.00"
                             value={inputs.appointment_time || ''} onChange={handleChange}
                             required></input>
-                       
-                    </div>
-                </div>
+            </Form.Group>
 
-                <center>
-                <input className="btn-submit" type='submit' ></input> &nbsp;
-                <button className="btn-reset" onClick={goToHome}>Cancel</button>
-                </center>
+            <center>
+            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="danger" onClick = {goToHome} >Cancel</Button>
+            </center>
 
-            </form>
+        </Form>
+
             </div>
         </>
     );
