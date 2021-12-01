@@ -48,8 +48,8 @@ function MyForm(props){
         <Form onSubmit = {handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>User Name</Form.Label>
-                <input className="input" type = "email" name = "email" placeholder = "Enter your email"
-                        value = {inputs.email || ''} onChange = {handleChange} 
+                <input className="input" type = "email" name = "userName" placeholder = "Enter your email"
+                        value = {inputs.userName || ''} onChange = {handleChange} 
                         required></input>
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
@@ -65,12 +65,12 @@ function MyForm(props){
 
             <Form.Group className="mb-3">
             <Form.Label>Role</Form.Label>
-                <select name = 'role' className="bld">
+                <select name = 'roleId' className="bld" onChange = {handleChange}>
                     <option>Choose one</option>
-                    <option value = 'admin'>Admin</option>
-                    <option value = 'doctor'>Doctor</option>
-                    <option value = 'frontoffice'>Front Office</option>
-                    <option value = 'labtechnician'>Lab Technician</option>
+                    <option value = "1" onChange = {handleChange}>Admin</option>
+                    <option value = '2' onChange = {handleChange}>Doctor</option>
+                    <option value = '3' onChange = {handleChange}>Front Office</option>
+                    <option value = '4' onChange = {handleChange}>Lab Technician</option>
                 </select>
             </Form.Group>
 

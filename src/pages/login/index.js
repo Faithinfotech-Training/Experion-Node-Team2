@@ -27,7 +27,9 @@ function MyForm(props){
 
         axios.post(`users/login`, inputs)
             .then(response => { 
-                localStorage.setItem('mytoken', response.data.accessToken)         
+                localStorage.setItem('mytoken', response.data.accessToken)
+                localStorage.setItem('myrole', response.data.roleId)
+                window.location = '/'        
             })
             .catch(error =>{
                 localStorage.clear();
@@ -49,8 +51,8 @@ function MyForm(props){
         <Form onSubmit = {handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>User Name</Form.Label>
-                <input className="input" type = "email" name = "email" placeholder = "Enter your email"
-                        value = {inputs.email || ''} onChange = {handleChange} 
+                <input className="input" type = "email" name = "userName" placeholder = "Enter your email"
+                        value = {inputs.userName || ''} onChange = {handleChange} 
                         required></input>
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.

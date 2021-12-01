@@ -45,16 +45,17 @@ function MyRouter() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Link className="link" to="/">Home</Link>
-              <Link className="link" to="/userreg">Register</Link>
-              <Link className="link" to="/login">Log In</Link>
-              <Link className="link" to="/staffreg">Register Staff</Link>
-              <Link className="link" to="/patientreg">Register Patient</Link>
-              <Link className="link" to="/medreg">Register Medicine</Link>
-              <Link className="link" to="/patientappoint">Patient Appointment</Link>
-              <Link className="link" to="/appointmentlist">Appoinment List</Link>
-              <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>
-              <Link className="link" to="/labreportGenerate">Generate Report</Link>
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 1}) && <Link className="link" to="/userreg">Register User</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
+              {localStorage.getItem('mytoken') && <Link className="link" to="/staffreg">Register Staff</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 3}) && <Link className="link" to="/patientreg">Register Patient</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 3}) && <Link className="link" to="/medreg">Register Medicine</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 3}) && <Link className="link" to="/patientappoint">Patient Appointment</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 2}) && <Link className="link" to="/appointmentlist">Appoinment List</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 2}) && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
+              {localStorage.getItem('mytoken') && localStorage.getItem({'myrole' : 4}) && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
               <Link className="link" to="/about">About Us</Link>
+              {localStorage.getItem('mytoken') && <div><Link className = "link" onClick={ () => window.location = '/login'} to="/login">Logout</Link></div>}
             </Nav>
           </Navbar.Collapse>
        </Container>
