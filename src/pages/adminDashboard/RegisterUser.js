@@ -25,7 +25,7 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/register`, inputs)
+        axios.post(`users/register`, inputs)
             .then(response => { 
                 localStorage.setItem('mytoken', response.data.accessToken)         
             })
