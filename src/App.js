@@ -2,19 +2,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import "./App.css";
 
-import Home from './Homepage';
-import LoginForm from "./Login";
-import RegisterUser from "./RegisterUser";
-import RegisterStaff from "./RegisterStaff";
-import RegisterPatient from "./RegisterPatient";
-import RegisterMedicine from "./RegisterMedicine";
-import PatientAppointment from "./PatientAppointment";
-import Appoinments from "./AppointmentList";
-import PatientDetails from "./PatientDetails";
-import About from "./About";
-import NoMatch from "./NoMatch";
-import PrescriptionAdd from "./PrescriptionAdd";
-import LabreportGenerate from "./LabreportGenerate";
+import Home from './pages/home/index';
+import LoginForm from "./pages/login/index";
+import RegisterUser from "./pages/adminDashboard/RegisterUser";
+import RegisterStaff from "./pages/adminDashboard/RegisterStaff";
+import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
+import RegisterMedicine from "./pages/frontOfficeDashboard/RegisterMedicine";
+import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
+import Appointments from "./pages/doctorDashboard/AppointmentList";
+import PatientDetails from "./pages/doctorDashboard/PatientDetails";
+import About from "./pages/about/index";
+import NoMatch from "./pages/noMatch/index";
+import PrescriptionAdd from "./pages/doctorDashboard/PrescriptionAdd";
+import LabreportGenerate from "./pages/labtechnicianDashboard/LabreportGenerate";
+
 
 function App() {
   return (
@@ -58,7 +59,6 @@ function MyRouter() {
           </Navbar.Collapse>
        </Container>
     </Navbar>
-
     
       <br/>
       <Routes>
@@ -70,12 +70,11 @@ function MyRouter() {
         <Route path="/patientreg" element={<RegisterPatient />} />
         <Route path="/medreg" element={<RegisterMedicine />} />
         <Route path="/patientappoint" element={<PatientAppointment />} />
-        <Route path="/appointmentlist" element={<Appoinments />} />
+        <Route path="/appointmentlist" element={<Appointments />} />
         <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="/PrescriptionAdd" element={<PrescriptionAdd/>}/>
         <Route path="/LabreportGenerate" element={<LabreportGenerate/>}/>
         <Route path="*" element={<NoMatch />}></Route>
-
 
       </Routes>
 
