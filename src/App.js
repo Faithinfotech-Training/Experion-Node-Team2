@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import "./App.css";
+import "./app.css";
 
 import Home from './pages/home/index';
 import LoginForm from "./pages/login/index";
-import RegisterUser from "./pages/adminDashboard/RegisterUser";
-import RegisterStaff from "./pages/adminDashboard/RegisterStaff";
-import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
-import RegisterMedicine from "./pages/frontOfficeDashboard/RegisterMedicine";
-import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
-import Appointments from "./pages/doctorDashboard/AppointmentList";
-import PatientDetails from "./pages/doctorDashboard/PatientDetails";
+import RegisterUser from "./pages/adminDashboard/registerUser";
+import RegisterStaff from "./pages/adminDashboard/registerStaff";
+import RegisterPatient from "./pages/frontOfficeDashboard/registerPatient";
+import RegisterMedicine from "./pages/frontOfficeDashboard/registerMedicine";
+import PatientAppointment from "./pages/frontOfficeDashboard/patientAppointment";
+import Appointments from "./pages/doctorDashboard/appointmentList";
+import PatientDetails from "./pages/doctorDashboard/patientDetails";
 import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
-import PrescriptionAdd from "./pages/doctorDashboard/PrescriptionAdd";
-import LabreportGenerate from "./pages/labtechnicianDashboard/LabreportGenerate";
+import PrescriptionAdd from "./pages/doctorDashboard/prescriptionAdd";
+import LabreportGenerate from "./pages/labtechnicianDashboard/labreportGenerate";
 
 
 function App() {

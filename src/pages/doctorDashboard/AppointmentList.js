@@ -1,5 +1,5 @@
 import {useState,useEffect} from "react"
-import Patients from './PatientList'
+import Patients from './patientList'
 import axios from "axios";
 
 function PatientList(){
