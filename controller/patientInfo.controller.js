@@ -13,7 +13,7 @@ function addPatients(req, res) {
 }
 
 function findPatientById(req, res) {
-    patientDao.findById(req.params.patientId).
+    patientDao.findById(req.params.id).
         then((data) => {
             res.send(data);
         })
@@ -23,7 +23,7 @@ function findPatientById(req, res) {
 }
 
 function deleteById(req, res) {
-    patientDao.deleteById(req.params.patientId).
+    patientDao.deleteById(req.params.id).
         then((data) => {
             res.status(200).json({
                 message: "Patient deleted successfully",
@@ -36,7 +36,7 @@ function deleteById(req, res) {
 }
 
 function updatePatient(req, res) {
-    patientDao.updatePatient(req.body, req.params.patientId).
+    patientDao.updatePatient(req.body, req.params.id).
         then((data) => {
             res.status(200).json({
                 message: "Patient updated successfully",
