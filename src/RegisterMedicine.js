@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
+import { Form, Button } from 'react-bootstrap';
 
 function RegisterMedicine(){
     localStorage.clear();
@@ -43,67 +44,57 @@ function MyForm(props){
     return(
         <>
         <div className="form">
-        <form onSubmit = {handleSubmit}>
-        <div>
-                <label className="label">Medicine Name </label>
-                <div>
-                    <input className="input" type = "text" name = "med_name" placeholder = "Enter medicine name"
+
+        <Form onSubmit = {handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Medicine Name</Form.Label>
+                <input className="input" type = "text" name = "med_name" placeholder = "Enter medicine name"
                         value = {inputs.med_name || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label className="label">Medicine Company </label>
-                <div>
-                    <input className="input" type = "text" name = "company_name" placeholder = "Enter company name"
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Medicine Company</Form.Label>
+                <input className="input" type = "text" name = "company_name" placeholder = "Enter company name"
                         value = {inputs.company_name || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label className="label">Amount </label>
-                <div>
-                    <input className="input" type = "text" name = "amount" placeholder = "Enter amount"
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Amount</Form.Label>
+                <input className="input" type = "text" name = "amount" placeholder = "Enter amount"
                         value = {inputs.amount || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label className="label">Manufacturing Date </label>
-                <div>
-                    <input className="input" type = "date" name = "date_of_manu"
+            <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Manufacture Date</Form.Label>
+            <input className="input" type = "date" name = "date_of_manu"
                         value = {inputs.date_of_manu || ''} onChange = {handleChange}
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
 
-            <div>
-                <label className="label">Expiry Date </label>
-                <div>
-                    <input className="input" type = "date" name = "date_of_exp"
-                        value = {inputs.date_of_exp || ''} onChange = {handleChange}
-                        required></input>
-                </div> 
-            </div>
-
-            <div>
-                <label className="label">Medicine Dosage </label>
-                <div>
-                    <input className="input" type = "text" name = "dosage" placeholder = "Enter dosage"
+            <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Expiry Date</Form.Label>
+            <input className="input" type = "text" name = "dosage" placeholder = "Enter dosage"
                         value = {inputs.dosage || ''} onChange = {handleChange} 
                         required></input>
-                </div> 
-            </div>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Medicine Dosage</Form.Label>
+                <input className="input" type = "text" name = "dosage" placeholder = "Enter dosage"
+                        value = {inputs.dosage || ''} onChange = {handleChange} 
+                        required></input>
+            </Form.Group>
 
             <center>
-            <input className="btn-submit" type = 'submit' ></input> &nbsp;
-            <button className="btn-reset" onClick = {goToHome}>Cancel</button>
+            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
-        
-        </form>
+
+        </Form>
+    
         </div>
         </>
     );
