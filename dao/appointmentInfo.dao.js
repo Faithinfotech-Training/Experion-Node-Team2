@@ -4,12 +4,12 @@ function findAll() {
     return appointmentInfo.findAll();
 }
 
-function findById(appointmentId) {
-    return appointmentInfo.findByPk(appointmentId);
+function findById(id) {
+    return appointmentInfo.findByPk(id);
 }
 
-function deleteById(appointmentId) {
-    return appointmentInfo.destroy({ where: { appointmentId: appointmentId } });
+function deleteById(id) {
+    return appointmentInfo.destroy({ where: { id: id } });
 }
 
 function create(appointment) {
@@ -17,16 +17,18 @@ function create(appointment) {
     return newAppointment.save();
 }
 
-function updateAppointment(appointment, appointmentId) {
+function updateAppointment(appointment, id) {
     var updateAppointment = {
+        id:appointment.id,
+        patientName:appointment.patientName,
+        doctorName:appointment.doctorName,
         appointmentDate: appointment.appointmentDate,
         appointmentTime: appointment.appointmentTime,
-        amount:appointment.amount,
-        patientId:appointment.patientId,
-        doctorId:appointment.doctorId
+        
+       
         
     };
-    return appointmentInfo.update(updateAppointment, { where: { appointmentId: appointmentId } });
+    return appointmentInfo.update(updateAppointment, { where: { id: id } });
 }
 
 var appointmentDao = {

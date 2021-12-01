@@ -13,7 +13,7 @@ function addAppointments(req, res) {
 }
 
 function findAppointmentById(req, res) {
-    appointmentDao.findById(req.params.appointmentId).
+    appointmentDao.findById(req.params.id).
         then((data) => {
             res.send(data);
         })
@@ -23,7 +23,7 @@ function findAppointmentById(req, res) {
 }
 
 function deleteById(req, res) {
-    appointmentDao.deleteById(req.params.appointmentId).
+    appointmentDao.deleteById(req.params.id).
         then((data) => {
             res.status(200).json({
                 message: "Appointment deleted successfully",
@@ -36,7 +36,7 @@ function deleteById(req, res) {
 }
 
 function updateAppointment(req, res) {
-    appointmentDao.updateAppointment(req.body, req.params.appointmentId).
+    appointmentDao.updateAppointment(req.body, req.params.id).
         then((data) => {
             res.status(200).json({
                 message: "Appointment updated successfully",
@@ -58,7 +58,7 @@ function findAppointments(req, res) {
         });
 }
 
-var appointmentController = {
+var appointmentInfoController = {
     addAppointments: addAppointments,
     findAppointments: findAppointments,
     findAppointmentById: findAppointmentById,
@@ -66,4 +66,4 @@ var appointmentController = {
     deleteById: deleteById
 }
 
-module.exports = appointmentController;
+module.exports = appointmentInfoController;

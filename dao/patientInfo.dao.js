@@ -4,12 +4,12 @@ function findAll() {
     return patientInfo.findAll();
 }
 
-function findById(id) {
-    return patientInfo.findByPk(id);
+function findById(patientId) {
+    return patientInfo.findByPk(patientId);
 }
 
-function deleteById(id) {
-    return patientInfo.destroy({ where: { patientId: id } });
+function deleteById(patientId) {
+    return patientInfo.destroy({ where: { patientId: patientId } });
 }
 
 function create(patient) {
@@ -17,7 +17,7 @@ function create(patient) {
     return newPatient.save();
 }
 
-function updatePatient(patient, id) {
+function updatePatient(patient, patientId) {
     var updatePatient = {
         patientName: patient.patientName,
         dateOfBirth: patient.dateOfBirth,
@@ -25,7 +25,7 @@ function updatePatient(patient, id) {
         phoneNumber: patient.phoneNumber
         
     };
-    return patientInfo.update(updatePatient, { where: { id: id } });
+    return patientInfo.update(updatePatient, { where: { patientId: patientId } });
 }
 var patientInfoDao = {
     findAll: findAll,

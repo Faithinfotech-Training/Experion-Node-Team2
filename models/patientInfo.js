@@ -15,6 +15,7 @@ const patientInfo = db.define('PatientInfo', {
         type: Sequelize.DATE,
         allowNull: false
     },
+   
     address:{
         type: Sequelize.STRING,
         allowNull: false

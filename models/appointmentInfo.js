@@ -2,10 +2,18 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const appointmentInfo = db.define('AppointmentInfo', {
-    appointmenId: {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement:true
+    },
+    patientName:{
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    doctorName:{
+        type: Sequelize.STRING,
+        allowNull: false
     },
     appointmentDate: {
         type: Sequelize.DATE,
@@ -14,19 +22,9 @@ const appointmentInfo = db.define('AppointmentInfo', {
     appointmentTime: {
         type: Sequelize.TIME,
         allowNull: false
-    },
-    amount:{
-        type: Sequelize.NUMBER,
-        allowNull: false
-    },
-    patientId:{
-        type: Sequelize.NUMBER,
-        allowNull: false
-    },
-    doctorId:{
-        type: Sequelize.NUMBER,
-        allowNull: false
     }
+   
+    
     
 });
 
