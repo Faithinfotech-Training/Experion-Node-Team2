@@ -1,19 +1,29 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import {useParams} from 'react-router-dom';
 
-function RegisterStaff(){
-    localStorage.clear();
+function StaffEdit(){
+    const {staffId} = useParams();
     return (
         <>
-        <center><h1>Register Staff</h1></center>
-        <MyForm/>
+        <center><h1>Edit Staff</h1></center>
+        <MyForm staffId = {staffId}/>
         </>
     );
 }
 
 function MyForm(props){
     const [inputs, setInputs] = useState({});
+        //To get the staff details from the staff id
+        useEffect(() => {
+            axios.get(`http://localhost:4000/staffs/${props.staffId}`) //gets data from staff
+              .then(response =>{
+                  console.log('Promise fullfilled');
+                  console.log(response); 
+                  setInputs(response.data);            
+              })
+        },[props.staffId]);
 
     function handleChange(event){
         const name = event.target.name;
@@ -25,17 +35,16 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/staffs`, inputs)
+        axios.put(`http://localhost:4000/staffs/${props.staffId}`, inputs)
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
-                    window.location = '/stafflist';
-                   
+                    alert('The user details were updated')     
             })
     };
 
-    function goToHome(){
-        window.location = '/';
+    function goToDetails(){
+        window.location = `/staffdetails/${props.staffId}`;
     }
 
     return(
@@ -52,8 +61,7 @@ function MyForm(props){
 
             <Form.Group className="mb-3">
             <Form.Label>Staff type</Form.Label>
-                <select name = 'staffType' className="bld" onChange = {handleChange}>
-                    <option>Choose one</option>
+                <select name = 'staffType' className="bld" value = {inputs.staffType || ''} onChange = {handleChange}>
                     <option value = 'admin' onChange = {handleChange}>Admin</option>
                     <option value = 'doctor' onChange = {handleChange}>Doctor</option>
                     <option value = 'frontOffice' onChange = {handleChange}>Front Office</option>
@@ -70,14 +78,11 @@ function MyForm(props){
 
             <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Gender</Form.Label><br/>
-                    <input type = "radio" name = "gender"
-                        value = "male" onChange = {handleChange}
-                        required></input>
-                    <label className="rdo">Male</label> &nbsp;&nbsp;
-                    <input type = "radio" name = "gender"
-                        value = "female" onChange = {handleChange}
-                        required></input>
-                    <label className="rdo">Female</label>
+                <select name = 'gender' className="bld" value = {inputs.gender || ''} onChange = {handleChange}>
+                    <option value = 'male' onChange = {handleChange}>Male</option>
+                    <option value = 'female' onChange = {handleChange}>Female</option>
+                </select>
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicDate">
@@ -125,7 +130,7 @@ function MyForm(props){
 
             <center>
             <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
-            <Button variant="danger" onClick = {goToHome} >Cancel</Button>
+            <Button variant="danger" onClick = {goToDetails} >Cancel</Button>
             </center>
 
         </Form>
@@ -136,4 +141,4 @@ function MyForm(props){
     );
 
 };
-export default RegisterStaff;
+export default StaffEdit;

@@ -15,7 +15,9 @@ import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import PrescriptionAdd from "./pages/doctorDashboard/prescriptionAdd";
 import LabreportGenerate from "./pages/labtechnicianDashboard/labreportGenerate";
-
+import StaffList from "./pages/adminDashboard/staffList";
+import StaffDetails from "./pages/adminDashboard/staffDetails";
+import StaffEdit from "./pages/adminDashboard/staffEdit";
 
 import roleController from "./helpers/roleLogin/roleLogin";
 
@@ -49,7 +51,8 @@ function MyRouter() {
               <Link className="link" to="/">Home</Link>
               {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
               {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/staffreg">Register Staff</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/staffreg">Register Staff</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/stafflist">Staff List</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/patientreg">Register Patient</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/medreg">Register Medicine</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/patientappoint">Patient Appointment</Link>}
@@ -77,6 +80,9 @@ function MyRouter() {
         <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="/PrescriptionAdd" element={<PrescriptionAdd/>}/>
         <Route path="/LabreportGenerate" element={<LabreportGenerate/>}/>
+        <Route path="/stafflist" element={<StaffList/>}/>
+        <Route path="/staffdetails/:staffId" element={<StaffDetails/>}/>
+        <Route path = "/staffedit/:staffId" element = {<StaffEdit />}/>
         <Route path="*" element={<NoMatch />}></Route>
 
       </Routes>

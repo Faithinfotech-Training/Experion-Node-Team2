@@ -27,7 +27,8 @@ function MyForm(props){
 
         axios.post(`users/register`, inputs)
             .then(response => { 
-                localStorage.setItem('mytoken', response.data.accessToken)         
+                alert("User registered !")
+                window.location = '/'        
             })
             .catch(error =>{
                 localStorage.clear();
