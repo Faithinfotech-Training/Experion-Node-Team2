@@ -30,6 +30,7 @@ function MyForm(props){
                // localStorage.setItem('mytoken', response.data.accessToken)  
                setInputs(response.data);
                alert('patient registered successfully');       
+               window.location='/patientDisplay'
             })
            /*  .catch(error =>{
                 localStorage.clear();

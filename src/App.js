@@ -6,9 +6,9 @@ import Home from './pages/home/index';
 import LoginForm from "./pages/login/index";
 import RegisterUser from "./pages/adminDashboard/registerUser";
 import RegisterStaff from "./pages/adminDashboard/registerStaff";
-import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
+import RegisterPatient from "./pages/frontOfficeDashboard/registerPatient";
 import RegisterMedicine from "./pages/frontOfficeDashboard/registerMedicine";
-import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
+import PatientAppointment from "./pages/frontOfficeDashboard/patientAppointment";
 import Appointments from "./pages/doctorDashboard/appointmentList";
 import PatientDetails from "./pages/doctorDashboard/patientDetails";
 import About from "./pages/about/index";
@@ -20,6 +20,14 @@ import StaffDetails from "./pages/adminDashboard/staffDetails";
 import StaffEdit from "./pages/adminDashboard/staffEdit";
 
 import roleController from "./helpers/roleLogin/roleLogin";
+import PatientDisplay from "./pages/frontOfficeDashboard/patientDisplay";
+import PatientView from "./pages/frontOfficeDashboard/patientView";
+import PatientDelete from "./pages/frontOfficeDashboard/patientDelete";
+import PatientEdit from "./pages/frontOfficeDashboard/patientEdit";
+import BillGenerate from "./pages/frontOfficeDashboard/billGenerate";
+import AppointmentDisplay from "./pages/frontOfficeDashboard/appointmentDisplay";
+import AppointmentView from "./pages/frontOfficeDashboard/appointmentView";
+import AppointmentDelete from "./pages/frontOfficeDashboard/appointmentDelete";
 
 function App() {
   return (
@@ -53,9 +61,11 @@ function MyRouter() {
               {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
               {!localStorage.getItem('mytoken') && <Link className="link" to="/staffreg">Register Staff</Link>}
               {!localStorage.getItem('mytoken') && <Link className="link" to="/stafflist">Staff List</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/patientreg">Register Patient</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/registerPatient">Register Patient</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/medreg">Register Medicine</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/patientappoint">Patient Appointment</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
+              {!localStorage.getItem('mytoken') && <Link className="link" to="/appointmentDisplay"> Appointment List</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/appointmentlist">Appoinment List</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
               {localStorage.getItem('mytoken') && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
@@ -73,9 +83,17 @@ function MyRouter() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/userreg" element={<RegisterUser />} />
         <Route path="/staffreg" element={<RegisterStaff />} />
-        <Route path="/patientreg" element={<RegisterPatient />} />
+        <Route path="/registerPatient" element={<RegisterPatient />} />
+        <Route path="/patientDisplay" element={<PatientDisplay />} />
+        <Route path="/patientView/:patientId" element={<PatientView />} />
+        <Route path="/patientDelete/:patientId" element={<PatientDelete />} />
+        <Route path="/patientEdit/:patientId" element={<PatientEdit />} />
+        <Route path="/billGenerate/:patientId" element={<BillGenerate />} />
+        <Route path="/appointmentDisplay" element={<AppointmentDisplay />} /> 
+        <Route path="/appointmentView/:id" element={<AppointmentView />} />
+        <Route path="/appointmentDelete/:id" element={<AppointmentDelete />} />
         <Route path="/medreg" element={<RegisterMedicine />} />
-        <Route path="/patientappoint" element={<PatientAppointment />} />
+        <Route path="/patientAppointment" element={<PatientAppointment />} />
         <Route path="/appointmentlist" element={<Appointments />} />
         <Route path="/patientdetails/:id" element={<PatientDetails />} />
         <Route path="/PrescriptionAdd" element={<PrescriptionAdd/>}/>

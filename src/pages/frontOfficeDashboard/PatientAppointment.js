@@ -31,6 +31,7 @@ function MyForm(props) {
                // localStorage.setItem('mytoken', response.data.accessToken)
                setInputs(response.data);
                alert('Appointment confirmed');
+               window.location='/appointmentDisplay'
             })
            /*  .catch(error => {
                 localStorage.clear();
@@ -50,12 +51,7 @@ function MyForm(props) {
 
         <Form onSubmit = {handleSubmit}>
 
-        <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>Appointment ID</Form.Label>
-                <input className="input" type="text" name="id" placeholder="Enter appointment id"
-                            value={inputs.id || ''} onChange={handleChange}
-                            required></input>
-            </Form.Group>
+       
             
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Patient Name</Form.Label>
