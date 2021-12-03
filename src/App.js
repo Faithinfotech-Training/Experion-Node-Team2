@@ -36,7 +36,7 @@ function App() {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-        crossOrigin="anonymous"/>
+        crossOrigin="anonymous" />
       <MyRouter />
     </>
   );
@@ -45,69 +45,77 @@ function App() {
 function MyRouter() {
   return (
     <>
-    <Router>
-    <center>
-        <h1 className="h">Clinic Management System</h1>
-        <h2>Phasellus efficitur condimentum ipsum ut vestibulum.</h2>
-     </center>
-    <Navbar bg="primary" expand="lg" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">CMS</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Link className="link" to="/">Home</Link>
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
-              {roleController.isAdmin() && <Link className="link" to="/staffreg">Register Staff</Link>}
-              {roleController.isAdmin() && <Link className="link" to="/stafflist">Staff List</Link>}
-              {roleController.isLabtechnician() && <Link className="link" to="/testlist">LabTest List</Link>}
-              {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
-              {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
-              {roleController.isFrontoffice() && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
-              {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
-              {roleController.isDoctor() && <Link className="link" to="/patientAppointment">Consultation List</Link>}
-              {roleController.isDoctor() && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
-              {roleController.isLabtechnician() && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
-              <Link className="link" to="/about">About Us</Link>
-              {localStorage.getItem('mytoken') && <div><Link className = "link" onClick={ () => window.location = '/login'} to="/login">Logout</Link></div>}
-            </Nav>
-          </Navbar.Collapse>
-       </Container>
-    </Navbar>
-    
-      <br/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/userreg" element={<RegisterUser />} />
-        <Route path="/staffreg" element={<RegisterStaff />} />
-        <Route path="/registerPatient" element={<RegisterPatient />} />
-        <Route path="/patientDisplay" element={<PatientDisplay />} />
-        <Route path="/patientView/:patientId" element={<PatientView />} />
-        <Route path="/patientDelete/:patientId" element={<PatientDelete />} />
-        <Route path="/patientEdit/:patientId" element={<PatientEdit />} />
-        <Route path="/billGenerate/:patientId" element={<BillGenerate />} />
-        <Route path="/appointmentDisplay" element={<AppointmentDisplay />} /> 
-        <Route path="/appointmentView/:id" element={<AppointmentView />} />
-        <Route path="/appointmentDelete/:id" element={<AppointmentDelete />} />
-        <Route path="/medreg" element={<RegisterMedicine />} />
-        <Route path="/patientAppointment" element={<PatientAppointment />} />
-        <Route path="/appointmentlist" element={<Appointments />} />
-        <Route path="/patientdetails/:id" element={<PatientDetails />} />
-        <Route path="/PrescriptionAdd" element={<PrescriptionAdd/>}/>
-        <Route path="/LabreportGenerate" element={<LabreportGenerate/>}/>
-        <Route path="/stafflist" element={<StaffList/>}/>
-        <Route path="/staffdetails/:staffId" element={<StaffDetails/>}/>
-        <Route path = "/staffedit/:staffId" element = {<StaffEdit />}/>
-        <Route path="*" element={<NoMatch />}></Route>
+      <Router>
+        <center>
+          <h1 className="h">Clinic Management System</h1>
+          <h2>Phasellus efficitur condimentum ipsum ut vestibulum.</h2>
+        </center>
+        <Navbar bg="primary" expand="lg" variant="dark">
+          <Container>
+            <Navbar.Brand href="#home">CMS</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Link className="link" to="/">Home</Link>
+                {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
+                {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
+                {roleController.isAdmin() && <Link className="link" to="/staffreg">Register Staff</Link>}
+                {roleController.isAdmin() && <Link className="link" to="/stafflist">Staff List</Link>}
+                {roleController.isLabtechnician() && <Link className="link" to="/testlist">LabTest List</Link>}
+                {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
+                {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
+                {roleController.isFrontoffice() && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
+                {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
+                {roleController.isDoctor() && <Link className="link" to="/patientAppointment">Consultation List</Link>}
+                {roleController.isDoctor() && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
+                {roleController.isLabtechnician() && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
+                <Link className="link" to="/about">About Us</Link>
+                {localStorage.getItem('mytoken') && <div><Link className="link" onClick={() => window.location = '/login'} to="/login">Logout</Link></div>}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
-      </Routes>
+        <br />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/userreg" element={<RegisterUser />} />
+          <Route path="/staffreg" element={<RegisterStaff />} />
 
-      <br /><br />
-      <footer className="footer">copyright@clinicmanagement2021</footer>
-    </Router>
+          {/* Routes for FrontOffice  */}
+
+          <Route path="/registerPatient" element={<RegisterPatient />} />    {/*Register a new patient  */}
+          <Route path="/patientDisplay" element={<PatientDisplay />} />        {/* display all registered patients  */}
+          <Route path="/patientView/:patientId" element={<PatientView />} />       {/* display patient's details  */}
+          <Route path="/patientDelete/:patientId" element={<PatientDelete />} />       {/*  delete a patient  */}
+          <Route path="/patientEdit/:patientId" element={<PatientEdit />} />         {/*  edit an existing patient  */}
+          <Route path="/billGenerate/:patientId" element={<BillGenerate />} />       {/*  generate bill to patients  */}
+
+          <Route path="/patientAppointment" element={<PatientAppointment />} />      {/*  Giving appointment to patient  */}
+          <Route path="/appointmentDisplay" element={<AppointmentDisplay />} />      {/* Display all appointments  */}
+          <Route path="/appointmentView/:id" element={<AppointmentView />} />      {/* Display appointment details  */}
+          <Route path="/appointmentDelete/:id" element={<AppointmentDelete />} />      {/* Cancel appointment  */}
+        
+
+
+          <Route path="/medreg" element={<RegisterMedicine />} />
+         
+          <Route path="/appointmentlist" element={<Appointments />} />
+          <Route path="/patientdetails/:id" element={<PatientDetails />} />
+          <Route path="/PrescriptionAdd" element={<PrescriptionAdd />} />
+          <Route path="/LabreportGenerate" element={<LabreportGenerate />} />
+          <Route path="/stafflist" element={<StaffList />} />
+          <Route path="/staffdetails/:staffId" element={<StaffDetails />} />
+          <Route path="/staffedit/:staffId" element={<StaffEdit />} />
+          <Route path="*" element={<NoMatch />}></Route>
+
+        </Routes>
+
+        <br /><br />
+        <footer className="footer">copyright@clinicmanagement2021</footer>
+      </Router>
     </>
   );
 };
