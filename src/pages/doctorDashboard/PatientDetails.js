@@ -11,7 +11,7 @@ function PatientDetails(){
     const navigate=useNavigate();
     useEffect(()=>{
         axios
-        .get(`http://localhost:5000/appointments/patients/${id}`)
+        .get(`http://localhost:4000/appointments/patients/${id}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
@@ -28,7 +28,7 @@ function PatientDetails(){
         <h3>DOB :{patients.dateOfBirth}</h3>
         <h3>Address :{patients.address} </h3>
         <h3>Phone :{patients.phoneNumber} </h3>
-        <p><button class="button" onClick={()=>navigate(`/presc/${patients.patientId}`)}>ADD CONSULTATION</button></p>
+        <p><button class="button" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</button></p>
         <p><button class="button" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</button>
        </p>
         <a href="/appointmentlist">Go Back</a>

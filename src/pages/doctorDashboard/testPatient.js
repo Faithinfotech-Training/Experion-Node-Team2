@@ -17,7 +17,7 @@ function TestForm(){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:5000/tests`, inputs)
+        axios.post(`http://localhost:4000/tests`, inputs)
          .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
