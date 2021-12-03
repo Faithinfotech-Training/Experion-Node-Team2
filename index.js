@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 
+
 //Database Connection
 const db = require('./config/database');
 db.authenticate().then(() => {
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors("*"));
 
 //Gig routes
-app.use('/', require('./routes/routes'));
+app.use('/', require('./routes/index.js'));
 
 const PORT = process.env.PORT || 4000;
 db.sync().then(() => {

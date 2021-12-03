@@ -1,8 +1,9 @@
+
 const billDao = require('../dao/billInfo.dao');
 
 function addBills(req, res) {
-    let bill = req.body;
-    billDao.create(bill).
+    let Bill = req.body;
+    billDao.create(Bill).
         then((data) => {
             res.send(data);
         })
@@ -57,7 +58,7 @@ function findBills(req, res) {
         });
 }
 
-var billController = {
+var billInfoController = {
     addBills: addBills,
     findBills: findBills,
     findBillById: findBillById,
@@ -65,5 +66,4 @@ var billController = {
     deleteById: deleteById
 }
 
-
-module.exports = billController;
+module.exports = billInfoController;

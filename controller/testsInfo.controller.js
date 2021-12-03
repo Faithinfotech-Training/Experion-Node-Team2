@@ -1,9 +1,10 @@
-const doctorInfoDao = require('../dao/doctorInfo.dao');
 
-function add(req, res) {
-    let Doctor  = req.body;
-    doctorInfoDao.create(Doctor).
-        then((data) => {
+const testsInfoDao = require('../dao/testsInfo.dao');
+
+function addRoles(req, res) {
+    let role = req.body;
+    testsInfoDao.create(role)
+        .then((data) => {
             res.send(data);
         })
         .catch((error) => {
@@ -11,8 +12,8 @@ function add(req, res) {
         });
 }
 
-function findById(req, res) {
-    doctorInfoDao.findById(req.params.doctorId).
+function findRoleById(req, res) {
+    testsInfoDao.findById(req.params.id).
         then((data) => {
             res.send(data);
         })
@@ -22,11 +23,11 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    doctorInfoDao.deleteById(req.params.doctorId).
+    testsInfoDao.deleteById(req.params.id).
         then((data) => {
             res.status(200).json({
-                message: "Doctor deleted successfully",
-                dept: data
+                message: "test deleted successfully",
+                role: data
             })
         })
         .catch((error) => {
@@ -34,12 +35,12 @@ function deleteById(req, res) {
         });
 }
 
-function update(req, res) {
-    doctorInfoDao.update(req.body, req.params.doctorId).
+function updateRole(req, res) {
+    testsInfoDao.updateRole(req.body, req.params.id).
         then((data) => {
             res.status(200).json({
-                message: "Doctor updated successfully",
-                Doctor: data
+                message: "test updated successfully",
+                test : data
             })
         })
         .catch((error) => {
@@ -47,8 +48,8 @@ function update(req, res) {
         });
 }
 
-function find(req, res) {
-    doctorInfoDao.findAll().
+function findRoles(req, res) {
+    testsInfoDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -56,12 +57,13 @@ function find(req, res) {
             console.log(error);
         });
 }
-var doctorInfoController = {
-    add: add,
-    find: find,
-    findById: findById,
-    update: update,
+var testsInfoController = {
+    addRoles: addRoles,
+    findRoles: findRoles,
+    findRoleById: findRoleById,
+    updateRole: updateRole,
     deleteById: deleteById
 }
 
-module.exports = doctorInfoController;
+
+module.exports = testsInfoController;

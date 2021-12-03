@@ -19,15 +19,15 @@ function create(bill) {
 
 function updateBill(bill, billId) {
     var updateBill = {
-        billDate: bill.billDate,
+        billId: bill.billId,
+        patientName: bill.patientName,
         billAmount: bill.billAmount,
         patientId: bill.patientId
         
     };
     return billInfo.update(updateBill, { where: { billId: billId } });
 }
-
-var billDao = {
+var billInfoDao = {
     findAll: findAll,
     create: create,
     findById: findById,
@@ -35,4 +35,4 @@ var billDao = {
     updateBill: updateBill
 }
 
-module.exports = billDao;
+module.exports = billInfoDao;

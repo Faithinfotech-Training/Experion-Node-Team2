@@ -1,8 +1,15 @@
-const medicine_infoDao = require('../dao/medicineInfo.dao');
+const medicineDao = require('../dao/medicineInfo.dao');
+var medicineController = {
+    addMedicine: addMedicine,
+    findMedicine: findMedicine,
+    findMedicineById:findMedicineById,
+    updateMedicine: updateMedicine,
+    deleteById: deleteById
+}
 
-function addMedicine_info(req, res) {
-    let medicine_info = req.body;
-    medicine_infoDao.create(medicine_info).
+function addMedicine(req, res) {
+    let medicine = req.body;
+    medicineDao.create(medicine).
         then((data) => {
             res.send(data);
         })
@@ -11,8 +18,8 @@ function addMedicine_info(req, res) {
         });
 }
 
-function findMedicine_infoById(req, res) {
-    medicine_infoDao.findById(req.params.medicine_id).
+function findMedicineById(req, res) {
+    medicineDao.findById(req.params.medicineId).
         then((data) => {
             res.send(data);
         })
@@ -22,11 +29,11 @@ function findMedicine_infoById(req, res) {
 }
 
 function deleteById(req, res) {
-    medicine_infoDao.deleteById(req.params.medicine_id).
+    medicineDao.deleteById(req.params.medicineId).
         then((data) => {
             res.status(200).json({
-                message: "medicine_info deleted successfully",
-                medicine_info: data
+                message: "prescription_medicine deleted successfully",
+                medicine: data
             })
         })
         .catch((error) => {
@@ -34,12 +41,12 @@ function deleteById(req, res) {
         });
 }
 
-function updateMedicine_info(req, res) {
-    medicine_infoDao.updateMedicine_info(req.body, req.params.medicine_id).
+function updateMedicine(req, res) {
+    medicineDao.updateMedicine(req.body, req.params.medicineId).
         then((data) => {
             res.status(200).json({
-                message: "medicine_info updated successfully",
-                medicine_info: data
+                message: "prescription_medicine updated successfully",
+                medicine: data
             })
         })
         .catch((error) => {
@@ -47,8 +54,8 @@ function updateMedicine_info(req, res) {
         });
 }
 
-function findMedicine_infos(req, res) {
-    medicine_infoDao.findAll().
+function findMedicine(req, res) {
+    medicineDao.findAll().
         then((data) => {
             res.send(data);
         })
@@ -57,12 +64,4 @@ function findMedicine_infos(req, res) {
         });
 }
 
-var medicine_infoController = {
-    addMedicine_info: addMedicine_info,
-    findMedicine_infos: findMedicine_infos,
-    findMedicine_infoById: findMedicine_infoById,
-    updateMedicine_info: updateMedicine_info,
-    deleteById: deleteById
-}
-
-module.exports = medicine_infoController;
+module.exports = medicineController;

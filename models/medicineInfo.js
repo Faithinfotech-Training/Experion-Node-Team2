@@ -1,37 +1,45 @@
 const Sequelize = require('sequelize')
 const db = require('../config/database')
 
-const medicineInfo = db.define('MedicineInfo', {
-    medicineId: {
+const medicineInfo = db.define('Medicines', {
+    medicineid: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    patientid: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     medicineName: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    medicineCompany: {
+    unit: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    medicineAmount: {
-        type: Sequelize.NUMBER,
+    dose: {
+        type: Sequelize.STRING,
         allowNull: false
     },
-    manufactureDate: {
+    type: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    day: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    comment: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    dateMedicine: {
         type: Sequelize.DATE,
-        allowNull: false
-    },
-    expiryDate: {
-        type: Sequelize.DATE,
-        allowNull: false
-    },
-
-    medicineDosage: {
-        type: Sequelize.INTEGER,
         allowNull: false
     }
+
 })
 
 module.exports = medicineInfo;

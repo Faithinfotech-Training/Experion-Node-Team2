@@ -22,11 +22,10 @@ function findById(req, res) {
 }
 
 function deleteById(req, res) {
-    staffInfoDao.deleteById(req.params.taffId).
+    staffInfoDao.deleteById(req.params.staffId).
         then((data) => {
             res.status(200).json({
-                message: "Staff deleted successfully",
-                dept: data
+                message: "Staff deleted successfully"
             })
         })
         .catch((error) => {
@@ -35,11 +34,10 @@ function deleteById(req, res) {
 }
 
 function update(req, res) {
-    staffInfoDao. update(req.body, req.params.staffId).
+    staffInfoDao.update(req.body, req.params.staffId).
         then((data) => {
             res.status(200).json({
                 message: "Staff updated successfully",
-                Doctor: data
             })
         })
         .catch((error) => {

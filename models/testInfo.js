@@ -1,29 +1,25 @@
-const Sequelize = require('sequelize')
-const db = require('../config/database')
+const Sequelize = require('sequelize');
+const db = require('../config/database'); 
 
 const testInfo = db.define('TestInfo', {
-    testInfoId: {
+    testId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    testId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    range: {
+    testName: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    description: {
+    description : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    reportId: {
+    patientId : {
         type: Sequelize.INTEGER,
-        allowNull: false
-    },
-   
-})
+        allowNull : false,
+        foreignKey : true
+    }
+});
 
 module.exports = testInfo;

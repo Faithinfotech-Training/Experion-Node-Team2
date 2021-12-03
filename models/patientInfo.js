@@ -12,7 +12,7 @@ const patientInfo = db.define('PatientInfo', {
         allowNull: false
     },
     dateOfBirth: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
    
@@ -20,7 +20,7 @@ const patientInfo = db.define('PatientInfo', {
         type: Sequelize.STRING,
         allowNull: false
     },
-
+    
     phoneNumber:{
         type: Sequelize.STRING,
         allowNull: false

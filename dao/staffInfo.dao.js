@@ -17,18 +17,19 @@ function create(Staffs) {
     return newstaff.save();
 }
 
-function update(staffInfo,staffId) {
+function update(staff, staffId) {
     var updatestaff = {
-        staffId: staffInfo.staffId,
-        Qualification: staffInfo.qualification,
-        gender: staffInfo.gender,
-        dateOfBirth: staffInfo.dateOfBirth,
-        dateOfJoin: staffInfo.dateOfJoin,
-        address: staffInfo.address,
-        phone: staffInfo.phone,
-        email: staffInfo.email,
-        experience: staffInfo.experience
-        
+        staffId: staff.staffId,
+        staffName : staff.staffName,
+        staffType : staff.staffType,
+        qualification : staff.qualification,
+        gender : staff.gender,
+        dateOfBirth : staff.dateOfBirth,
+        address : staff.address,
+        dateOfJoin : staff.dateOfJoin,
+        phone : staff.phone,
+        email : staff.email,
+        experience : staff.experience
     };
     return staffInfo.update(updatestaff, { where: { staffId : staffId } });
 }

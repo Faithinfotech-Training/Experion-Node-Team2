@@ -8,6 +8,14 @@ const staffInfo = db.define('StaffInfo',
         primaryKey: true,
         autoIncrement: true
     },
+    staffName: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    staffType: {
+        type : Sequelize.STRING,
+        allowNull : false
+    },
     qualification: {
         type: Sequelize.STRING,
         allowNull: false
@@ -17,15 +25,15 @@ const staffInfo = db.define('StaffInfo',
         allowNull: false
     },
     dateOfBirth: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
     address: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    DateOfJoin: {
-        type: Sequelize.DATE,
+    dateOfJoin: {
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
     phone: {
@@ -39,7 +47,7 @@ const staffInfo = db.define('StaffInfo',
     experience: {
         type: Sequelize.INTEGER,
         allowNull: false
-    },
+    }
   });
 
 module.exports = staffInfo;

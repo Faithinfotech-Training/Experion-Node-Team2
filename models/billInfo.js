@@ -7,19 +7,19 @@ const billInfo = db.define('BillInfo', {
         primaryKey: true,
         autoIncrement: true
     },
-    billDate: {
-        type: Sequelize.DATE,
+    patientName: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     billAmount: {
         type: Sequelize.NUMBER,
         allowNull: false
     },
+   
     patientId:{
         type: Sequelize.INTEGER,
         allowNull: false
     }
-    
 });
 
 module.exports = billInfo;
