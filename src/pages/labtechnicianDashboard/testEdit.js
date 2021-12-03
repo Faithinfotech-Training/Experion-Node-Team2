@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 
-function GenerateReport(){
+function TestEdit(){
     const {testId} = useParams();
     return (
         <>
@@ -35,12 +35,11 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/reports`, inputs)
+        axios.post(`http://localhost:4000/labreports`, inputs)
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
-                    alert('Lab Report Submitted !') 
-                    window.location = '/reportlist';    
+                    alert('Lab Report Submitted !')     
             })
     };
 
@@ -104,4 +103,4 @@ function MyForm(props){
             </>
     )
 }
-export default GenerateReport;
+export default TestEdit;

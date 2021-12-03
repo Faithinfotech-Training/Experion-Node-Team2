@@ -3,12 +3,12 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 
-function GenerateReport(){
-    const {testId} = useParams();
+function LabreportEdit(){
+    const {labReportId} = useParams();
     return (
         <>
-        <center><h1>Enter LabTest Results</h1></center>
-        <MyForm testId = {testId}/>
+        <center><h1>Enter details</h1></center>
+        <MyForm labReportId = {labReportId}/>
         </>
     );
 }
@@ -17,13 +17,13 @@ function MyForm(props){
     const [inputs, setInputs] = useState({});
         //To get the staff details from the staff id
         useEffect(() => {
-            axios.get(`http://localhost:4000/tests/${props.testId}`) //gets data from staff
+            axios.get(`http://localhost:4000/reports/${props.labReportId}`) //gets data from staff
               .then(response =>{
                   console.log('Promise fullfilled');
                   console.log(response); 
                   setInputs(response.data);            
               })
-        },[props.testId]);
+        },[props.labReportId]);
 
     function handleChange(event){
         const name = event.target.name;
@@ -35,17 +35,17 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/reports`, inputs)
+        axios.put(`http://localhost:4000/reports/${props.labReportId}`, inputs)
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
-                    alert('Lab Report Submitted !') 
+                    alert('Lab Report Updated !') 
                     window.location = '/reportlist';    
             })
     };
 
     function goToDetails(){
-        window.location = `/testdetails/${props.testId}`;
+        window.location = `/reportdetails/${props.labReportId}`;
     }
 
     return(
@@ -104,4 +104,4 @@ function MyForm(props){
             </>
     )
 }
-export default GenerateReport;
+export default LabreportEdit;
