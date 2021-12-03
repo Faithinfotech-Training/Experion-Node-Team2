@@ -55,7 +55,12 @@ function MyForm(props) {
 
         <Form onSubmit = {handleSubmit}>
 
-       
+        <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Label>Patient ID</Form.Label>
+                <input className="input" type="text" name="patientId" placeholder="Enter patient name"
+                            value={inputs.patientId || ''} onChange={handleChange}
+                            required></input>
+            </Form.Group>
             
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Patient Name</Form.Label>
