@@ -113,3 +113,24 @@ body{
   .heading{
     padding-top: 10px;
   }
+
+  .logoImg{
+    width: 150px;
+    padding :5px;
+  }
+  .container{
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(18, 3, 109);
+  }
+  .backgroundImage{
+    background-image: url(https://wallpaperaccess.com/full/1690764.jpg);
+  }
+  .footerBackground{
+    background-color: #4285F4;
+  }
+
+  .copyright{
+    color: white;
+  }

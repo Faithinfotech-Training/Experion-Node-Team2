@@ -8,6 +8,7 @@ import LoginForm from "./pages/login/index";
 import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import roleController from "./helpers/roleLogin/roleLogin";
+import FooterPage from "./components/footer/footer";
 
 //Admin
 import RegisterUser from "./pages/adminDashboard/registerUser";
@@ -59,10 +60,16 @@ function App() {
 function MyRouter() {
   return (
     <>
+      <div className="backgroundImage">
       <Router>
+      <div className = "container">
+      HealthTech
+      <img className = "logoImg" src = "https://abuzzwebtech.com/images/other/intro-img.png"></img>
+      </div>
         <center>
-          <h1 className="h">Clinic Management System</h1>
-          <h2>Phasellus efficitur condimentum ipsum ut vestibulum.</h2>
+          <h5>Clinic Management Software to manage
+            clinic’s daily operations and for doctors to provide 
+            high-quality treatment and care to their patients. </h5>
         </center>
         <Navbar bg="primary" expand="lg" variant="dark">
           <Container>
@@ -149,10 +156,10 @@ function MyRouter() {
 
 
         </Routes>
-
-        <br /><br />
-        <footer className="footer">copyright@clinicmanagement2021</footer>
+      
+      <FooterPage/>
       </Router>
+      </div>
     </>
   );
 };
