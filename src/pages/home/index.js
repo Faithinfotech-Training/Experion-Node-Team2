@@ -1,3 +1,5 @@
+
+
 function HomePage(){
     return(
       <>
@@ -16,6 +18,7 @@ function HomePage(){
           Fusce vulputate ut dui nec egestas. Nullam eu neque quis nibh luctus fringilla. 
           Curabitur egestas tortor quam, sit amet laoreet lectus mollis quis.</p>
       </div>
+
       </>
     );
   };

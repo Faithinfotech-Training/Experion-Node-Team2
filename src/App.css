@@ -21,8 +21,9 @@ body{
           text-align: center;
           padding: 14px 16px;
           text-decoration: none;
-          font-size: 20px;
-          font-family: 'Times New Roman', Times, serif;
+          font-size: 15px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: lighter;
       }
       .h{
         color:rgb(12, 99, 170);
@@ -53,7 +54,7 @@ body{
     width:80%;
   }
   
-  .label{
+  .label,h1,h2,h3,h4,h5{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size:100%;
   } 
