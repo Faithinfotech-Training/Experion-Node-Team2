@@ -28,7 +28,7 @@ function TestDetails(){
         <h3> Remark :{tests.remarks} </h3>
 
       
-        <a href="/appoinment">Go Back</a>
+        <a href="/appointmentlist">Go Back</a>
         </div>
         </>)}
 

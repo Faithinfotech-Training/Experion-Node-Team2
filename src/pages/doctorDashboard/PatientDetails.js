@@ -31,7 +31,7 @@ function PatientDetails(){
         <p><button class="button" onClick={()=>navigate(`/presc/${patients.patientId}`)}>ADD CONSULTATION</button></p>
         <p><button class="button" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</button>
        </p>
-        <a href="/appoinment">Go Back</a>
+        <a href="/appointmentlist">Go Back</a>
         </div>
         </>)}
 
