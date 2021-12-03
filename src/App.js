@@ -6,9 +6,9 @@ import Home from './pages/home/index';
 import LoginForm from "./pages/login/index";
 import RegisterUser from "./pages/adminDashboard/registerUser";
 import RegisterStaff from "./pages/adminDashboard/registerStaff";
-import RegisterPatient from "./pages/frontOfficeDashboard/registerPatient";
+import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
 import RegisterMedicine from "./pages/frontOfficeDashboard/registerMedicine";
-import PatientAppointment from "./pages/frontOfficeDashboard/patientAppointment";
+import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
 import Appointments from "./pages/doctorDashboard/appointmentList";
 import PatientDetails from "./pages/doctorDashboard/patientDetails";
 import About from "./pages/about/index";
@@ -59,16 +59,16 @@ function MyRouter() {
               <Link className="link" to="/">Home</Link>
               {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
               {!localStorage.getItem('mytoken') && <Link className="link" to="/login">Log In</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/staffreg">Register Staff</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/stafflist">Staff List</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/registerPatient">Register Patient</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/medreg">Register Medicine</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
-              {!localStorage.getItem('mytoken') && <Link className="link" to="/appointmentDisplay"> Appointment List</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/appointmentlist">Appoinment List</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
-              {localStorage.getItem('mytoken') && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
+              {roleController.isAdmin() && <Link className="link" to="/staffreg">Register Staff</Link>}
+              {roleController.isAdmin() && <Link className="link" to="/stafflist">Staff List</Link>}
+              {roleController.isLabtechnician() && <Link className="link" to="/testlist">LabTest List</Link>}
+              {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
+              {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
+              {roleController.isFrontoffice() && <Link className="link" to="/patientappoint">Patient Appointment</Link>}
+              {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
+              {roleController.isDoctor() && <Link className="link" to="/appointmentlist">Consultation List</Link>}
+              {roleController.isDoctor() && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
+              {roleController.isLabtechnician() && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
               <Link className="link" to="/about">About Us</Link>
               {localStorage.getItem('mytoken') && <div><Link className = "link" onClick={ () => window.location = '/login'} to="/login">Logout</Link></div>}
             </Nav>

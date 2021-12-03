@@ -1,7 +1,7 @@
 function isAdmin(){
     if(localStorage.getItem('mytoken')){
         var x = localStorage.getItem('myrole');
-        if(x === 1){
+        if(x === '1'){
             return true;
         }
     }
@@ -13,7 +13,7 @@ function isAdmin(){
 function isDoctor(){
     if(localStorage.getItem('mytoken')){
         var x = localStorage.getItem('myrole');
-        if(x === 2){
+        if(x === '2'){
             return true;
         }
     }
@@ -25,7 +25,7 @@ function isDoctor(){
 function isFrontoffice(){
     if(localStorage.getItem('mytoken')){
         var x = localStorage.getItem('myrole');
-        if(x === 3){
+        if(x === '3'){
             return true;
         }
     }
@@ -37,7 +37,7 @@ function isFrontoffice(){
 function isLabtechnician(){
     if(localStorage.getItem('mytoken')){
         var x = localStorage.getItem('myrole');
-        if(x === 4){
+        if(x === '4'){
             return true;
         }
     }
