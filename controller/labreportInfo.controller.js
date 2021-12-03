@@ -12,6 +12,16 @@ function addReport(req, res) {
         });
 }
 
+function findReportByPatient(req, res) {
+    labreportInfoDao.findByPatient(req.params.patientId)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
 function findReportById(req, res) {
     labreportInfoDao.findById(req.params.id).
         then((data) => {
@@ -62,7 +72,8 @@ var labreportInfoController = {
     findReport: findRoles,
     findReportById: findReportById,
     updateReport: updateReport,
-    deleteById: deleteById
+    deleteById: deleteById,
+    findReportByPatient:findReportByPatient
 }
 
 

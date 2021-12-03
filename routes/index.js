@@ -10,6 +10,8 @@ const labreportRoutes = require('./labreportInfo.route');
 const billRoutes = require('./billinfo.route')
 const patientRoutes = require('./patientInfo.route')
 const medicineRoutes = require('./medicine.route')
+const appointmentRoutes = require('./appointmentInfo.route')
+
 
 router.use('/roles', roleRoutes);
 router.use('/users', userRoutes);
@@ -19,6 +21,7 @@ router.use('/tests', testsRoutes);
 router.use('/reports', labreportRoutes);
 router.use('/bills', billRoutes);
 router.use('/patients', patientRoutes);
-router.use('/medicines', medicineRoutes)
+router.use('/medicines', medicineRoutes);
+router.use('/appointments',appointmentRoutes);
 
 module.exports = router;

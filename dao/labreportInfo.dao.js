@@ -7,6 +7,10 @@ function findAll() {
 function findById(id) {
     return labreportInfo.findByPk(id);
 }
+function findByPatient(patientid) {
+    return labreportInfo.findAll({ where: { patientId: patientid }
+    });
+}
 
 function deleteById(id) {
     return labreportInfo.destroy({ where: { labReportId: id } });
@@ -35,7 +39,8 @@ var labreportInfoDao = {
     create: create,
     findById: findById,
     deleteById: deleteById,
-    updateReport: updateReport
+    updateReport: updateReport,
+    findByPatient:findByPatient
 }
 
 module.exports = labreportInfoDao;

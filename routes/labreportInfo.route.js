@@ -7,5 +7,6 @@ router.get('/', labreportInfoController.findReport);
 router.get('/:id',labreportInfoController.findReportById);
 router.put('/:id', labreportInfoController.updateReport);
 router.delete('/:id', labreportInfoController.deleteById);
+router.get('/tests/:patientId',labreportInfoController.findReportByPatient);
 
 module.exports = router;
