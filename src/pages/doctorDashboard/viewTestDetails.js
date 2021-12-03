@@ -8,7 +8,7 @@ function ViewTestDetails(){
     const {id}=useParams()
         useEffect(()=>{
                 axios
-                .get(`http://localhost:5000/results/tests/${id}`)
+                .get(`http://localhost:4000/results/tests/${id}`)
                 .then(response=>{
                     console.log('Promise was fullfilled')
                     console.log(response)

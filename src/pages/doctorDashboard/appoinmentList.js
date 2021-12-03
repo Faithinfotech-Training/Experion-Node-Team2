@@ -14,7 +14,7 @@ function Listall(){
   
     useEffect(()=>{
         axios
-        .get(`http://localhost:5000/appointments/bydate/${today}`)
+        .get(`http://localhost:4000/appointments/bydate/${today}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)

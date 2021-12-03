@@ -6,7 +6,7 @@ function TestList(props){
         const[patients, setPatients]=useState([]);
         useEffect(()=>{
           axios
-          .get(`http://localhost:5000/patients/${props.details.patientId}`)
+          .get(`http://localhost:4000/patients/${props.details.patientId}`)
           .then(response=>{
               console.log('Promise was fullfilled')
               console.log(response)

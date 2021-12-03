@@ -15,7 +15,7 @@ function MedicineForm(){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:5000/medicines`, inputs)
+        axios.post(`http://localhost:4000/medicines`, inputs)
          .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
