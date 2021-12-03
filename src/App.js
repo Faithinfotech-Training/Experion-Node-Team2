@@ -33,7 +33,9 @@ import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment"
 
 import Appointments from "./pages/doctorDashboard/appointmentList";
 import PatientDetails from "./pages/doctorDashboard/patientDetails";
-import PrescriptionAdd from "./pages/doctorDashboard/prescriptionAdd";
+import PrescriptionAdd from "./pages/doctorDashboard/priscription";
+import Tests from "./pages/doctorDashboard/viewTestDetails";
+import Labresult from "./pages/doctorDashboard/testDetails";
 
 //LabTechnician
 
@@ -96,7 +98,6 @@ function MyRouter() {
 
                 {/* Links for Doctor  */}
                 {roleController.isDoctor() && <Link className="link" to="/patientAppointment">Consultation List</Link>}
-                {roleController.isDoctor() && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
 
                 {/* Links for LabTechnician  */}
                 {roleController.isLabtechnician() && <Link className="link" to="/testlist">Prescribed Tests</Link>}        
@@ -143,7 +144,9 @@ function MyRouter() {
           {/* Routes for Doctor  */}
           <Route path="/appointmentlist" element={<Appointments />} />
           <Route path="/patientdetails/:id" element={<PatientDetails />} />
-          <Route path="/PrescriptionAdd" element={<PrescriptionAdd />} />
+          <Route path="/prescriptionadd/:id" element={<PrescriptionAdd />} />
+          <Route path="/patient/tests/:id" element={<Tests/>} />
+          <Route path="/patient/labresult/:id" element={<Tests/>} />
 
 
           {/* Routes for LabTechnician  */}
