@@ -36,7 +36,7 @@ body{
   
   .home{
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 25% 10px 25%;
   }
   
   .footer{

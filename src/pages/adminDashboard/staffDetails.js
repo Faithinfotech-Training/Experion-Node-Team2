@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 //because we are using parameter in URL to catch the details
 import { useNavigate } from 'react-router-dom';
+import {Button} from 'react-bootstrap'
 
 function StaffDetails(){
     
@@ -38,10 +39,10 @@ function StaffDetails(){
         <h4>Email : {staff.email}</h4>
         <h4>Experience : {staff.experience}</h4>
         <center>
-        <button type ='button' id = 'edit' onClick = {() =>navigate(`/staffedit/${staff.staffId}`)}>Edit Staff</button>
+        <Button type ='button' id = 'edit' onClick = {() =>navigate(`/staffedit/${staff.staffId}`)}>Edit Staff</Button>
         &nbsp;&nbsp;
-        <button type = "button" id = "delete" 
-          onClick = {() => DeleteStaff(staff.staffId)}>Delete</button>
+        <Button variant = "danger" type = "button" id = "delete" 
+          onClick = {() => DeleteStaff(staff.staffId)}>Delete</Button>
         </center>
          <br/> <br/> 
         <a className = 'staffDetails' href = '/staffList'>Go back to staff list</a>

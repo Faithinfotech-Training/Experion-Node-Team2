@@ -1,44 +1,45 @@
+import { Carousel } from "react-bootstrap";
+import "./carousel.css" 
 
 const Carousel1 = () => {
     return (
         <>
+        <div className="carouselSize">
         <Carousel fade>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src="https://s3-eu-west-1.amazonaws.com/intercare-web-public/wysiwyg-uploads%2F1580196666465-doctor.jpg"
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>Multiple data backups</h3>
                 </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
+                    src="https://merriam-webster.com/assets/mw/images/article/art-wap-landing-mp-lg/doctor-holding-stethoscope-7523-f1a9a751cae1595d78e45e2478e4b12a@1x.jpg"
                     alt="Second slide"
                 />
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>Multi-level security checks</h3>
                 </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src="https://www.juniordoctors.eu/themes/custom/ejd/images/ejd-home-header.jpg"
                     alt="Third slide"
                 />
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    <h3>Stringent data privacy policies</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
+        </div>
         </>
     );
   }

@@ -1,10 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from "react-router";
 
 function RegisterPatient(){
-    localStorage.clear();
     return (
         <>
        <center> <h1>Register Patient</h1></center>
@@ -29,9 +27,10 @@ function MyForm(props){
         axios.post(`http://localhost:4000/patients`, inputs)
             .then(response => { 
                setInputs(response.data);
-               alert('patient registered successfully');       
+               alert('patient registered successfully');
+                      
     
-              // window.location='/patientDisplay'
+              window.location='/patientDisplay'
             })
     };
 
@@ -39,7 +38,6 @@ function MyForm(props){
         window.location = '/';
     }
 
-    const navigate = useNavigate();
     return(
         <>
         <div className="form">

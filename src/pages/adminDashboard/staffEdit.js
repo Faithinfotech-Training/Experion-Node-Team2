@@ -39,7 +39,8 @@ function MyForm(props){
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
-                    alert('The user details were updated')     
+                    alert('Staff details updated !')
+                    window.location = '/stafflist'
             })
     };
 

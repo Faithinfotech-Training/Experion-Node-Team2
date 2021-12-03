@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 
 
 function PatientAppointment() {
-    localStorage.clear();
     return (
         <>
             <center><h1>Patient Appointment</h1></center>

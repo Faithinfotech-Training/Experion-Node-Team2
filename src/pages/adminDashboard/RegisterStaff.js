@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 
 function RegisterStaff(){
-    localStorage.clear();
     return (
         <>
         <center><h1>Register Staff</h1></center>

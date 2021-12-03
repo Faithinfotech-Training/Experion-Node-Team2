@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 
 function BillGenerate(){
     const { patientId } = useParams()
-    localStorage.clear();
     return (
         <>
        <center> <h1>Generate Bill</h1></center>
@@ -62,7 +61,7 @@ function MyForm(props){
     };
 
     function goToHome(){
-        window.location = '/';
+        window.location = '/patientDisplay';
     }
 
     return(

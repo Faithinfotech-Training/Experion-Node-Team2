@@ -1,4 +1,7 @@
-a{
+li a, div a{
     text-decoration: none;
+    color: white;
+}
+.list-unstyled{
     color: white;
 }

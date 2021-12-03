@@ -31,8 +31,8 @@ import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment"
 
 //Doctor
 
-import Appointments from "./pages/doctorDashboard/appointmentList";
-import PatientDetails from "./pages/doctorDashboard/patientDetails";
+import Appointments from "./pages/doctorDashboard/appoinmentList";
+import PatientDetails from "./pages/doctorDashboard/PatientDetails";
 import PrescriptionAdd from "./pages/doctorDashboard/priscription";
 import Tests from "./pages/doctorDashboard/viewTestDetails";
 import Labresult from "./pages/doctorDashboard/testDetails";
@@ -97,7 +97,7 @@ function MyRouter() {
                 {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
 
                 {/* Links for Doctor  */}
-                {roleController.isDoctor() && <Link className="link" to="/patientAppointment">Consultation List</Link>}
+                {roleController.isDoctor() && <Link className="link" to="/appointmentlist">Consultation List</Link>}
 
                 {/* Links for LabTechnician  */}
                 {roleController.isLabtechnician() && <Link className="link" to="/testlist">Prescribed Tests</Link>}        

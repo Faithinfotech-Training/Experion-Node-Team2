@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react"
 import axios from "axios";
-import Patients from './patientList'
+import Patients from './PatientList'
 function Listall(){
     const[appoinments, setAppoinments]=useState([]);
     var today = new Date();
