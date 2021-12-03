@@ -79,7 +79,7 @@ function AppointmentView() {
                 </button>
             </div> */}
 
-            <button style={di_style}> <a style={li_style} href="/appointmentDisplay"> Go Back to Appointment List</a></button>
+            <button style={di_style}  onClick={() => navigate(`/appointmentDisplay`)} >  Go Back to Appointment List</button>
             
         </div>
     </>);

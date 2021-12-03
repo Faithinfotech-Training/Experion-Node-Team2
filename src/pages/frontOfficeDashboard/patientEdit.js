@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router";
 
 
 function PatientEdit() {
@@ -47,7 +48,7 @@ function PatientEdit() {
                     console.log(response);
                     setInputs(response.data)
                     alert('patient detals has been updated')
-                    window.location = '/patientDisplay';
+                   // window.location = '/patientDisplay';
                 })
         }
 
@@ -90,6 +91,7 @@ function PatientEdit() {
         function goToHome(){
             window.location = '/patientDisplay';
         }
+        const navigate = useNavigate();
     
         return (
             <div className="form">
@@ -130,7 +132,7 @@ function PatientEdit() {
                 </Form.Group>
     
                 <center>
-                <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+                <Button variant="primary" type="submit"  >Submit</Button>&nbsp;&nbsp;
                 <Button variant="danger" onClick = {goToHome} >Cancel</Button>
                 </center>
     

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router";
 
 function RegisterPatient(){
     localStorage.clear();
@@ -27,23 +28,18 @@ function MyForm(props){
 
         axios.post(`http://localhost:4000/patients`, inputs)
             .then(response => { 
-               // localStorage.setItem('mytoken', response.data.accessToken)  
                setInputs(response.data);
                alert('patient registered successfully');       
-               window.location='/patientDisplay'
+    
+              // window.location='/patientDisplay'
             })
-           /*  .catch(error =>{
-                localStorage.clear();
-                if(error.response){
-                    alert(error.response.data)  //=> response payload
-                }
-            }) */
     };
 
     function goToHome(){
         window.location = '/';
     }
 
+    const navigate = useNavigate();
     return(
         <>
         <div className="form">
@@ -63,22 +59,7 @@ function MyForm(props){
                         required></input>
             </Form.Group>
 
-            {/*  <Form.Group className="mb-3" controlId="formBasicText">
-            <Form.Label>Gender</Form.Label><br/>
-
-            <input type = "radio" name = "gender"
-                        value = {inputs.gender || ''} onChange = {handleChange}
-                        required></input>
-
-                    <label className="rdo">Male</label> &nbsp;&nbsp;
-
-                    <input type = "radio" name = "gender"
-                        value = {inputs.gender || ''} onChange = {handleChange}
-                        required></input>
-                        
-                    <label className="rdo">Female</label>
-            </Form.Group> 
- */}
+           
             <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Address</Form.Label>
             <input className="input" type = "text" name = "address" placeholder = "Enter Address"
@@ -86,21 +67,7 @@ function MyForm(props){
                         required></input>
             </Form.Group>
 
-           {/*  <Form.Group className="mb-3">
-            <Form.Label>Blood Group</Form.Label>
-                <select name = 'bloodgroup' className="bld" >
-                    <option>Choose one</option>
-                    <option value = 'a+'>A+</option>
-                    <option value = 'a-'>A-</option>
-                    <option value = 'b+'>B+</option>
-                    <option value = 'b-'>B-</option>
-                    <option value = 'o+'>O+</option>
-                    <option value = 'o-'>O-</option>
-                    <option value = 'ab+'>AB+</option>
-                    <option value = 'ab-'>AB-</option>
-                </select>
-            </Form.Group> */}
-
+           
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
             <input className="input" type = "text" name = "phoneNumber" placeholder = "Enter phone number"
@@ -109,7 +76,7 @@ function MyForm(props){
             </Form.Group>
 
             <center>
-            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="primary" type="submit"  >Submit</Button>&nbsp;&nbsp;
             <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
 

@@ -6,7 +6,7 @@ import Home from './pages/home/index';
 import LoginForm from "./pages/login/index";
 import RegisterUser from "./pages/adminDashboard/registerUser";
 import RegisterStaff from "./pages/adminDashboard/registerStaff";
-import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
+import RegisterPatient from "./pages/frontOfficeDashboard/registerPatient";
 import RegisterMedicine from "./pages/frontOfficeDashboard/registerMedicine";
 import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
 import Appointments from "./pages/doctorDashboard/appointmentList";
@@ -64,9 +64,9 @@ function MyRouter() {
               {roleController.isLabtechnician() && <Link className="link" to="/testlist">LabTest List</Link>}
               {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
               {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
-              {roleController.isFrontoffice() && <Link className="link" to="/patientappoint">Patient Appointment</Link>}
+              {roleController.isFrontoffice() && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
               {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
-              {roleController.isDoctor() && <Link className="link" to="/appointmentlist">Consultation List</Link>}
+              {roleController.isDoctor() && <Link className="link" to="/patientAppointment">Consultation List</Link>}
               {roleController.isDoctor() && <Link className="link" to="/PrescriptionAdd">Add Prescription</Link>}
               {roleController.isLabtechnician() && <Link className="link" to="/labreportGenerate">Generate Report</Link>}
               <Link className="link" to="/about">About Us</Link>

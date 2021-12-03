@@ -31,7 +31,8 @@ function PatientDelete() {
                 console.log(response);
 
                 setInputs(response.data)
-                window.location='/patientDisplay'
+                alert('patient removed successfully')
+               // window.location='/patientDisplay'
             })
     }, [])
 

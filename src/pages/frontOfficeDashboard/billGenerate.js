@@ -51,7 +51,7 @@ function MyForm(props){
             then(response=>{
                 setInputs(response.data);
                 alert(' bill generated successfully');
-                window.location='/patientDisplay';
+               // window.location='/patientDisplay';
             })
            /*  .catch(error =>{
                 localStorage.clear();

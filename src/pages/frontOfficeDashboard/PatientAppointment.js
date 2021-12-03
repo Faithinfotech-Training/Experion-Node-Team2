@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router";
 
 
 function PatientAppointment() {
@@ -31,7 +32,7 @@ function MyForm(props) {
                // localStorage.setItem('mytoken', response.data.accessToken)
                setInputs(response.data);
                alert('Appointment confirmed');
-               window.location='/appointmentDisplay'
+              // window.location='/appointmentDisplay'
             })
            /*  .catch(error => {
                 localStorage.clear();
@@ -44,6 +45,9 @@ function MyForm(props) {
     function goToHome() {
         window.location = '/';
     }
+
+
+  const navigate = useNavigate();
 
     return (
         <>
@@ -82,7 +86,7 @@ function MyForm(props) {
             </Form.Group>
 
             <center>
-            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
+            <Button variant="primary" type="submit"   >Submit</Button>&nbsp;&nbsp;
             <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
 
