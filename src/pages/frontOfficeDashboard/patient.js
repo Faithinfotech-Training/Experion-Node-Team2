@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import {Button} from 'react-bootstrap'
 
 
 function Patient(props) {
@@ -14,29 +15,30 @@ function Patient(props) {
                        
                     </div>
                     <div>
-                        <div>
-                            <button>
+                        
+                            <Button >
                                 <Link to={`/patientView/${props.details.patientId}`}>
                                     View Details
                                 </Link>
-                            </button>
-                        </div>
+                            </Button>
+                    {'  '}
 
                         
-                        <div >
-                            <button >
+                        
+                            <Button variant="danger" >
                                 <Link  to={`/PatientDelete/${props.details.patientId}`}>
                                     Delete Patient
                                 </Link>
-                            </button>
-                        </div>
-                        <div >
-                            <button >
+                            </Button>
+                            {'    '}
+                        
+                        
+                            <Button variant="secondary" >
                                 <Link  to={`/billGenerate/${props.details.patientId}`}>
                                     Generate Bill
                                 </Link>
-                            </button>
-                        </div>
+                            </Button>
+                    
                     </div>
                 </div>
             </center>

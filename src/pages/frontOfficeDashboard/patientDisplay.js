@@ -6,18 +6,6 @@ import Patient from "./patient";
 //destructuring react to get only useState
 function PatientDisplay() {
 
-    var b_style = {
-        background: '#707070',
-        color: 'white',
-        textAlign: 'center',
-        fontFamily: 'Arial',
-        padding: 10
-    }
-    var u_style = {
-        listStyleType: 'none'
-    }
-
-
     const [inputs, setInputs] = useState([])
 
     useEffect(() => {
@@ -32,13 +20,13 @@ function PatientDisplay() {
     }, [])
 
     return (<>
-        <div style={b_style}>
-            <h1>Registered Patient List</h1><br/>
+        <div >
+          <center>  <h1>Registered Patient List</h1></center><br/>
             <div >
                 <div>
                     <ul >
                         {inputs.map(patient =>
-                            <li style={u_style} key={patient.patientId} >
+                            <li key={patient.patientId} >
                                 <Patient details={patient} />
                             </li>
                         )}
