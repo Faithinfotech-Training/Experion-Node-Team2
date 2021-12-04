@@ -107,12 +107,21 @@ function MyRouter() {
                 {roleController.isAdmin() && <Link className="link" to="/">Event Management</Link>}
                 
                 {/* Links for FrontOffice  */}
-                {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
-                {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
-                {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
-                {roleController.isFrontoffice() && <Link className="link" to="/patientsearch">Patient Search</Link>}
 
-                
+                {roleController.isFrontoffice() && (
+                 <NavDropdown title="Patient Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/registerPatient">Register Patient</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/patientDisplay">Registered Patients</Link></NavDropdown.Item>
+                </NavDropdown> 
+                )}
+
+                {roleController.isFrontoffice() && (
+                 <NavDropdown title= "Appointment Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/patientsearch">Patient Search</Link></NavDropdown.Item> 
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/appointmentDisplay">Appointment List</Link></NavDropdown.Item>
+                </NavDropdown> 
+                )}
+
 
                 {/* Links for Doctor  */}
                 {roleController.isDoctor() && <Link className="link" to="/appointmentlist">Consultation List</Link>}
