@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Staff from './staff';
 
+
 function StaffList(){
     
     //Initialize the use state, to store data
@@ -23,13 +24,14 @@ function StaffList(){
       <>
       <div>
         <center><h1>Staff List</h1></center>
-        <ul>
+        <div className = "staffCards">
             {staffs.map(staff => 
-                    <li key = {staff.staffId}>
+                    <div key = {staff.staffId}>
                         <Staff details = {staff}/>
-                    </li>
+                    </div>
                 )}
-        </ul>
+        </div>
+
       </div>
       </>
     );
