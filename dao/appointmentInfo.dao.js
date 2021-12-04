@@ -28,7 +28,7 @@ function updateAppointment(appointment, id) {
         id:appointment.id,
         patientName:appointment.patientName,
         patientId:appointment.patientId,
-        doctorId:appointment.doctorId,
+        doctorName:appointment.doctorName,
         appointmentTime: appointment.appointmentTime,
         
        

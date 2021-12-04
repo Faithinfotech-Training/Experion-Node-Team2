@@ -16,8 +16,8 @@ const appointmentInfo = db.define('AppointmentInfo', {
         allowNull:false
        
     },
-    doctorId:{
-        type: Sequelize.INTEGER,
+    doctorName:{
+        type: Sequelize.STRING,
         allowNull: false
     },
     appointmentDate: {
