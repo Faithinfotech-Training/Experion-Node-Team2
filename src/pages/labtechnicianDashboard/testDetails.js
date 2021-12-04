@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
-import {Button} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 
 //because we are using parameter in URL to catch the details
 import { useNavigate } from 'react-router-dom';
@@ -39,19 +39,22 @@ function TestDetails(){
     
     return(
       <>
-      <div>
-        <center><h1>Test Details</h1></center>
-        <h4>Test Name : {test.testName}</h4>
-        <h4>Description : {test.description}</h4>
-        <h4>Patient Name : {patient.patientName}</h4>
+      <div className = "cardsList">
+        <Card className="text-center">
+          <Card.Header></Card.Header>
+          <Card.Body>
+            <Card.Title>
+            <h4>Test Name : {test.testName}</h4>
+            <h4>Description : {test.description}</h4>
+            <h4>Patient Name : {patient.patientName}</h4>
+            </Card.Title>
+            <Button variant = "primary" type ='button' onClick = {() =>navigate(`/generatereport/${test.testId}`)}>Begin test</Button>
+          </Card.Body>
+        </Card>
 
-        <center>
-        <Button variant = "primary" type ='button' onClick = {() =>navigate(`/generatereport/${test.testId}`)}>Begin test</Button>
-        &nbsp;&nbsp;
-        </center>
-        <br/><br/> 
-        <a href = '/testList'>Go back to test list</a>
+       
       </div>
+       <a href = '/testList'>Go back to test list</a>
       </>
     );
 };

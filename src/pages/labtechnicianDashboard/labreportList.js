@@ -21,15 +21,15 @@ function LabReportList(){
     
     return(
       <>
-      <div>
+      <div className = "cardsList">
         <center><h1>Lab Reports</h1></center>
-        <ul>
+        <div>
             {tests.map(tests => 
-                    <li key = {tests.labReportId}>
+                    <div key = {tests.labReportId}>
                         <LabReport details = {tests}/>
-                    </li>
+                    </div>
                 )}
-        </ul>
+        </div>
       </div>
       </>
     );

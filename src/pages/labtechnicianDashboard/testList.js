@@ -22,13 +22,13 @@ function TestList(){
       <>
       <div>
         <center><h1>Lab Test List</h1></center>
-        <ul>
+        <div>
             {tests.map(test => 
-                    <li key = {test.testId}>
+                    <div key = {test.testId}>
                         <Test details = {test}/>
-                    </li>
+                    </div>
                 )}
-        </ul>
+        </div>
       </div>
       </>
     );

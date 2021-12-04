@@ -5,8 +5,6 @@ import './admin.css';
 function Staff(props){
     return(
       <>
-
-
         <Card className="text-center">
           <Card.Header> Staff Name : {props.details.staffName}</Card.Header>
           <Card.Body>
