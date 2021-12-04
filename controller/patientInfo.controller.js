@@ -58,12 +58,24 @@ function findPatients(req, res) {
         });
 }
 
+function findPatientsByName(req, res) {
+    patientDao.findByName().
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+
 var patientInfoController = {
     addPatients: addPatients,
     findPatients: findPatients,
     findPatientById: findPatientById,
     updatePatient: updatePatient,
-    deleteById: deleteById
+    deleteById: deleteById,
+    findPatientsByName:findPatientsByName
 }
 
 module.exports = patientInfoController;

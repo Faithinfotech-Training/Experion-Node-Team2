@@ -8,6 +8,11 @@ function findById(patientId) {
     return patientInfo.findByPk(patientId);
 }
 
+function findByName(patientName) {
+    return patientInfo.findAll(patientName);
+}
+
+
 function deleteById(patientId) {
     return patientInfo.destroy({ where: { patientId: patientId } });
 }
@@ -32,7 +37,8 @@ var patientInfoDao = {
     create: create,
     findById: findById,
     deleteById: deleteById,
-    updatePatient: updatePatient
+    updatePatient: updatePatient,
+    findByName:findByName
 }
 
 module.exports = patientInfoDao;
