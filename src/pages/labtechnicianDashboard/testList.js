@@ -20,7 +20,7 @@ function TestList(){
     
     return(
       <>
-      <div>
+      <div className = "cardsList">
         <center><h1>Lab Test List</h1></center>
         <div>
             {tests.map(test => 

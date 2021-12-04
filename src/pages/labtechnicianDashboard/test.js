@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
-import {Button} from "react-bootstrap";
+import {Button, Card} from "react-bootstrap";
 import "./labtechnician.css"
 
 function Test(props){
     return(
       <>
-      <div>
-        <h4>Test Name : {props.details.testName}</h4>
-        <Button variant = "primary" className = "viewDetails">
-          <Link className = "labrepBut" to = {`/testdetails/${props.details.testId}`}>View Details</Link>
-          </Button>
-      <br/>
-      </div>
+      <Card className="text">
+          <Card.Body>
+            <Card.Title><h4>Test Name : {props.details.testName}</h4></Card.Title>
+            <Button>
+            <Link className = "labrepBut" to = {`/testdetails/${props.details.testId}`}>View Details</Link>
+            </Button>
+          </Card.Body>
+        </Card>
 
       </>
     );

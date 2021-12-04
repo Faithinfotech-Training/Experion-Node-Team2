@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button } from 'react-bootstrap';
+import {Button, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
@@ -44,19 +44,24 @@ function ReportDetails(){
       <>
       <div>
         <center><h1>Test Details</h1></center>
-        <h4>Test Name : {test.testName}</h4>
-        <h4>Description : {test.description}</h4>
-        <h4>Patient Name : {patient.patientName}</h4>
-        <h4>Result Value : {test.resultValue}</h4>
-        <h4>Remarks : {test.remarks}</h4>
-        <h4>Date : {test.reportDate}</h4>
-
-        <center>
-        <Button variant="primary" type ='button' id = 'edit' onClick = {() =>navigate(`/reportedit/${test.labReportId}`)}>Edit</Button>
+        <div className = "cardsList">
+        <Card className="text-center">
+          <Card.Header></Card.Header>
+          <Card.Body>
+            <Card.Title>
+            <h4>Test Name : {test.testName}</h4>
+            <h4>Description : {test.description}</h4>
+            <h4>Patient Name : {patient.patientName}</h4>
+            <h4>Result Value : {test.resultValue}</h4>
+            <h4>Remarks : {test.remarks}</h4>
+            <h4>Date : {test.reportDate}</h4>
+            </Card.Title>
+            <Button variant="primary" type ='button' id = 'edit' onClick = {() =>navigate(`/reportedit/${test.labReportId}`)}>Edit</Button>
         &nbsp;&nbsp;
         <Button variant="danger" onClick = {goToDetails} >Cancel</Button>
-        </center>
-         <br/> <br/> 
+          </Card.Body>
+        </Card>
+        </div>
         <a href = '/reportlist'>Go back</a>
       </div>
       </>

@@ -52,7 +52,6 @@ function TestDetails(){
           </Card.Body>
         </Card>
 
-       
       </div>
        <a href = '/testList'>Go back to test list</a>
       </>
