@@ -3,7 +3,7 @@ import {useState,useEffect} from "react"
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-
+import { Card, Button } from 'react-bootstrap';
 
 function PatientDetails(){
     const[patients, setPatients]=useState([]);
@@ -18,22 +18,27 @@ function PatientDetails(){
             setPatients(response.data)
         })},[id])
         
+    
+      return(
+        <Card className="text-center">
+        <Card.Header>Patient Details</Card.Header>
+        <Card.Body>
+          <Card.Title> Patient Name :{patients.patientName}</Card.Title>
+          <Card.Title> Patient ID :{patients.patientId}</Card.Title>
+          <Card.Title> DOB :{patients.dateOfBirth}</Card.Title>
+          <Card.Title> Address :{patients.address}</Card.Title>
+          <Card.Title> Phone Number:{patients.phoneNumber} </Card.Title>
 
-        return(<>
-        <h2>Patient Details</h2>
-        
-        <div>
-        <h3>PatientId: {patients.patientId}</h3>
-        <h3>Patient Name: {patients.patientName}</h3>
-        <h3>DOB :{patients.dateOfBirth}</h3>
-        <h3>Address :{patients.address} </h3>
-        <h3>Phone :{patients.phoneNumber} </h3>
-        <p><button class="button" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</button></p>
-        <p><button class="button" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</button>
-       </p>
-        <a href="/appointmentlist">Go Back</a>
-        </div>
-        </>)}
+          <Card.Text>
+          </Card.Text>
+          <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>
+          <Button variant="primary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button>
+        </Card.Body>
+        <Card.Footer className="text-muted"><a href="/appointmentlist">Go Back</a></Card.Footer>
+      </Card>
+
+      )
+    }
 
    
 export default PatientDetails;
