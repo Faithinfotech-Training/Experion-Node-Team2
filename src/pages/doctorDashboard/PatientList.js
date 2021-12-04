@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import {useState,useEffect} from "react"
 import axios from "axios";
 import { Card, Button } from 'react-bootstrap';
+import './doctor.css'
 
 function PatientList(props){
   const[patients, setPatients]=useState([]);
@@ -16,6 +17,7 @@ function PatientList(props){
     })},[props.details.patientId])
 
   return(
+    <div className="forDoctorPage">
     <Card className="text-center">
   <Card.Header> Patient Name : {patients.patientName}</Card.Header>
   <Card.Body>
@@ -26,6 +28,7 @@ function PatientList(props){
   </Card.Body>
   <Card.Footer className="text-muted"></Card.Footer>
 </Card>
+</div>
 )
 }
 export default PatientList;

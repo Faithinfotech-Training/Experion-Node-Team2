@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from 'react-bootstrap';
+import "./doctor.css"
 
 function PatientDetails(){
     const[patients, setPatients]=useState([]);
@@ -20,6 +21,7 @@ function PatientDetails(){
         
     
       return(
+        <div className="forDoctorPage">
         <Card className="text-center">
         <Card.Header>Patient Details</Card.Header>
         <Card.Body>
@@ -34,8 +36,10 @@ function PatientDetails(){
           <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>
           <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button>
         </Card.Body>
-        <Card.Footer className="text-muted"><a href="/appointmentlist">Go Back</a></Card.Footer>
+        <Card.Footer className="text-muted"></Card.Footer>
       </Card>
+      <div><a href="/appointmentlist">Go Back</a></div>
+      </div>
 
       )
     }

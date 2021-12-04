@@ -2,6 +2,7 @@
 import { useParams } from "react-router";
 import MedicineForm from './medicineForm';
 import TestForm from './testPatient';
+import "./doctor.css"
 
 
 function Prescription(){
@@ -9,7 +10,7 @@ function Prescription(){
    return (
         <>
         <center><h1>Prescription</h1></center>
-        <h2>Patient ID :{id}</h2>
+        <div class="patientId">Patient ID :{id}</div>
         <MedicineForm/> 
         <hr/>
         <TestForm/>      

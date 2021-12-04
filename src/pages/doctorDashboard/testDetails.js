@@ -2,7 +2,8 @@ import React from "react"
 import {useState,useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router";
-import {Button, Card} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap';
+import "./doctor.css"
 
 function TestDetails(){
     const[tests, setTests]=useState([]);
@@ -19,6 +20,7 @@ function TestDetails(){
 
 
        return(
+        <div className="forDoctorPage">
         <Card className="text-center">
         <Card.Header>Test Details</Card.Header>
         <Card.Body>
@@ -28,8 +30,10 @@ function TestDetails(){
           <Card.Title> Result Value :{tests.resultValue}</Card.Title>
           <Card.Title> Remark :{tests.remarks} </Card.Title>
         </Card.Body>
-        <Card.Footer className="text-muted"><a href="/appointmentlist">Go Back</a></Card.Footer>
+        <Card.Footer className="text-muted"></Card.Footer>
       </Card>
+      <div><a href="/appointmentlist">Go Back</a></div>
+      </div>
 
       )
     
