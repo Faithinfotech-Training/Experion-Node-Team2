@@ -1,5 +1,4 @@
 import React from "react"
-import {Link} from "react-router-dom"
 import {useState,useEffect} from "react"
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
@@ -18,11 +17,25 @@ function TestList(props){
           })},[props.details.patientId])
 
  
-  return(
+  /*return(
     <div>
      <h3>{props.details.labReportId}</h3>
      <h3>{patients.patientName}</h3>
      <button className="button"onClick ={() => navigate(`/patient/labresult/${props.details.labReportId}`)}>View Details</button>
-  </div>)
+  </div>)*/
+
+  return(
+    <Card className="text-center">
+  <Card.Header> Lab Report ID: {props.details.labReportId}</Card.Header>
+  <Card.Body>
+    <Card.Title> Patient Name :{patients.patientName}</Card.Title>
+    <Card.Text>
+    </Card.Text>
+    <Button variant="primary" onClick ={() => navigate(`/patient/labresult/${props.details.labReportId}`)}>View Details</Button>
+  </Card.Body>
+  <Card.Footer className="text-muted"></Card.Footer>
+</Card>
+)
 }
+
 export default TestList;
