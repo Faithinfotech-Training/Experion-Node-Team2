@@ -1,7 +1,7 @@
 import Carousel from "../../components/carousel/carousel";
 import SearchPage from "../../components/search/search";
 
-function HomePage(){
+function EventsPage(){
     return(
       <>
       <div className="home">
@@ -33,4 +33,4 @@ function HomePage(){
     );
   };
   
-  export default HomePage;
+  export default EventsPage;

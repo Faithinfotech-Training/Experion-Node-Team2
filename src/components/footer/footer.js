@@ -1,7 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import "./footer.css";
-import SearchPage from "../search/search";
 
 const FooterPage = () => {
   return (

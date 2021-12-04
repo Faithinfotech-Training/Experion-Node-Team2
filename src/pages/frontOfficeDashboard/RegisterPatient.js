@@ -28,8 +28,6 @@ function MyForm(props){
             .then(response => { 
                setInputs(response.data);
                alert('patient registered successfully');
-                      
-    
               window.location='/patientDisplay'
             })
     };

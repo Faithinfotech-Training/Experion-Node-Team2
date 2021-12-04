@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from "react-router";
 
 
 function PatientEdit() {
@@ -15,7 +14,6 @@ function PatientEdit() {
     )
 
 
-
     function MyForm(props) {
 
         const [Inputs, setInputs] = useState([])
@@ -25,16 +23,14 @@ function PatientEdit() {
             axios.get(`http://localhost:4000/patients/${props.patientId}`)
                 .then(response => {
                     console.log('Promise fullfilled');
-                    console.log(response);
-
+                    console.log(response)
                     setInputs(response.data)
                 })
-        }, [])
+        }, [props.patientId])
 
         function handleChange(event) {
             const name = event.target.name;
             const value = event.target.value;
-
             setInputs(values => ({ ...values, [name]: value }))
         }
 
@@ -48,50 +44,15 @@ function PatientEdit() {
                     console.log(response);
                     setInputs(response.data)
                     alert('patient detals has been updated')
-                   // window.location = '/patientDisplay';
+                    window.location = '/patientDisplay';
                 })
         }
 
-        var submit_style = {
-            backgroundColor: "#4CAF50",
-            border: 'none',
-            color: "white",
-            padding: '4px 2px',
-            margin: '4px 2 px',
-            cursor: 'pointer',
-            marginRight: '16px',
-            fontSize: '24px',
-            height: 40,
-            width: 200
-        }
-        var reset_style = {
-            backgroundColor: "red",
-            border: 'none',
-            color: "white",
-            padding: '4px 2px',
-            margin: '4px 2 px',
-            cursor: 'pointer',
-            fontSize: '24px',
-            height: 40,
-            width: 200
-        }
-        var whole_style = {
-            borderRadius: '5px',
-            backgroundColor: '#f2f2f2',
-            padding: '20px',
-            border: '#c1c1c1 solid 1px',
-            fontSize: '25px'
-        }
-
-        var text_style = {
-            height: 30,
-            width: 500
-        }
 
         function goToHome(){
             window.location = '/patientDisplay';
         }
-        const navigate = useNavigate();
+ 
     
         return (
             <div className="form">

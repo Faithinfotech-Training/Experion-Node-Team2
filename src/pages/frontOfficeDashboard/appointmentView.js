@@ -3,48 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
+import {Button} from 'react-bootstrap'
 
 //destructuring react to get only useState
 function AppointmentView() {
-
-    var b_style = {
-        background: 'grey',
-        color: 'black',
-        textAlign: 'center',
-        fontFamily: 'Arial',
-        marginLeft: '25%',
-        padding: 10,
-        width: '50%',
-        align: 'center',
-        justifyContent: 'center'
-    }
-    var u_style = {
-        listStyleType: 'none'
-    }
-
-    var di_style = {
-        color: '#d1d8e0',
-        margin: 30,
-        backgroundColor: '#0fb9b1',
-        fontSize: 20,
-        width: 300,
-        height: 40,
-        borderRadius: 3,
-    }
-
-    var li_style = {
-        textDecoration: 'none'
-    }
-    var b2_style = {
-        color: 'black',
-        margin: 30,
-        backgroundColor: '#FF6666',
-        fontSize: 20,
-        width: 200,
-        height: 40,
-        borderRadius: 6,
-        border: '2px solid white'
-    }
 
 
     const [Inputs, setInputs] = useState([])
@@ -60,17 +22,17 @@ function AppointmentView() {
 
                 setInputs(response.data)
             })
-    }, [])
+    }, [id])
 
     return (<>
-        <div style={b_style}>
-            <h1>Details of Appointments</h1>
+        <div>
+            <center><h1>Details of Appointments</h1></center>
             <hr/>
           
-            <h2> Full Name : {Inputs.patientName}</h2>
-            <h2>Doctor : {Inputs.doctorName}</h2>
-            <h2>Appointment Date : {Inputs.appointmentDate}</h2>
-            <h2>Time : {Inputs.appointmentTime}</h2>
+            <h4> Full Name : {Inputs.patientName}</h4>
+            <h4>Doctor : {Inputs.doctorName}</h4>
+            <h4>Appointment Date : {Inputs.appointmentDate}</h4>
+            <h4>Time : {Inputs.appointmentTime}</h4>
 
            {/*  <div >
                 <button style={b2_style} type="button"
@@ -79,7 +41,7 @@ function AppointmentView() {
                 </button>
             </div> */}
 
-            <button style={di_style}  onClick={() => navigate(`/appointmentDisplay`)} >  Go Back to Appointment List</button>
+            <center><Button onClick={() => navigate(`/appointmentDisplay`)} >  Go Back to Appointment List</Button></center>
             
         </div>
     </>);

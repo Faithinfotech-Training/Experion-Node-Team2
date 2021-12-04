@@ -7,21 +7,10 @@ import { useParams } from "react-router";
 //destructuring react to get only useState
 function AppointmentDelete() {
 
-    var b_style = {
-        background: 'black',
-        color: 'white',
-        textAlign: 'center',
-        fontFamily: 'Arial',
-        margin: 30,
-        padding: 10
-    }
-    var u_style = {
-        listStyleType: 'none'
-    }
-
 
     const [Inputs, setInputs] = useState([])
     const { id } = useParams()
+    console.log(Inputs)
 
     useEffect(() => {
 
@@ -34,7 +23,7 @@ function AppointmentDelete() {
                 alert('Appointment cancelled')
                // window.location='/appointmentDisplay'
             })
-    }, [])
+    }, [id])
 
     return (<>
        

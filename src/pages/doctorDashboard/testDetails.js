@@ -2,7 +2,7 @@ import React from "react"
 import {useState,useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router";
-import {Button, Card} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import "./doctor.css"
 
 function TestDetails(){

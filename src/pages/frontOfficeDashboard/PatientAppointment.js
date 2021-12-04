@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import {useParams} from 'react-router'
 
 
 function PatientAppointment() {
@@ -13,7 +14,20 @@ function PatientAppointment() {
 }
 
 function MyForm(props) {
-    const [inputs, setInputs] = useState({});
+
+    const[inputs, setInputs]=useState([]);
+    const {patientId}=useParams()
+    console.log(patientId)
+    useEffect(()=>{
+        axios
+        .get(`http://localhost:4000/patients/${patientId}`)
+        .then(response=>{
+            console.log('Promise was fullfilled')
+            console.log(response)
+            setInputs(response.data)
+
+        })},[patientId])
+
 
     function handleChange(event) {
         const name = event.target.name;
@@ -87,7 +101,7 @@ function MyForm(props) {
             </Form.Group>
 
             <center>
-            <Button variant="primary" type="submit"   >Submit</Button>&nbsp;&nbsp;
+            <Button variant="primary" type="submit">Submit</Button>&nbsp;&nbsp;
             <Button variant="danger" onClick = {goToHome} >Cancel</Button>
             </center>
 

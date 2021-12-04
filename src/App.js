@@ -9,6 +9,7 @@ import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import roleController from "./helpers/roleLogin/roleLogin";
 import FooterPage from "./components/footer/footer";
+import EventsPage from "./pages/Events/events";
 
 //Admin
 import RegisterUser from "./pages/adminDashboard/registerUser";
@@ -28,12 +29,13 @@ import AppointmentView from "./pages/frontOfficeDashboard/appointmentView";
 import AppointmentDelete from "./pages/frontOfficeDashboard/appointmentDelete";
 import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
 import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
+import PatientSearch from "./pages/frontOfficeDashboard/patientSearch"
 
 //Doctor
 
 import Appointments from "./pages/doctorDashboard/appoinmentList";
 import PatientDetails from "./pages/doctorDashboard/PatientDetails";
-import PrescriptionAdd from "./pages/doctorDashboard/priscription";
+import PrescriptionAdd from "./pages/doctorDashboard/prescription";
 import Tests from "./pages/doctorDashboard/viewTestDetails";
 import Labresult from "./pages/doctorDashboard/testDetails";
 
@@ -66,7 +68,7 @@ function MyRouter() {
       <Router>
       <div className = "container">
       HealthTech
-      <img className = "logoImg" src = "https://abuzzwebtech.com/images/other/intro-img.png"></img>
+      <img className = "logoImg" src = "https://abuzzwebtech.com/images/other/intro-img.png" alt=""></img>
       </div>
         <center>
           <h5>Clinic Management Software to manage
@@ -107,8 +109,10 @@ function MyRouter() {
                 {/* Links for FrontOffice  */}
                 {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
                 {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
-                {roleController.isFrontoffice() && <Link className="link" to="/patientAppointment">Patient Appointment</Link>}
                 {roleController.isFrontoffice() && <Link className="link" to="/appointmentDisplay">Appointment List</Link>}
+                {roleController.isFrontoffice() && <Link className="link" to="/patientsearch">Patient Search</Link>}
+
+                
 
                 {/* Links for Doctor  */}
                 {roleController.isDoctor() && <Link className="link" to="/appointmentlist">Consultation List</Link>}
@@ -133,6 +137,7 @@ function MyRouter() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="*" element={<NoMatch />}></Route>
 
@@ -150,11 +155,11 @@ function MyRouter() {
           <Route path="/patientDelete/:patientId" element={<PatientDelete />} />    {/*  delete a patient  */}
           <Route path="/patientEdit/:patientId" element={<PatientEdit />} />        {/*  edit an existing patient  */}
           <Route path="/billGenerate/:patientId" element={<BillGenerate />} />      {/*  generate bill to patients  */}
-          <Route path="/patientAppointment" element={<PatientAppointment />} />     {/*  Giving appointment to patient  */}
+          <Route path="/patientappointment/:patientId" element={<PatientAppointment />} />     {/*  Giving appointment to patient  */}
           <Route path="/appointmentDisplay" element={<AppointmentDisplay />} />     {/* Display all appointments  */}
           <Route path="/appointmentView/:id" element={<AppointmentView />} />       {/* Display appointment details  */}
           <Route path="/appointmentDelete/:id" element={<AppointmentDelete />} />   {/* Cancel appointment  */}
-        
+          <Route path="/patientsearch" element={<PatientSearch />} />
 
           {/* Routes for Doctor  */}
           <Route path="/appointmentlist" element={<Appointments />} />

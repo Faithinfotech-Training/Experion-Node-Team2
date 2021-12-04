@@ -26,7 +26,7 @@ function MyForm(props){
 
                 setInputs(response.data)
             })
-    }, [])
+    }, [props.patientId])
 
 
     function handleChange(event){
@@ -46,11 +46,11 @@ function MyForm(props){
               
             })
 
-            axios.post(`http://localhost:4000/bills`,inputs).
-            then(response=>{
+            axios.post(`http://localhost:4000/bills`,inputs)
+            .then(response=>{
                 setInputs(response.data);
                 alert(' bill generated successfully');
-               // window.location='/patientDisplay';
+                window.location='/patientDisplay';
             })
            /*  .catch(error =>{
                 localStorage.clear();
