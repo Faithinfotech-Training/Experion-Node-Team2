@@ -17,9 +17,9 @@ function PatientList(props){
 
   return(
     <Card className="text-center">
-  <Card.Header>{patients.patientName}</Card.Header>
+  <Card.Header> Patient Name : {patients.patientName}</Card.Header>
   <Card.Body>
-    <Card.Title>{patients.patientId}</Card.Title>
+    <Card.Title> Patient ID :{patients.patientId}</Card.Title>
     <Card.Text>
     </Card.Text>
     <Button variant="primary"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></Button>
