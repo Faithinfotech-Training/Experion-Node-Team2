@@ -11,20 +11,23 @@ function Listall(){
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
 
-  
     useEffect(()=>{
         axios
         .get(`http://localhost:4000/appointments/bydate/${today}`)
         .then(response=>{
             console.log('Promise was fullfilled')
-            console.log(response)
+            console.log(response.data)
             setAppoinments(response.data)
-        })})
+        })
+    },[]);
         
-
         return(<>
-        <h2>APPOINMENTS</h2>
-                 <div>{appoinments.map(appoinment=><div key={appoinment.id}> <Patients details= {appoinment}/></div>)}</div>
+        <h2>Appointments</h2>
+                 <div>{appoinments.map(appoinment=>
+                    <div key={appoinment.id}> 
+                        <Patients details= {appoinment}/>
+                    </div>)}
+                </div>
                  </>)
    
    }

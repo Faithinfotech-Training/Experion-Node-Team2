@@ -135,3 +135,18 @@ body{
   .copyright{
     color: white;
   }
+  #nav-dropdown{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+  }
+
+  #nav-dropdown:hover{
+    background-color:rgb(79, 80, 79);
+    color: aliceblue;
+  }

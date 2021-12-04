@@ -9,7 +9,7 @@ function TestDetails(){
     
     useEffect(()=>{
         axios
-        .get(`http://localhost:4000/results/${id}`)
+        .get(`http://localhost:4000/reports/${id}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)

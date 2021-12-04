@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "./app.css";
 
 //Common imports
@@ -90,6 +90,18 @@ function MyRouter() {
                 {roleController.isAdmin() && <Link className="link" to="/staffreg">Register Staff</Link>}
                 {roleController.isAdmin() && <Link className="link" to="/stafflist">Staff List</Link>}
                 
+                <NavDropdown title="Staff Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown title="Patient Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                </NavDropdown>
+
                 {/* Links for FrontOffice  */}
                 {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
                 {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
@@ -146,7 +158,7 @@ function MyRouter() {
           <Route path="/patientdetails/:id" element={<PatientDetails />} />
           <Route path="/prescriptionadd/:id" element={<PrescriptionAdd />} />
           <Route path="/patient/tests/:id" element={<Tests/>} />
-          <Route path="/patient/labresult/:id" element={<Tests/>} />
+          <Route path="/patient/labresult/:id" element={<Labresult/>} />
 
 
           {/* Routes for LabTechnician  */}

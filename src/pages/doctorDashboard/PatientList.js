@@ -14,7 +14,6 @@ function PatientList(props){
         setPatients(response.data)
     })},[props.details.patientId])
 
- 
   return(
     <div>
      <h3>{patients.patientName}</h3>

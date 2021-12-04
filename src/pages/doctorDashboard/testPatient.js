@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function TestForm(){
     const [inputs, setInputs] = useState({});
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     function handleChange(event){
         const name = event.target.name;
@@ -21,6 +21,7 @@ function TestForm(){
          .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
+            alert("Added Test ! Re-enter to add more !")
             })
     };
 
@@ -56,7 +57,8 @@ function TestForm(){
             </Form.Group>
        
             <center>
-            <Button variant="primary" type="submit" onClick={()=>navigate(`/patientdetails/:${inputs.patientId}`)}>ADD</Button>
+            <Button variant="primary" type="submit">ADD</Button> &nbsp;&nbsp;
+            <Button variant="danger" type="button" onClick={()=>navigate(`/appointmentlist`)}>Finish</Button>
             </center>
             </Form>
             </div>

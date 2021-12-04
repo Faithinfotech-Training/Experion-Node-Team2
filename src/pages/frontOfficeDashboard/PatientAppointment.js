@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from "react-router";
 
 
 function PatientAppointment() {
@@ -31,7 +30,7 @@ function MyForm(props) {
                // localStorage.setItem('mytoken', response.data.accessToken)
                setInputs(response.data);
                alert('Appointment confirmed');
-              // window.location='/appointmentDisplay'
+               window.location='/appointmentDisplay'
             })
            /*  .catch(error => {
                 localStorage.clear();
@@ -45,8 +44,6 @@ function MyForm(props) {
         window.location = '/';
     }
 
-
-  const navigate = useNavigate();
 
     return (
         <>
@@ -77,7 +74,7 @@ function MyForm(props) {
 
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Appointment Date</Form.Label>
-            <input className="input" type="date" name="appointmentDate" placeholder="Enter amount"
+            <input className="input" type="date" name="appointmentDate" 
                             value={inputs.appointmentDate || ''} onChange={handleChange}
                             required></input>
             </Form.Group>

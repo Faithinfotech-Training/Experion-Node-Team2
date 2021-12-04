@@ -19,7 +19,8 @@ function MedicineForm(){
          .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
-            window.location='./patientdetails'
+            alert("Added Test ! Re-enter to add more !")
+
             })
     };
 
