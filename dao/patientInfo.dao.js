@@ -9,7 +9,7 @@ function findById(patientId) {
 }
 
 function findByName(patientName) {
-    return patientInfo.findAll(patientName);
+    return patientInfo.findAll({ where: { patientName: patientName } });
 }
 
 

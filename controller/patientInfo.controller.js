@@ -59,7 +59,7 @@ function findPatients(req, res) {
 }
 
 function findPatientsByName(req, res) {
-    patientDao.findByName().
+    patientDao.findByName(req.params.patientName).
         then((data) => {
             res.send(data);
         })
