@@ -5,7 +5,7 @@ import "./labtechnician.css"
 function LabReport(props){
     return(
       <>
-      <div>
+      <div className = "cardsList">
         <Card className="text">
           <Card.Body>
             <Card.Title><h4>Test Name : {props.details.testName}</h4></Card.Title>

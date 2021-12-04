@@ -17,7 +17,7 @@ function ViewTestDetails(){
         
 
         return(<>
-        <h2>TESTS DETAILS</h2>
+        <center><h2>Test Details</h2></center>
                  <div>{tests.map(test=><div key={test.id}> <Tests details={test}/></div>)}</div>
                  </>)
    

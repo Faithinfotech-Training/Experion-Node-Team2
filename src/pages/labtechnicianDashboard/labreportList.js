@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import LabReport from './labreport';
+import "./labtechnician.css"
 
 function LabReportList(){
     

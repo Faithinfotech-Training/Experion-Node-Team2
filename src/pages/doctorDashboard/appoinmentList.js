@@ -22,7 +22,7 @@ function Listall(){
     },[]);
         
         return(<>
-        <h2>Appointments</h2>
+        <center><h2>Appointments</h2></center>
                  <div>{appoinments.map(appoinment=>
                     <div key={appoinment.id}> 
                         <Patients details= {appoinment}/>

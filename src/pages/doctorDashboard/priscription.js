@@ -11,6 +11,7 @@ function Prescription(){
         <>
         <center><h1>Prescription</h1></center>
         <div class="patientId">Patient ID :{id}</div>
+        <br/>
         <MedicineForm/> 
         <hr/>
         <TestForm/>      

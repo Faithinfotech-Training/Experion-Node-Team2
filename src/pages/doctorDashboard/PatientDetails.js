@@ -33,7 +33,7 @@ function PatientDetails(){
 
           <Card.Text>
           </Card.Text>
-          <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>
+          <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
           <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button>
         </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>

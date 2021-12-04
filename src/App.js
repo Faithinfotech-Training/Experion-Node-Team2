@@ -118,6 +118,7 @@ function MyRouter() {
                 {roleController.isLabtechnician() && <Link className="link" to="/reportlist">Lab Reports</Link>}         
 
                 {/* Links for All roles  */}
+                <Link className="link" to="/events">Events & Announcements</Link>
                 <Link className="link" to="/about">About Us</Link>
                 {localStorage.getItem('mytoken') && <div><Link className="link" onClick={() => window.location = '/login'} to="/login">Logout</Link></div>}
 
