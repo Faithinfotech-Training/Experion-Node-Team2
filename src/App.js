@@ -9,7 +9,7 @@ import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import roleController from "./helpers/roleLogin/roleLogin";
 import FooterPage from "./components/footer/footer";
-import EventsPage from "./pages/Events/events";
+import EventsPage from "./pages/events/events";
 
 //Admin
 import RegisterUser from "./pages/adminDashboard/registerUser";
@@ -88,7 +88,7 @@ function MyRouter() {
                 
                 
                 {/* Links for Admin  */}
-                {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
+                {roleController.isAdmin() && <Link className="link" to="/userreg">Register User</Link>}
 
                 {roleController.isAdmin() && (
                  <NavDropdown title="Staff Management" id="nav-dropdown">
