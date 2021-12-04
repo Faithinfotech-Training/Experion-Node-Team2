@@ -2,6 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 import {useState,useEffect} from "react"
 import axios from "axios";
+import { Card, Button } from 'react-bootstrap';
 
 function PatientList(props){
   const[patients, setPatients]=useState([]);
@@ -15,9 +16,16 @@ function PatientList(props){
     })},[props.details.patientId])
 
   return(
-    <div>
-     <h3>{patients.patientName}</h3>
-     <button className="button"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></button>
-  </div>)
+    <Card className="text-center">
+  <Card.Header>{patients.patientName}</Card.Header>
+  <Card.Body>
+    <Card.Title>{patients.patientId}</Card.Title>
+    <Card.Text>
+    </Card.Text>
+    <Button variant="primary"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></Button>
+  </Card.Body>
+  <Card.Footer className="text-muted"></Card.Footer>
+</Card>
+)
 }
 export default PatientList;
