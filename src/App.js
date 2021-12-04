@@ -87,21 +87,23 @@ function MyRouter() {
                 
                 {/* Links for Admin  */}
                 {!localStorage.getItem('mytoken') && <Link className="link" to="/userreg">Register User</Link>}
-                {roleController.isAdmin() && <Link className="link" to="/staffreg">Register Staff</Link>}
-                {roleController.isAdmin() && <Link className="link" to="/stafflist">Staff List</Link>}
+
+                {roleController.isAdmin() && (
+                 <NavDropdown title="Staff Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/staffreg">Register Staff</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/stafflist">Staff List</Link></NavDropdown.Item>
+                </NavDropdown> 
+                )}
                 
-                <NavDropdown title="Staff Management" id="nav-dropdown">
-                  <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                </NavDropdown>
+                {roleController.isAdmin() && (
+                 <NavDropdown title="Doctor Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/staffreg">Register Doctor</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/stafflist">Doctor List</Link></NavDropdown.Item>
+                </NavDropdown> 
+                )}
 
-                <NavDropdown title="Patient Management" id="nav-dropdown">
-                  <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                </NavDropdown>
-
+                {roleController.isAdmin() && <Link className="link" to="/">Event Management</Link>}
+                
                 {/* Links for FrontOffice  */}
                 {roleController.isFrontoffice() && <Link className="link" to="/registerPatient">Register Patient</Link>}
                 {roleController.isFrontoffice() && <Link className="link" to="/patientDisplay">Registered Patient List</Link>}
