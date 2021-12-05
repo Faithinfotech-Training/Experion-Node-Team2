@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import "./App.css";
+import "./app.css";
 
 //Common imports
 import Home from './pages/home/index';
@@ -9,7 +9,7 @@ import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import roleController from "./helpers/roleLogin/roleLogin";
 import FooterPage from "./components/footer/footer";
-import EventsPage from "./pages/Events/events";
+import EventsPage from "./pages/events/events";
 
 //Admin
 import RegisterUser from "./pages/adminDashboard/RegisterUser";

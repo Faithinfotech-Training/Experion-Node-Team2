@@ -2,7 +2,7 @@ import Carousel from "../../components/carousel/carousel";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import SearchPage from "../../components/search/search";
-import Event from "./event"
+import Event from "./eventdetails"
 
 function EventsPage(){
 

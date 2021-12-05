@@ -114,7 +114,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
             <input className="input" type = "tel" name = "phone" placeholder = "Enter phone number"
-                        value = {inputs.phone || ''} onChange = {handleChange} 
+                        value = {inputs.phone || ''} onChange = {handleChange} minlength="10" maxlength="10"
                         required></input>
             </Form.Group>
             

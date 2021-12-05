@@ -49,9 +49,8 @@ body{
   .form{
     border-radius: 5px;
     background-color: #c5ddee;
-    padding: 20px;
-    margin-left: 10%;
-    width:80%;
+    margin : 0px 20% 0px 20%
+
   }
   
   .label,h1,h2,h3,h4,h5{
@@ -163,4 +162,8 @@ body{
 .link1:hover{
 background-color:rgb(79, 80, 79);
 color: aliceblue;
+}
+
+Form{
+  padding : 20px 10% 20px 10%
 }
