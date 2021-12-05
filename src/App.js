@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import "./app.css";
+import "./App.css";
 
 //Common imports
 import Home from './pages/home/index';
@@ -9,10 +9,10 @@ import About from "./pages/about/index";
 import NoMatch from "./pages/noMatch/index";
 import roleController from "./helpers/roleLogin/roleLogin";
 import FooterPage from "./components/footer/footer";
-import EventsPage from "./pages/events/events";
+import EventsPage from "./pages/Events/events";
 
 //Admin
-import RegisterUser from "./pages/adminDashboard/registerUser";
+import RegisterUser from "./pages/adminDashboard/RegisterUser";
 import RegisterStaff from "./pages/adminDashboard/staffRegister";
 import StaffList from "./pages/adminDashboard/staffList";
 import StaffDetails from "./pages/adminDashboard/staffDetails";
@@ -38,6 +38,7 @@ import AppointmentDelete from "./pages/frontOfficeDashboard/appointmentDelete";
 import RegisterPatient from "./pages/frontOfficeDashboard/RegisterPatient";
 import PatientAppointment from "./pages/frontOfficeDashboard/PatientAppointment";
 import PatientSearch from "./pages/frontOfficeDashboard/patientSearch"
+import BillDisplay from "./pages/frontOfficeDashboard/billDisplay";
 
 //Doctor
 
@@ -49,7 +50,7 @@ import Labresult from "./pages/doctorDashboard/testDetails";
 
 //LabTechnician
 
-import LabreportGenerate from "./pages/labtechnicianDashboard/labreportGenerate";
+import LabreportGenerate from "./pages/labtechnicianDashboard/LabreportGenerate";
 import LabReportList from "./pages/labtechnicianDashboard/labreportList";
 import ReportDetails from "./pages/labtechnicianDashboard/labreportDetails";
 import LabreportEdit from "./pages/labtechnicianDashboard/labreportEdit";
@@ -125,6 +126,7 @@ function MyRouter() {
                  <NavDropdown title="Patient Management" id="nav-dropdown">
                   <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/registerPatient">Register Patient</Link></NavDropdown.Item>
                   <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/patientDisplay">Registered Patients</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.3"><Link className="link1" to="/billDisplay">Bill Info List</Link></NavDropdown.Item>
                 </NavDropdown> 
                 )}
 
@@ -190,6 +192,7 @@ function MyRouter() {
           <Route path="/appointmentView/:id" element={<AppointmentView />} />       {/* Display appointment details  */}
           <Route path="/appointmentDelete/:id" element={<AppointmentDelete />} />   {/* Cancel appointment  */}
           <Route path="/patientsearch" element={<PatientSearch />} />
+          <Route path="/billDisplay" element={<BillDisplay/>}/>
 
           {/* Routes for Doctor  */}
           <Route path="/appointmentlist" element={<Appointments />} />
