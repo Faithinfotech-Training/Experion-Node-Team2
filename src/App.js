@@ -13,10 +13,14 @@ import EventsPage from "./pages/events/events";
 
 //Admin
 import RegisterUser from "./pages/adminDashboard/registerUser";
-import RegisterStaff from "./pages/adminDashboard/registerStaff";
+import RegisterStaff from "./pages/adminDashboard/staffRegister";
 import StaffList from "./pages/adminDashboard/staffList";
 import StaffDetails from "./pages/adminDashboard/staffDetails";
 import StaffEdit from "./pages/adminDashboard/staffEdit";
+import RegisterDoctor from "./pages/adminDashboard/doctorRegister";
+import DoctorList from "./pages/adminDashboard/doctorList";
+import DoctorDetails from "./pages/adminDashboard/doctorDetails";
+import DoctorEdit from "./pages/adminDashboard/doctorEdit";
 
 //FrontOffice
 import PatientDisplay from "./pages/frontOfficeDashboard/patientDisplay";
@@ -99,8 +103,8 @@ function MyRouter() {
                 
                 {roleController.isAdmin() && (
                  <NavDropdown title="Doctor Management" id="nav-dropdown">
-                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/staffreg">Register Doctor</Link></NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/stafflist">Doctor List</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/doctorreg">Register Doctor</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/doctorlist">Doctor List</Link></NavDropdown.Item>
                 </NavDropdown> 
                 )}
 
@@ -156,6 +160,10 @@ function MyRouter() {
           <Route path="/stafflist" element={<StaffList />} />
           <Route path="/staffdetails/:staffId" element={<StaffDetails />} />
           <Route path="/staffedit/:staffId" element={<StaffEdit />} />
+          <Route path="/doctorreg" element={<RegisterDoctor />} />
+          <Route path="/doctorlist" element={<DoctorList />} />
+          <Route path="/doctordetails/:doctorId" element={<DoctorDetails />} />
+          <Route path="/doctoredit/:doctorId" element={<DoctorEdit />} />
 
           {/* Routes for FrontOffice  */}
           <Route path="/registerPatient" element={<RegisterPatient />} />           {/*Register a new patient  */}

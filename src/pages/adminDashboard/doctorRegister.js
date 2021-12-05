@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import roleController from '../../helpers/roleLogin/roleLogin';
 
-function RegisterStaff(){
+function RegisterDoctor(){
     return (
         <>
-        <center><h1>Register Staff</h1></center>
+        <center><h1>Register Doctor</h1></center>
         <MyForm/>
         </>
     );
@@ -30,11 +30,11 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.post(`http://localhost:4000/staffs`, inputs)
+        axios.post(`http://localhost:4000/doctors`, inputs)
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
-                    window.location = '/stafflist';
+                    window.location = '/doctorlist';
                    
             })
     };
@@ -50,19 +50,23 @@ function MyForm(props){
         <Form onSubmit = {handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Full Name</Form.Label>
-                <input className="input" type = "text" name = "staffName" placeholder = "Enter full name"
-                        value = {inputs.staffName || ''} onChange = {handleChange} 
+                <input className="input" type = "text" name = "doctorName" placeholder = "Enter full name"
+                        value = {inputs.doctorName || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>
 
             <Form.Group className="mb-3">
-            <Form.Label>Staff type</Form.Label>
-                <select name = 'staffType' className="bld" onChange = {handleChange}>
+            <Form.Label>Specialization</Form.Label>
+                <select name = 'specialization' className="bld" onChange = {handleChange}>
                     <option>Choose one</option>
-                    <option value = 'admin' onChange = {handleChange}>Admin</option>
-                    <option value = 'doctor' onChange = {handleChange}>Doctor</option>
-                    <option value = 'frontOffice' onChange = {handleChange}>Front Office</option>
-                    <option value = 'labTechnician' onChange = {handleChange}>Lab Technician</option>
+                    <option value = 'allergist' onChange = {handleChange}>Allergist</option>
+                    <option value = 'anesthesiologist' onChange = {handleChange}>Anesthesiologist</option>
+                    <option value = 'cardiologist' onChange = {handleChange}>Cardiologist</option>
+                    <option value = 'surgeon' onChange = {handleChange}>Surgeon</option>
+                    <option value = 'dermatologist' onChange = {handleChange}>Dermatologist</option>
+                    <option value = 'physician' onChange = {handleChange}>Physician</option>
+                    <option value = 'gastroenterologist' onChange = {handleChange}>Gastroenterologist</option>
+                    <option value = 'others' onChange = {handleChange}>Others</option>
                     </select>
             </Form.Group>
 
@@ -141,4 +145,4 @@ function MyForm(props){
     );
 
 };
-export default RegisterStaff;
+export default RegisterDoctor;

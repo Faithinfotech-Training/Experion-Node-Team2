@@ -4,6 +4,15 @@ import { Form, Button } from 'react-bootstrap';
 
 function LoginForm(){
     localStorage.clear();
+    
+    //A simple reload of the page once.
+    window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+
     return (
         <>
       <center>  <h1>Enter Login Details</h1></center>
