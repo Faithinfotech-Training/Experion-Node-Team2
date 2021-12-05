@@ -5,8 +5,13 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 //because we are using parameter in URL to catch the details
 import { useNavigate } from 'react-router-dom';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function ReportDetails(){
+
+    if(!roleController.isLabtechnician()){
+      window.location = '/login'
+    }
     
     //Initialize the use state, to store data
     const [test, setTest] = useState([]);

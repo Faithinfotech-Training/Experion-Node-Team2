@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function StaffEdit(){
     const {staffId} = useParams();
@@ -14,6 +15,11 @@ function StaffEdit(){
 }
 
 function MyForm(props){
+    
+    if(!roleController.isAdmin()){
+        window.location = '/login'
+      }
+
     const [inputs, setInputs] = useState({});
         //To get the staff details from the staff id
         useEffect(() => {

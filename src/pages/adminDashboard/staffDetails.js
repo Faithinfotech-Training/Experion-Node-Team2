@@ -5,8 +5,13 @@ import {useParams} from 'react-router-dom';
 //because we are using parameter in URL to catch the details
 import { useNavigate } from 'react-router-dom';
 import {Button, Card} from 'react-bootstrap'
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function StaffDetails(){
+
+  if(!roleController.isAdmin()){
+    window.location = '/login'
+  }
     
     //Initialize the use state, to store data
     const [staff, setStaff] = useState([]);

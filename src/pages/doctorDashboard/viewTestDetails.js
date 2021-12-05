@@ -1,9 +1,15 @@
 import {useState,useEffect} from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import Tests from './testList'
+import Tests from './testList';
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 function ViewTestDetails(){
+
+    if(!roleController.isDoctor()){
+        window.location = '/login'
+      }
+
     const[tests, setTests]=useState([]);
     const {id}=useParams()
         useEffect(()=>{

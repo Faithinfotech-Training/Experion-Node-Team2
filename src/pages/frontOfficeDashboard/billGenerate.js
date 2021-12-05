@@ -3,8 +3,14 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function BillGenerate(){
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
+
     const { patientId } = useParams()
     return (
         <>

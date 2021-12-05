@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Form, Button } from 'react-bootstrap';
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 
 function PatientEdit() {
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
+
     const { patientId } = useParams()
     return (
         <div>

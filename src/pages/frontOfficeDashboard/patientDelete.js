@@ -3,9 +3,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 //destructuring react to get only useState
 function PatientDelete() {
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
 
     const [Inputs, setInputs] = useState([])
     const { patientId } = useParams()

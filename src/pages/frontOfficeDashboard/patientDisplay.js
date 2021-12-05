@@ -2,9 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Patient from "./patient";
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 //destructuring react to get only useState
 function PatientDisplay() {
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
 
     const [inputs, setInputs] = useState([])
 

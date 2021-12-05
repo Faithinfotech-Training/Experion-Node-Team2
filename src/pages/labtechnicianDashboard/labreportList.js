@@ -1,10 +1,15 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import LabReport from './labreport';
-import "./labtechnician.css"
+import "./labtechnician.css";
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function LabReportList(){
     
+    if(!roleController.isLabtechnician()){
+      window.location = '/login'
+    }
+
     //Initialize the use state, to store data
     const [tests, setTests] = useState([]);
 

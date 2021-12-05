@@ -3,11 +3,16 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import {Button, Card} from 'react-bootstrap'
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 //because we are using parameter in URL to catch the details
 import { useNavigate } from 'react-router-dom';
 
 function TestDetails(){
+
+    if(!roleController.isLabtechnician()){
+      window.location = '/login'
+    }
     
     //Initialize the use state, to store data
     const [test, setTest] = useState([]);

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function RegisterStaff(){
     return (
@@ -12,6 +13,11 @@ function RegisterStaff(){
 }
 
 function MyForm(props){
+
+    if(!roleController.isAdmin()){
+        window.location = '/login'
+      }
+
     const [inputs, setInputs] = useState({});
 
     function handleChange(event){

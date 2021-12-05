@@ -4,9 +4,15 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from 'react-bootstrap';
-import "./doctor.css"
+import "./doctor.css";
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 function PatientDetails(){
+
+  if(!roleController.isDoctor()){
+    window.location = '/login'
+  }
+
     const[patients, setPatients]=useState([]);
     const {id}=useParams()
     const navigate=useNavigate();

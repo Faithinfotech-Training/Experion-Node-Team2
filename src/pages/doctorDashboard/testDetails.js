@@ -3,9 +3,15 @@ import {useState,useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router";
 import {Card} from 'react-bootstrap';
-import "./doctor.css"
+import "./doctor.css";
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 function TestDetails(){
+
+  if(!roleController.isDoctor()){
+    window.location = '/login'
+  }
+
     const[tests, setTests]=useState([]);
     const {id}=useParams()
     

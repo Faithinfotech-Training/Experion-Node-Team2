@@ -1,10 +1,15 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Staff from './staff';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 
 function StaffList(){
     
+    if(!roleController.isAdmin()){
+      window.location = '/login'
+    }
+
     //Initialize the use state, to store data
     const [staffs, setStaffs] = useState([]);
 

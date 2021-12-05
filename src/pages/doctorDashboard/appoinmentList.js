@@ -1,7 +1,14 @@
 import {useState,useEffect} from "react"
 import axios from "axios";
 import Patients from './PatientList'
+import roleController from "../../helpers/roleLogin/roleLogin";
+
 function Listall(){
+
+    if(!roleController.isDoctor()){
+        window.location = '/login'
+      }
+
     const[appoinments, setAppoinments]=useState([]);
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');

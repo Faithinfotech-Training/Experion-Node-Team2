@@ -4,10 +4,14 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import {Button} from 'react-bootstrap'
+import roleController from "../../helpers/roleLogin/roleLogin";
 
 //destructuring react to get only useState
 function PatientView() {
 
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
 
     const [Inputs, setInputs] = useState([])
     const { patientId } = useParams()

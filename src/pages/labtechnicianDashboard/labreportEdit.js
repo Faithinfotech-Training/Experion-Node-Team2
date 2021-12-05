@@ -2,8 +2,14 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function LabreportEdit(){
+
+    if(!roleController.isLabtechnician()){
+        window.location = '/login'
+      }
+
     const {labReportId} = useParams();
     return (
         <>

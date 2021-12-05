@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 function Patientsearch(){
 
@@ -14,6 +15,11 @@ function Patientsearch(){
 }
 
 function MyForm(props){
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
+
     const [inputs, setInputs] = useState([]);
 
     const navigate = useNavigate();

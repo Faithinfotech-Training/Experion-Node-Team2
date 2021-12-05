@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import {useParams} from 'react-router'
+import {useParams} from 'react-router';
+import roleController from '../../helpers/roleLogin/roleLogin';
 
 
 function PatientAppointment() {
@@ -14,6 +15,10 @@ function PatientAppointment() {
 }
 
 function MyForm(props) {
+
+    if(!roleController.isFrontoffice()){
+        window.location = '/login'
+      }
 
     const[inputs, setInputs]=useState([]);
     const {patientId}=useParams()
