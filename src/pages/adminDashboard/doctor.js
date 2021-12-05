@@ -15,6 +15,8 @@ function Doctor(props){
             </Button>
           </Card.Body>
         </Card>
+        <br/>
+        <br/>
         </div>
       </>
     );

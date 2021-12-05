@@ -2,7 +2,7 @@ import Carousel from "../../components/carousel/carousel";
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import SearchPage from "../../components/search/search";
-import Event from "../adminDashboard/event"
+import Event from "./event"
 
 function EventsPage(){
 
@@ -24,7 +24,9 @@ function EventsPage(){
       <>
       <div className="home">
         <center><h2 className="heading">Events and Announcements</h2></center>
-        <br/>
+   
+        <Carousel/>
+
         <div>
         <div className = "staffCards">
             {events.map(event => 
@@ -35,7 +37,7 @@ function EventsPage(){
         </div>
       </div>
 
-          <Carousel/>
+          
         <center><h5 className="heading">AUTOMATE HISTORY TAKING & DIAGNOSIS</h5></center>
       
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

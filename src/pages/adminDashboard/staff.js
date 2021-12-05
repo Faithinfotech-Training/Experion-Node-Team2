@@ -14,6 +14,8 @@ function Staff(props){
             </Button>
           </Card.Body>
         </Card>
+        <br/>
+        <br/>
       </>
     );
   };
