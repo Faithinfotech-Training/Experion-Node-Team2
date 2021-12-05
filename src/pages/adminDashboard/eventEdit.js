@@ -45,7 +45,9 @@ function MyForm(props){
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);
+                    alert("Event Updated !")
                     window.location = '/eventlist';
+                    
             })
     };
 
