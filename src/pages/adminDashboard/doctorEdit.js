@@ -145,8 +145,6 @@ function MyForm(props){
             </center>
 
         </Form>
-
-
         </div>
         </>
     );

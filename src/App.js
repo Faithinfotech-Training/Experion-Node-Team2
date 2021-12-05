@@ -21,6 +21,10 @@ import RegisterDoctor from "./pages/adminDashboard/doctorRegister";
 import DoctorList from "./pages/adminDashboard/doctorList";
 import DoctorDetails from "./pages/adminDashboard/doctorDetails";
 import DoctorEdit from "./pages/adminDashboard/doctorEdit";
+import RegisterEvent from "./pages/adminDashboard/eventRegistration";
+import EventList from "./pages/adminDashboard/eventList";
+import EventDetails from "./pages/adminDashboard/eventDetails";
+import EventEdit from "./pages/adminDashboard/eventEdit";
 
 //FrontOffice
 import PatientDisplay from "./pages/frontOfficeDashboard/patientDisplay";
@@ -108,7 +112,12 @@ function MyRouter() {
                 </NavDropdown> 
                 )}
 
-                {roleController.isAdmin() && <Link className="link" to="/">Event Management</Link>}
+                {roleController.isAdmin() && (
+                 <NavDropdown title="Event Management" id="nav-dropdown">
+                  <NavDropdown.Item eventKey="4.1"><Link className="link1" to="/eventreg">Register Event</Link></NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.2"><Link className="link1" to="/eventlist">Event List</Link></NavDropdown.Item>
+                </NavDropdown> 
+                )}
                 
                 {/* Links for FrontOffice  */}
 
@@ -164,6 +173,10 @@ function MyRouter() {
           <Route path="/doctorlist" element={<DoctorList />} />
           <Route path="/doctordetails/:doctorId" element={<DoctorDetails />} />
           <Route path="/doctoredit/:doctorId" element={<DoctorEdit />} />
+          <Route path="/eventreg" element={<RegisterEvent />} />
+          <Route path="/eventlist" element={<EventList />} />
+          <Route path="/eventdetails/:id" element={<EventDetails />} />
+          <Route path="/eventedit/:id" element={<EventEdit />} />
 
           {/* Routes for FrontOffice  */}
           <Route path="/registerPatient" element={<RegisterPatient />} />           {/*Register a new patient  */}

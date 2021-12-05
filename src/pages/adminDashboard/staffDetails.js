@@ -55,7 +55,7 @@ function StaffDetails(){
           onClick = {() => DeleteStaff(staff.staffId)}>Delete</Button></center>
           </Card.Body>
         </Card>
-        <a className = 'staffDetails' href = '/staffList'>Go back to staff list</a>
+        <a className = 'staffDetails' href = '/stafflist'>Go back</a>
       </div>
       </>
     );
