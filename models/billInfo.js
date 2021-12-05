@@ -12,7 +12,7 @@ const billInfo = db.define('BillInfo', {
         allowNull: false
     },
     billAmount: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
    

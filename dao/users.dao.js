@@ -1,1 +1,0 @@
-//Users dao is not required because, we are not doing CRUD operations in Users Table
