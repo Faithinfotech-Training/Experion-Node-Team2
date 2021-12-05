@@ -1,12 +1,5 @@
 
 const roleDao = require('../dao/roleInfo.dao');
-var roleController = {
-    addRoles: addRoles,
-    findRoles: findRoles,
-    findRoleById: findRoleById,
-    updateRole: updateRole,
-    deleteById: deleteById
-}
 
 function addRoles(req, res) {
     let role = req.body;
@@ -63,6 +56,14 @@ function findRoles(req, res) {
         .catch((error) => {
             console.log(error);
         });
+}
+
+var roleController = {
+    addRoles: addRoles,
+    findRoles: findRoles,
+    findRoleById: findRoleById,
+    updateRole: updateRole,
+    deleteById: deleteById
 }
 
 module.exports = roleController;

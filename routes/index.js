@@ -7,11 +7,11 @@ const staffRoutes = require('./staffInfo.route');
 const doctorRoutes = require('./doctorInfo.route')
 const testsRoutes = require('./testsInfo.route');
 const labreportRoutes = require('./labreportInfo.route');
-const billRoutes = require('./billinfo.route')
-const patientRoutes = require('./patientInfo.route')
-const medicineRoutes = require('./medicine.route')
-const appointmentRoutes = require('./appointmentInfo.route')
-
+const billRoutes = require('./billinfo.route');
+const patientRoutes = require('./patientInfo.route');
+const medicineRoutes = require('./medicine.route');
+const appointmentRoutes = require('./appointmentInfo.route');
+const eventsRoutes = require('./eventsInfo.route');
 
 router.use('/roles', roleRoutes);
 router.use('/users', userRoutes);
@@ -23,5 +23,6 @@ router.use('/bills', billRoutes);
 router.use('/patients', patientRoutes);
 router.use('/medicines', medicineRoutes);
 router.use('/appointments',appointmentRoutes);
+router.use('/events', eventsRoutes)
 
 module.exports = router;

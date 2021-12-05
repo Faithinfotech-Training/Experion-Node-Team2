@@ -1,11 +1,4 @@
 const roleInfo = require('../models/roleInfo');
-var roleDao = {
-    findAll: findAll,
-    create: create,
-    findById: findById,
-    deleteById: deleteById,
-    updateRole: updateRole
-}
 
 function findAll() {
     return roleInfo.findAll();
@@ -32,4 +25,13 @@ function updateRole(role, id) {
     };
     return roleInfo.update(updateRole, { where: { id: id } });
 }
+
+var roleDao = {
+    findAll: findAll,
+    create: create,
+    findById: findById,
+    deleteById: deleteById,
+    updateRole: updateRole
+}
+
 module.exports = roleDao;
