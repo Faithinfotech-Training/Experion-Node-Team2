@@ -1,15 +1,39 @@
 import Carousel from "../../components/carousel/carousel";
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 import SearchPage from "../../components/search/search";
+import Event from "../adminDashboard/event"
 
 function EventsPage(){
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+      
+      axios.get('http://localhost:4000/events') //gets data from api
+        .then(response =>{
+            console.log('Promise fullfilled'); //if data recieved, output 
+            console.log(response);             //display output (responce)
+            setEvents(response.data); //save only 'data' in response to the state
+        })
+  },[]);
+
+
+
     return(
       <>
       <div className="home">
-        <center><h5 className="heading">AUTOMATE HISTORY TAKING & DIAGNOSIS</h5></center>
-        <p>Using our app you will be able to talk 
-          with AI powered medical chatbot, who will 
-          understand your disease and will auto generate 
-          the medical prescription for you.</p>
+        <center><h2 className="heading">Events and Announcements</h2></center>
+        <br/>
+        <div>
+        <div className = "staffCards">
+            {events.map(event => 
+                    <div key = {event.id}>
+                        <Event details = {event}/>
+                    </div>
+                )}
+        </div>
+      </div>
 
           <Carousel/>
         <center><h5 className="heading">AUTOMATE HISTORY TAKING & DIAGNOSIS</h5></center>

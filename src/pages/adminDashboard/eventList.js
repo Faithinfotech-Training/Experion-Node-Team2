@@ -37,7 +37,6 @@ function EventList(){
                     </div>
                 )}
         </div>
-
       </div>
       </>
     );
