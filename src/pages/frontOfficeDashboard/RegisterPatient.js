@@ -51,6 +51,7 @@ function MyForm(props){
                 <Form.Label>Full Name</Form.Label>
                 <input className="input" type = "text" name = "patientName" placeholder = "Enter full name"
                         value = {inputs.patientName || ''} onChange = {handleChange} 
+                        minLength="3" maxLength="15"
                         required></input>
             </Form.Group>
 
@@ -66,13 +67,14 @@ function MyForm(props){
             <Form.Label>Address</Form.Label>
             <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
+                        maxLength="30"
                         required></input>
             </Form.Group>
 
            
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "text" name = "phoneNumber" placeholder = "Enter phone number"
+            <input className="input" type = "tel" name = "phoneNumber" placeholder = "Enter phone number"
                         value = {inputs.phoneNumber || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>

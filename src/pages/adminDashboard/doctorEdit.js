@@ -63,12 +63,13 @@ function MyForm(props){
                 <Form.Label>Full Name</Form.Label>
                 <input className="input" type = "text" name = "doctorName" placeholder = "Enter full name"
                         value = {inputs.doctorName || ''} onChange = {handleChange} 
+                        minLength="3" maxLength="15"
                         required></input>
             </Form.Group>
 
             <Form.Group className="mb-3">
             <Form.Label>Specialization</Form.Label>
-                <select name = 'specialization' className="bld" value = {inputs.specialization || ''} onChange = {handleChange}>
+                <select name = 'specialization' className="bld" value = {inputs.specialization || ''} onChange = {handleChange} required>
                     <option value = 'allergist' onChange = {handleChange}>Allergist</option>
                     <option value = 'anesthesiologist' onChange = {handleChange}>Anesthesiologist</option>
                     <option value = 'cardiologist' onChange = {handleChange}>Cardiologist</option>
@@ -100,6 +101,7 @@ function MyForm(props){
             <Form.Label>Date of Birth</Form.Label>
             <input className="input" type = "date" name = "dateOfBirth"
                         value = {inputs.dateOfBirth || ''} onChange = {handleChange}
+                        min="1961-01-01" max="1999-12-31"
                         required></input>
             </Form.Group>
 
@@ -108,6 +110,7 @@ function MyForm(props){
             <Form.Label>Address</Form.Label>
             <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
+                        maxLength="30"
                         required></input>
             </Form.Group>
 
@@ -120,7 +123,7 @@ function MyForm(props){
 
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "text" name = "phone" placeholder = "Enter phone number"
+            <input className="input" type = "tel" name = "phone" placeholder = "Enter phone number"
                         value = {inputs.phone || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>

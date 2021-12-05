@@ -58,6 +58,7 @@ function MyForm(props){
             <Form.Label>Patient Name</Form.Label>
             <input className="input" type = "text" name = "patientName" placeholder = "Enter patient name"
                         value = {inputs.patientName || ''} onChange = {handleChange}
+                        minLength="3" maxLength="15"
                         required></input>
             </Form.Group>
 

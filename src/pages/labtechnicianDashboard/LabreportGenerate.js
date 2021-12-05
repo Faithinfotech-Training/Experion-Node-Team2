@@ -63,6 +63,7 @@ function MyForm(props){
                 <Form.Label>Test Name</Form.Label>
                 <input className="input" type = "text" name = "testName" placeholder = "Enter Test Name"
                         value = {inputs.testName || ''} onChange = {handleChange} 
+                        minLength="3" maxLength="20"
                         required></input>
             </Form.Group>
            
@@ -70,6 +71,7 @@ function MyForm(props){
             <Form.Label>Description</Form.Label>
             <input className="input" type = "text" name = "description"
                         value = {inputs.description || ''} onChange = {handleChange}
+                        minLength="3" maxLength="30"
                         required></input>
             </Form.Group>
 
@@ -98,6 +100,7 @@ function MyForm(props){
             <Form.Label>Remarks</Form.Label>
             <input className="input" type = "text" name = "remarks" placeholder = "Enter the comments"
                         value = {inputs.remarks || ''} onChange = {handleChange}
+                        maxLength="30"
                         required></input>
             </Form.Group>
        

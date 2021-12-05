@@ -68,12 +68,13 @@ function MyForm(props){
             <Form.Label>Password</Form.Label>
             <input className="input" type = "password" name = "password" placeholder = "Enter a strong password"
                         value = {inputs.password || ''} onChange = {handleChange}
+                        minLength="4" maxLength="10"
                         required></input>
             </Form.Group>
 
             <Form.Group className="mb-3">
             <Form.Label>Role</Form.Label>
-                <select name = 'roleId' className="bld" onChange = {handleChange}>
+                <select name = 'roleId' className="bld" onChange = {handleChange} required>
                     <option>Choose one</option>
                     <option value = "1" onChange = {handleChange}>Admin</option>
                     <option value = '2' onChange = {handleChange}>Doctor</option>

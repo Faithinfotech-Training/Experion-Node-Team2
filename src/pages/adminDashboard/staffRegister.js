@@ -52,12 +52,13 @@ function MyForm(props){
                 <Form.Label>Full Name</Form.Label>
                 <input className="input" type = "text" name = "staffName" placeholder = "Enter full name"
                         value = {inputs.staffName || ''} onChange = {handleChange} 
+                        minLength="3" maxLength="15"
                         required></input>
             </Form.Group>
 
             <Form.Group className="mb-3">
             <Form.Label>Staff type</Form.Label>
-                <select name = 'staffType' className="bld" onChange = {handleChange}>
+                <select name = 'staffType' className="bld" onChange = {handleChange} required>
                     <option>Choose one</option>
                     <option value = 'admin' onChange = {handleChange}>Admin</option>
                     <option value = 'driver' onChange = {handleChange}>Driver</option>
@@ -90,6 +91,7 @@ function MyForm(props){
             <Form.Label>Date of Birth</Form.Label>
             <input className="input" type = "date" name = "dateOfBirth"
                         value = {inputs.dateOfBirth || ''} onChange = {handleChange}
+                        min="1961-01-01" max="2003-12-31"
                         required></input>
             </Form.Group>
 
@@ -98,6 +100,7 @@ function MyForm(props){
             <Form.Label>Address</Form.Label>
             <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                         value = {inputs.address || ''} onChange = {handleChange} 
+                        maxLength="30"
                         required></input>
             </Form.Group>
 
@@ -110,7 +113,7 @@ function MyForm(props){
 
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "text" name = "phone" placeholder = "Enter phone number"
+            <input className="input" type = "tel" name = "phone" placeholder = "Enter phone number"
                         value = {inputs.phone || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>

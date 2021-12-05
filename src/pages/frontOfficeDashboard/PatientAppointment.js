@@ -88,6 +88,7 @@ function MyForm(props) {
                 <Form.Label>Doctor Name</Form.Label>
                 <input className="input" type="text" name="doctorName" placeholder="Enter doctor name"
                             value={inputs.doctorName || ''} onChange={handleChange}
+                            minLength="3" maxLength="15"
                             required></input>
             </Form.Group>
 
@@ -95,6 +96,7 @@ function MyForm(props) {
             <Form.Label>Appointment Date</Form.Label>
             <input className="input" type="date" name="appointmentDate" 
                             value={inputs.appointmentDate || ''} onChange={handleChange}
+                            max="2021-12-31"
                             required></input>
             </Form.Group>
 

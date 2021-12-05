@@ -68,6 +68,7 @@ function PatientEdit() {
                     <Form.Label>Full Name</Form.Label>
                     <input className="input" type = "text" name = "patientName" placeholder = "Enter full name"
                             value = {Inputs.patientName || ''} onChange = {handleChange} 
+                            minLength="3" maxLength="15"
                             required></input>
                 </Form.Group>
     
@@ -86,6 +87,7 @@ function PatientEdit() {
                 <Form.Label>Address</Form.Label>
                 <input className="input" type = "text" name = "address" placeholder = "Enter Address"
                             value = {Inputs.address || ''} onChange = {handleChange} 
+                            maxLength="30"
                             required></input>
                 </Form.Group>
     
@@ -93,7 +95,7 @@ function PatientEdit() {
     
                 <Form.Group className="mb-3" controlId="formBasicNumber">
                 <Form.Label>Phone</Form.Label>
-                <input className="input" type = "text" name = "phoneNumber" placeholder = "Enter phone number"
+                <input className="input" type = "tel" name = "phoneNumber" placeholder = "Enter phone number"
                             value = {Inputs.phoneNumber || ''} onChange = {handleChange} 
                             required></input>
                 </Form.Group>

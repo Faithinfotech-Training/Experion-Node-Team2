@@ -102,6 +102,7 @@ function MyForm(props){
             <Form.Label>Amount  </Form.Label>
             <input className="input" type = "number" name = "billAmount" placeholder = "Enter bill amount"
                         value = {inputs.billAmount|| ''} onChange = {handleChange} 
+                        
                         required></input>
             </Form.Group>
 
