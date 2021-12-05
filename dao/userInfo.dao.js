@@ -1,0 +1,1 @@
+//Dao in not included for the userInfo table.
