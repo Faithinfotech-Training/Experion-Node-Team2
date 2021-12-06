@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 import roleController from '../../helpers/roleLogin/roleLogin';
+import dates from '../../helpers/todayDate/getDate';
 
 function EventEdit(){
     const {id} = useParams();
@@ -81,7 +82,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Event</Form.Label>
             <input className="input" type = "date" name = "dateOfEvent"
-                        value = {inputs.dateOfEvent || ''} onChange = {handleChange}
+                        value = {inputs.dateOfEvent || ''} onChange = {handleChange} min = {dates.getDate()}
                         required></input>
             </Form.Group>
 

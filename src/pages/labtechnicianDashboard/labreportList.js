@@ -13,6 +13,9 @@ function LabReportList(){
     //Initialize the use state, to store data
     const [tests, setTests] = useState([]);
 
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     //is loaded. eg: adds are only loaded after loading the components of page 
     useEffect(() => {
         axios.get('http://localhost:4000/reports') //gets data from api
@@ -29,13 +32,28 @@ function LabReportList(){
       <>
       <div className = "cardsList">
         <center><h1>Lab Reports</h1></center>
-        <div>
-            {tests.map(tests => 
-                    <div key = {tests.labReportId}>
-                        <LabReport details = {tests}/>
-                    </div>
-                )}
-        </div>
+
+        &nbsp;&nbsp;<input type='text' 
+          name='search' placeholder='Search'
+          onChange={event =>setSearch(event.target.value)} /><br/><br/>
+
+        {tests.length === 0 ? (<h3>No Reports Generated !</h3>) : ( 
+          <div>
+          {tests.filter((test) => {
+              if (search === ''){
+                return test
+              }
+              else if (test.testName.toLowerCase().includes(search.toLowerCase())){
+                return test
+              }
+            }).map(tests => 
+              <div key = {tests.labReportId}>
+                  <LabReport details = {tests}/>
+              </div>
+              )}
+          </div>
+        )}
+
       </div>
       </>
     );

@@ -9,7 +9,23 @@ function Listall(){
         window.location = '/login'
       }
 
+      const[doctor, setDoctor] = useState([]);
+      useEffect(()=>{
+          var email = localStorage.getItem('myemail');
+          console.log(email)
+          axios
+          .get(`http://localhost:4000/doctors/doctoremail/${email}`)
+          .then(response=>{
+              console.log('Promise was fullfilled')
+              console.log(response.data)
+              setDoctor(response.data[0])
+
+          })
+      },[]);  
+
+    console.log(doctor)
     const[appoinments, setAppoinments]=useState([]);
+
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -19,23 +35,32 @@ function Listall(){
     console.log(today);
 
     useEffect(()=>{
-        axios
+
+        setTimeout(() => {
+           axios
         .get(`http://localhost:4000/appointments/bydate/${today}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response.data)
             setAppoinments(response.data)
-        })
+        }) 
+        },[]);
+
     },[]);
-        
+ 
         return(<>
+        
         <center><h2>Appointments</h2></center>
-                 <div>{appoinments.map(appoinment=>
+        <center><h2>Dr. {doctor.doctorName} </h2></center>
+
+            <div>{appoinments.map(appoinment=>
                     <div key={appoinment.id}> 
                         <Patients details= {appoinment}/>
                     </div>)}
                 </div>
-                 </>)
+                
+    </>
+    )
    
    }
 

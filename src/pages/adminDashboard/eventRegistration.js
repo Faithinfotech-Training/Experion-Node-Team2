@@ -2,6 +2,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import roleController from '../../helpers/roleLogin/roleLogin';
+import dates from '../../helpers/todayDate/getDate';
 
 function RegisterEvent(){
     return (
@@ -69,7 +70,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Event</Form.Label>
             <input className="input" type = "date" name = "dateOfEvent"
-                        value = {inputs.dateOfEvent || ''} onChange = {handleChange}
+                        value = {inputs.dateOfEvent || ''} onChange = {handleChange} min = {dates.getDate()}
                         required></input>
             </Form.Group>
 

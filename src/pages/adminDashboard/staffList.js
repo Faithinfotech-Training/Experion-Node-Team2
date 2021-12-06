@@ -13,6 +13,9 @@ function StaffList(){
     //Initialize the use state, to store data
     const [staffs, setStaffs] = useState([]);
 
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     //Only fetch the data after some time, after every other component
     //is loaded. eg: adds are only loaded after loading the components of page 
     useEffect(() => {
@@ -29,17 +32,31 @@ function StaffList(){
       <>
       <div>
         <center><h1>Staff List</h1></center>
-        <div className = "staffCards">
-            {staffs.map(staff => 
-                    <div key = {staff.staffId}>
-                        <Staff details = {staff}/>
-                    </div>
-                )}
-        </div>
 
+        &nbsp;&nbsp;<input type='text' 
+          name='search' placeholder='Search'
+          onChange={event =>setSearch(event.target.value)} /><br/><br/>
+
+        {staffs.length === 0 ? (<h3>No staffs registered !</h3>) : ( 
+          <div className = "staffCards">
+          {staffs.filter((staff) => {
+              if (search === ''){
+                return staff
+              }
+              else if (staff.staffName.toLowerCase().includes(search.toLowerCase())){
+                return staff
+              }
+            }).map(staff => 
+                  <div key = {staff.staffId}>
+                      <Staff details = {staff}/>
+                  </div>
+              )}
+      </div>
+      )}
+      
       </div>
       </>
     );
 };
-  
+
 export default StaffList;
