@@ -65,14 +65,25 @@ function find(req, res) {
         });
 }
 
+function findDoctorsByName(req, res) {
+    doctorInfoDao.findByName(req.params.doctorName).
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+
 var doctorInfoController = {
     add: add,
     find: find,
     findById: findById,
     update: update,
     deleteById: deleteById,
-    findByEmail:findByEmail
+    findByEmail:findByEmail,
+    findDoctorsByName:findDoctorsByName
 }
-
 
 module.exports = doctorInfoController;
