@@ -8,7 +8,18 @@ function Listall(){
     if(!roleController.isDoctor()){
         window.location = '/login'
       }
-
+    var email = localStorage.getItem('myemail');
+    const[doctor, setDoctor]=useState([]);
+    useEffect(()=>{
+        axios
+        .get(`http://localhost:4000/doctors/doctoremail/${email}`)
+        .then(response=>{
+            console.log('Promise was fullfilled')
+            console.log(response.data)
+            setDoctor(response.data)
+        })
+    },[]);
+    
     const[appoinments, setAppoinments]=useState([]);
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -29,12 +40,15 @@ function Listall(){
     },[]);
         
         return(<>
+        
         <center><h2>Appointments</h2></center>
+        <center><h2>Doctor Name: Dr. {doctor.doctorName}</h2></center>
+        {appoinments.doctorId==doctor.doctorId &&
                  <div>{appoinments.map(appoinment=>
                     <div key={appoinment.id}> 
                         <Patients details= {appoinment}/>
                     </div>)}
-                </div>
+                </div>}
                  </>)
    
    }
