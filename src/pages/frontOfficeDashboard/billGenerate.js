@@ -76,8 +76,7 @@ function MyForm(props){
 
 
         <Form.Group className="mb-3" controlId="formBasicNumber">
-            <Form.Label>Patient ID  </Form.Label>
-            <input className="input" type = "integer" name = "patientId" placeholder = "Enter patient id"
+            <input className="input" type = "hidden" name = "patientId" placeholder = "Enter patient id"
                         value = {inputs.patientId|| ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>

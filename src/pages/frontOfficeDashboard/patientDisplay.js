@@ -14,6 +14,10 @@ function PatientDisplay() {
 
     const [inputs, setInputs] = useState([])
 
+    
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     useEffect(() => {
         console.log('the use effect hook has been executed');
         axios.get('http://localhost:4000/patients')
@@ -27,14 +31,29 @@ function PatientDisplay() {
 
     return (<>
         <div className="billCards">
-            <center>  <h1>Registered Patient List</h1></center><br />
-            <div >
-                {inputs.map(patient =>
-                    <div key={patient.patientId} >
-                        <Patient details={patient} />
-                    </div>
-                )}
-            </div>
+            <center><h1>Registered Patient List</h1></center><br />
+
+            &nbsp;&nbsp;<input type='text' 
+                name='search' placeholder='Search'
+                onChange={event =>setSearch(event.target.value)} /><br/><br/>
+
+            {inputs.length === 0 ? (<h3>No Patients registered !</h3>) : ( 
+                <div className = "staffCards">
+                {inputs.filter((patient) => {
+                    if (search === ''){
+                        return patient
+                    }
+                    else if (patient.patientName.toLowerCase().includes(search.toLowerCase())){
+                        return patient
+                    }
+                }).map(patient => 
+                  <div key = {patient.PatientId}>
+                      <Patient details = {patient}/>
+                  </div>
+              )}
+      </div>
+      )}
+
             <hr />
         </div>
     </>);

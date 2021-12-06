@@ -18,10 +18,8 @@ function Bill(props) {
                             <Card.Body>
                                 <Card.Title> <h3 > Full Name : {props.details.patientName}</h3>  </Card.Title>
                                 <Card.Title> <h3>Amount to be paid : {props.details.billAmount} /-</h3>  </Card.Title>
-                                <Button  type="button" value="Print this page" onClick={window.print()}>
-                               
+                                <Button type="button">
                                         Print
-                                    
                                 </Button>
                             </Card.Body>
                         </Card>

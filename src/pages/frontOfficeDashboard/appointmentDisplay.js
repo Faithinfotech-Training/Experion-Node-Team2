@@ -14,6 +14,9 @@ function AppointmentDisplay() {
 
     const [inputs, setInputs] = useState([])
 
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     useEffect(() => {
         console.log('the use effect hook has been executed');
         axios.get('http://localhost:4000/appointments')
@@ -28,20 +31,28 @@ function AppointmentDisplay() {
     return (<>
         <div>
             <center><h1>Appointments</h1></center><br/>
-            <div >
-                <div>
-                    <ul >
-                        {inputs.map(appointment =>
-                            <li key={appointment.id} >
-                                <Appointment details={appointment} />
-                            </li>
-                        )}
 
-                    </ul>
+            &nbsp;&nbsp;<input type='text' 
+                name='search' placeholder='Search'
+                onChange={event =>setSearch(event.target.value)} /><br/><br/>
 
+            {inputs.length === 0 ? (<h3>No Appointments !</h3>) : ( 
+                <div className = "staffCards">
+                    {inputs.filter((appointment) => {
+                        if (search === ''){
+                            return appointment
+                        }
+                        else if (appointment.patientName.toLowerCase().includes(search.toLowerCase())){
+                        return appointment
+                        }
+                    }).map(appointment => 
+                        <div key = {appointment.id}>
+                            <Appointment details = {appointment}/>
+                        </div>
+              )}
+      </div>
+      )}
 
-                </div>
-            </div>
             <hr />
         </div>
     </>);
