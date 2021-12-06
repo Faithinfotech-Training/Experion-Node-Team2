@@ -50,7 +50,7 @@ function ReportDetails(){
       <div>
         <center><h1>Test Details</h1></center>
         <div className = "cardsList">
-        <Card className="text-center">
+        <Card className="text">
           <Card.Header></Card.Header>
           <Card.Body>
             <Card.Title>
@@ -61,9 +61,9 @@ function ReportDetails(){
             <h4>Remarks : {test.remarks}</h4>
             <h4>Date : {test.reportDate}</h4>
             </Card.Title>
-            <Button variant="primary" type ='button' id = 'edit' onClick = {() =>navigate(`/reportedit/${test.labReportId}`)}>Edit</Button>
+            <center><Button variant="primary" type ='button' id = 'edit' onClick = {() =>navigate(`/reportedit/${test.labReportId}`)}>Edit</Button>
         &nbsp;&nbsp;
-        <Button variant="danger" onClick = {goToDetails} >Cancel</Button>
+        <Button variant="danger" onClick = {goToDetails} >Cancel</Button></center>
           </Card.Body>
         </Card>
         </div>

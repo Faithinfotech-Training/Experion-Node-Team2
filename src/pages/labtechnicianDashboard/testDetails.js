@@ -45,7 +45,7 @@ function TestDetails(){
     return(
       <>
       <div className = "cardsList">
-        <Card className="text-center">
+        <Card className="text">
           <Card.Header></Card.Header>
           <Card.Body>
             <Card.Title>
@@ -53,7 +53,7 @@ function TestDetails(){
             <h4>Description : {test.description}</h4>
             <h4>Patient Name : {patient.patientName}</h4>
             </Card.Title>
-            <Button variant = "primary" type ='button' onClick = {() =>navigate(`/generatereport/${test.testId}`)}>Begin test</Button>
+            <center><Button variant = "primary" type ='button' onClick = {() =>navigate(`/generatereport/${test.testId}`)}>Begin test</Button></center>
           </Card.Body>
         </Card>
 

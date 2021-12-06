@@ -12,6 +12,9 @@ function TestList(){
     //Initialize the use state, to store data
     const [tests, setTests] = useState([]);
 
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     //is loaded. eg: adds are only loaded after loading the components of page 
     useEffect(() => {
         
@@ -27,13 +30,28 @@ function TestList(){
       <>
       <div className = "cardsList">
         <center><h1>Lab Test List</h1></center>
-        <div>
-            {tests.map(test => 
-                    <div key = {test.testId}>
-                        <Test details = {test}/>
-                    </div>
-                )}
-        </div>
+
+        &nbsp;&nbsp;<input type='text' 
+          name='search' placeholder='Search'
+          onChange={event =>setSearch(event.target.value)} /><br/><br/>
+
+        {tests.length === 0 ? (<h3>No Tests Available !</h3>) : ( 
+          <div className = "staffCards">
+          {tests.filter((test) => {
+              if (search == ''){
+                return test
+              }
+              else if (test.testName.toLowerCase().includes(search.toLowerCase())){
+                return test
+              }
+            }).map(test => 
+                <div key = {test.testId}>
+                  <Test details = {test}/>
+                </div>
+              )}
+          </div>
+        )}
+        
       </div>
       </>
     );
