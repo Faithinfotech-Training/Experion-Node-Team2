@@ -21,6 +21,16 @@ function findById(req, res) {
         });
 }
 
+function findByEmail(req, res) {
+    doctorInfoDao.findByEmail(req.params.email).
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
 function deleteById(req, res) {
     doctorInfoDao.deleteById(req.params.doctorId).
         then((data) => {
@@ -60,7 +70,8 @@ var doctorInfoController = {
     find: find,
     findById: findById,
     update: update,
-    deleteById: deleteById
+    deleteById: deleteById,
+    findByEmail:findByEmail
 }
 
 

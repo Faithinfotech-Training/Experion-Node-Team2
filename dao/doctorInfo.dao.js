@@ -7,7 +7,9 @@ function findAll() {
 function findById(doctorId) {
     return doctorInfo.findByPk(doctorId);
 }
-
+function findByEmail(email) {
+    return doctorInfo.findAll({ where: { email: email } });
+}
 function deleteById(doctorId) {
     return doctorInfo.destroy({ where: { doctorId : doctorId } });
 }
@@ -38,7 +40,8 @@ var doctorInfoDao = {
     create: create,
     findById: findById,
     deleteById: deleteById,
-    update: update
+    update: update,
+    findByEmail:findByEmail
 }
 
 module.exports = doctorInfoDao;
