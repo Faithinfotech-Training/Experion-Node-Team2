@@ -12,14 +12,15 @@ function Prescription(){
         window.location = '/login'
       }
 
-    const {id}=useParams();
+    const {id} = useParams();
+    console.log(id)
    return (
         <>
         <center><h1>Prescription</h1></center>
         <br/>
-        <MedicineForm patient={id}/> 
+        <MedicineForm details = {id}/> 
         <hr/>
-        <TestForm patient={id}/>      
+        <TestForm patient = {id}/>      
         </>
     );
 }

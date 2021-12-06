@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
@@ -10,12 +10,12 @@ function TestForm(props){
 
     useEffect(()=>{
         axios
-        .get(`http://localhost:4000/patients/${props.patient.id}`)
+        .get(`http://localhost:4000/patients/${props.patient}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
             setInputs(response.data)
-        })},[props.patient.id])
+        })},[props.patient])
 
     function handleChange(event){
         const name = event.target.name;

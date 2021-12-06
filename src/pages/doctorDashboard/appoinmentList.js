@@ -9,17 +9,17 @@ function Listall(){
         window.location = '/login'
       }
 
-      const[doctor, setDoctor] = useState([]);
+    const[doctor, setDoctor] = useState([]);
+
       useEffect(()=>{
           var email = localStorage.getItem('myemail');
           console.log(email)
           axios
-          .get(`http://localhost:4000/doctors/doctoremail/${email}`)
-          .then(response=>{
+            .get(`http://localhost:4000/doctors/doctoremail/${email}`)
+            .then(response=>{
               console.log('Promise was fullfilled')
               console.log(response.data)
               setDoctor(response.data[0])
-
           })
       },[]);  
 
@@ -49,7 +49,8 @@ function Listall(){
     },[]);
  
         return(<>
-        
+        { doctor === undefined ? (goBack()) :
+        (<div>
         <center><h2>Appointments</h2></center>
         <center><h2>Dr. {doctor.doctorName} </h2></center>
         <h3>Date : {today}</h3>
@@ -59,9 +60,16 @@ function Listall(){
                         <Patients details= {appoinment}/>
                     </div>)}
                 </div>
+        </div>)
+        }
                 
     </>
     )
+
+    function goBack(){
+        alert("You are not registered ! contact admin. ");
+        window.location = '/'
+    }
    
    }
 

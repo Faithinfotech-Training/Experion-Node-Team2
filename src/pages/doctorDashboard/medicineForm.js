@@ -1,19 +1,19 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import dates from '../../helpers/todayDate/getDate';
 
 function MedicineForm(props){
     const [inputs, setInputs] = useState({});
-
+    console.log(props.details)
     useEffect(()=>{
         axios
-        .get(`http://localhost:4000/patients/${props.patient.id}`)
+        .get(`http://localhost:4000/patients/${props.details}`)
         .then(response=>{
             console.log('Promise was fullfilled')
             console.log(response)
             setInputs(response.data)
-        })},[props.patient.id])
+        })},[props.details])
 
     function handleChange(event){
         const name = event.target.name;
@@ -41,8 +41,8 @@ function MedicineForm(props){
 
         <Form onSubmit = {handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicText">
-                <input className="input" type = "hidden" name = "patientid" placeholder = "Enter Patient Id"
-                        value = {inputs.patientid || ''} onChange = {handleChange} 
+                <input className="input" type = "hidden" name = "patientId" placeholder = "Enter Patient Id"
+                        value = {inputs.patientId || ''} onChange = {handleChange} 
                         required></input>
             </Form.Group>
             

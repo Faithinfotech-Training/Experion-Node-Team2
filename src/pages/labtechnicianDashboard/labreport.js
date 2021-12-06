@@ -16,8 +16,10 @@ function LabReport(props){
             </div>
           </Card.Body>
         </Card>
+ 
 
       </div>
+
       </>
     );
   };
