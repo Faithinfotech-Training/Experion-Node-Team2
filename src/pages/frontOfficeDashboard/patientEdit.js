@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { Form, Button } from 'react-bootstrap';
 import roleController from "../../helpers/roleLogin/roleLogin";
+import dates from "../../helpers/todayDate/getDate";
 
 
 function PatientEdit() {
@@ -49,7 +50,7 @@ function PatientEdit() {
                     console.log('Promise fullfilled');
                     console.log(response);
                     setInputs(response.data)
-                    alert('patient detals has been updated')
+                    alert('patient details has been updated')
                     window.location = '/patientDisplay';
                 })
         }
@@ -78,6 +79,7 @@ function PatientEdit() {
                             value = {Inputs.dateOfBirth || ''} onChange = {handleChange}
                             onFocus={(e) => (e.currentTarget.type = "date")}
                             onBlur={(e) => (e.currentTarget.type = "text")}
+                            max = {dates.getDate()}
                             required></input>
                 </Form.Group>
     

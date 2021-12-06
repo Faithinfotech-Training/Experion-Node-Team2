@@ -8,3 +8,8 @@
 .floatright{
     float : right
 }
+
+.whole_width{
+    width:70%;
+    margin-left: 15%;
+}
