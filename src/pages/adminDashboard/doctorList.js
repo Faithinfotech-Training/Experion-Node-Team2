@@ -14,6 +14,9 @@ function DoctorList(){
     //Initialize the use state, to store data
     const [staffs, setStaffs] = useState([]);
 
+    //Initialize the use state for searching
+    const [search, setSearch] = useState('')
+
     //Only fetch the data after some time, after every other component
     //is loaded. eg: adds are only loaded after loading the components of page 
     useEffect(() => {
@@ -31,9 +34,20 @@ function DoctorList(){
       <div>
         <center><h1>Doctor List</h1></center>
 
+        &nbsp;&nbsp;<input type='text' 
+          name='search' placeholder='Search'
+          onChange={event =>setSearch(event.target.value)} /><br/><br/>
+
         {staffs.length === 0 ? (<h3>No Doctors registered !</h3>) : ( 
           <div className = "staffCards">
-          {staffs.map(staff => 
+          {staffs.filter((staff) => {
+              if (search == ''){
+                return staff
+              }
+              else if (staff.doctorName.toLowerCase().includes(search.toLowerCase())){
+                return staff
+              }
+            }).map(staff => 
                   <div key = {staff.doctorId}>
                       <Doctor details = {staff}/>
                   </div>
