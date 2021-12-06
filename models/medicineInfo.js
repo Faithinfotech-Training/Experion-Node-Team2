@@ -7,7 +7,7 @@ const medicineInfo = db.define('Medicines', {
         primaryKey: true,
         autoIncrement: true
     },
-    patientid: {
+    patientId: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
