@@ -17,6 +17,10 @@ function create(doctor) {
     return newDoctor.save();
 }
 
+function findByName(doctorName) {
+    return doctorInfo.findAll({ where: { doctorName: doctorName } });
+}
+
 function update(doctor, doctorId) {
     var updateDoctor = {
         doctorId: doctor.doctorId,
@@ -38,7 +42,8 @@ var doctorInfoDao = {
     create: create,
     findById: findById,
     deleteById: deleteById,
-    update: update
+    update: update,
+    findByName:findByName
 }
 
 module.exports = doctorInfoDao;

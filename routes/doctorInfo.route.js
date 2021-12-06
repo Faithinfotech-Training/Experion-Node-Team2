@@ -8,5 +8,6 @@ router.get('/', doctorInfoController.find);
 router.get('/:doctorId', doctorInfoController.findById);
 router.put('/:doctorId', doctorInfoController.update);
 router.delete('/:doctorId', doctorInfoController.deleteById);
+router.get('/doctor/:doctorName',doctorInfoController.findDoctorsByName)
 
 module.exports = router;
