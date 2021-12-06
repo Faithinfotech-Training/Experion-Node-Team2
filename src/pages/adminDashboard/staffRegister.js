@@ -108,7 +108,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Join</Form.Label>
             <input className="input" type = "date" name = "dateOfJoin"
-                        value = {inputs.dateOfJoin || ''} onChange = {handleChange} 
+                        value = {inputs.dateOfJoin || ''} onChange = {handleChange} max = {dates.getDate()}
                         required></input>
             </Form.Group>
 

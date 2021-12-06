@@ -30,13 +30,16 @@ function EventList(){
       <>
       <div>
         <center><h1>Event List</h1></center>
-        <div className = "staffCards">
-            {staffs.map(staff => 
-                    <div key = {staff.id}>
-                        <Event details = {staff}/>
-                    </div>
-                )}
-        </div>
+
+        {staffs.length === 0 ? (<h3>No Events Available !</h3>) : ( 
+          <div className = "staffCards">
+          {staffs.map(staff => 
+                  <div key = {staff.id}>
+                      <Event details = {staff}/>
+                  </div>
+              )}
+      </div>
+      )}
       </div>
       </>
     );

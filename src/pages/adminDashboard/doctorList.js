@@ -30,13 +30,16 @@ function DoctorList(){
       <>
       <div>
         <center><h1>Doctor List</h1></center>
-        <div className = "staffCards">
-            {staffs.map(staff => 
-                    <div key = {staff.doctorId}>
-                        <Doctor details = {staff}/>
-                    </div>
-                )}
-        </div>
+
+        {staffs.length === 0 ? (<h3>No Doctors registered !</h3>) : ( 
+          <div className = "staffCards">
+          {staffs.map(staff => 
+                  <div key = {staff.doctorId}>
+                      <Doctor details = {staff}/>
+                  </div>
+              )}
+      </div>
+      )}
 
       </div>
       </>

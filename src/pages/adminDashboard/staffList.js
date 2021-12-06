@@ -29,14 +29,16 @@ function StaffList(){
       <>
       <div>
         <center><h1>Staff List</h1></center>
-        <div className = "staffCards">
-            {staffs.map(staff => 
-                    <div key = {staff.staffId}>
-                        <Staff details = {staff}/>
-                    </div>
-                )}
-        </div>
-
+        {staffs.length === 0 ? (<h3>No staffs are registered !</h3>) : ( 
+          <div className = "staffCards">
+          {staffs.map(staff => 
+                  <div key = {staff.staffId}>
+                      <Staff details = {staff}/>
+                  </div>
+              )}
+      </div>
+      )}
+      
       </div>
       </>
     );

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 import roleController from '../../helpers/roleLogin/roleLogin';
+import dates from '../../helpers/todayDate/getDate';
 
 function DoctorEdit(){
     const {doctorId} = useParams();
@@ -101,7 +102,7 @@ function MyForm(props){
             <Form.Label>Date of Birth</Form.Label>
             <input className="input" type = "date" name = "dateOfBirth"
                         value = {inputs.dateOfBirth || ''} onChange = {handleChange}
-                        min="1961-01-01" max="1999-12-31"
+                        max = {dates.childLabour()}
                         required></input>
             </Form.Group>
 
@@ -117,7 +118,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Join</Form.Label>
             <input className="input" type = "date" name = "dateOfJoin"
-                        value = {inputs.dateOfJoin || ''} onChange = {handleChange} 
+                        value = {inputs.dateOfJoin || ''} onChange = {handleChange} max = {dates.getDate()}
                         required></input>
             </Form.Group>
 
