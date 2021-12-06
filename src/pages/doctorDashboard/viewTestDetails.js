@@ -9,7 +9,7 @@ function ViewTestDetails(){
     if(!roleController.isDoctor()){
         window.location = '/login'
       }
-
+    //tests details viewing 
     const[tests, setTests]=useState([]);
     const {id}=useParams()
         useEffect(()=>{

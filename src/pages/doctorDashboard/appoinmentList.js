@@ -8,20 +8,20 @@ function Listall(){
     if(!roleController.isDoctor()){
         window.location = '/login'
       }
+  //searching  doctor based on the email in local storage
+       const[doctor, setDoctor] = useState([]);
 
-    const[doctor, setDoctor] = useState([]);
-
-      useEffect(()=>{
-          var email = localStorage.getItem('myemail');
-          console.log(email)
-          axios
+       useEffect(()=>{
+            var email = localStorage.getItem('myemail');
+            console.log(email)
+            axios
             .get(`http://localhost:4000/doctors/doctoremail/${email}`)
             .then(response=>{
               console.log('Promise was fullfilled')
               console.log(response.data)
               setDoctor(response.data[0])
-          })
-      },[]);  
+             })
+            },[]);  
 
     console.log(doctor)
     const[appoinments, setAppoinments]=useState([]);
@@ -33,7 +33,7 @@ function Listall(){
 
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
-
+     //viewing the patients for the current date
     useEffect(()=>{
 
         setTimeout(() => {
@@ -47,7 +47,7 @@ function Listall(){
         },[]);
 
     },[]);
- 
+  //mapping the appoinments
         return(<>
         { doctor === undefined ? (goBack()) :
         (<div>
