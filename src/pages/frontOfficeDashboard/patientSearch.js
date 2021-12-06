@@ -37,9 +37,15 @@ function MyForm(props){
         axios.get(`http://localhost:4000/patients/patient/${inputs.patientName}`)
             .then(response => { 
                 console.log(response);
-                setInputs(response.data);
-                alert('Patient Exits ! Add appointment')
-                console.log(inputs[0].patientId)
+                if(response.data.length === 0){
+                    alert('Patient Not Registered !')
+                    window.location = '/registerPatient'
+                }
+                else{
+                   setInputs(response.data);
+                    alert('Patient Exits ! Add appointment')
+                    console.log(inputs[0].patientId) 
+                }
             })
             .catch(error => {
                 if(error.response){
@@ -64,7 +70,9 @@ function MyForm(props){
 
             <center>
             <Button variant="primary" type="submit">Check</Button>&nbsp;&nbsp;
-            <Button variant="danger" onClick = {() => navigate(`/patientappointment/${inputs[0].patientId}`)} >Add Appointment</Button>
+            {inputs.length > 0 ? 
+                <Button variant="danger" onClick = {() => navigate(`/patientappointment/${inputs[0].patientId}`)} >Add Appointment</Button> :
+                console.log('Dummy')  }
             </center>
         </Form>
 

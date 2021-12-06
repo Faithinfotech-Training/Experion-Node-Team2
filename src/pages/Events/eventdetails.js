@@ -9,7 +9,7 @@ function Event(props){
           <Card.Header>{props.details.eventName}</Card.Header>
           <Card.Body>
             <Card.Title>{props.details.description}</Card.Title>
-            <Card.Text> Date : {props.details.description}</Card.Text>
+            <Card.Text> Date : {props.details.dateOfEvent}</Card.Text>
           </Card.Body>
         </Card>
         <br/>

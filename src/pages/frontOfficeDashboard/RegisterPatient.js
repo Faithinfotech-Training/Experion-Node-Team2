@@ -58,7 +58,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Birth</Form.Label>
             <input className="input" type = "date" name = "dateOfBirth"
-                        value = {inputs.dateOfBirth || ''} onChange = {handleChange}
+                        value = {inputs.dateOfBirth || ''} onChange = {handleChange} max = {getDate()}
                         required></input>
             </Form.Group>
 
@@ -74,8 +74,8 @@ function MyForm(props){
            
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "tel" name = "phoneNumber" placeholder = "Enter phone number"
-                        value = {inputs.phoneNumber || ''} onChange = {handleChange} 
+            <input className="input" type = "text" name = "phoneNumber" placeholder = "Enter phone number"
+                        value = {inputs.phoneNumber || ''} onChange = {handleChange} maxLength = '10'
                         required></input>
             </Form.Group>
 
@@ -89,6 +89,17 @@ function MyForm(props){
         </div>
         </>
     );
+
+
+    function getDate(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        return today
+    }
 
 };
 export default RegisterPatient;

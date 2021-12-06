@@ -2,6 +2,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import roleController from '../../helpers/roleLogin/roleLogin';
+import dates from '../../helpers/todayDate/getDate';
 
 function RegisterStaff(){
     return (
@@ -91,7 +92,7 @@ function MyForm(props){
             <Form.Label>Date of Birth</Form.Label>
             <input className="input" type = "date" name = "dateOfBirth"
                         value = {inputs.dateOfBirth || ''} onChange = {handleChange}
-                        min="1961-01-01" max="2003-12-31"
+                        min="1961-01-01" max={dates.childLabour()}
                         required></input>
             </Form.Group>
 
@@ -113,7 +114,7 @@ function MyForm(props){
 
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Phone</Form.Label>
-            <input className="input" type = "tel" name = "phone" placeholder = "Enter phone number"
+            <input className="input" type = "text" name = "phone" placeholder = "Enter phone number"
                         value = {inputs.phone || ''} onChange = {handleChange} minlength="10" maxlength="10"
                         required></input>
             </Form.Group>

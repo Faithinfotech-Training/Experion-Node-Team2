@@ -150,8 +150,6 @@ function MyRouter() {
                 <Link className="link" to="/about">About Us</Link>
                 {localStorage.getItem('mytoken') && <div><Link className="link" onClick={() => window.location = '/login'} to="/login">Logout</Link></div>}
 
-
-                
               </Nav>
             </Navbar.Collapse>
           </Container>
