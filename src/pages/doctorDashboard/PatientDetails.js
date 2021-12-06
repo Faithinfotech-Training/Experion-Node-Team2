@@ -28,7 +28,7 @@ function PatientDetails(){
     
       return(
         <div className="forDoctorPage">
-        <Card className="text-center">
+        <Card className="text">
         <Card.Header>Patient Details</Card.Header>
         <Card.Body>
           <Card.Title> Patient Name :{patients.patientName}</Card.Title>
@@ -39,8 +39,8 @@ function PatientDetails(){
 
           <Card.Text>
           </Card.Text>
-          <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
-          <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button>
+          <center><Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
+          <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button></center>
         </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>
       </Card>

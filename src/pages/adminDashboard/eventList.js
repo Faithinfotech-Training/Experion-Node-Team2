@@ -41,7 +41,7 @@ function EventList(){
         {staffs.length === 0 ? (<h3>No Events Available !</h3>) : ( 
           <div className = "staffCards">
           {staffs.filter((staff) => {
-              if (search == ''){
+              if (search === ''){
                 return staff
               }
               else if (staff.eventName.toLowerCase().includes(search.toLowerCase())){

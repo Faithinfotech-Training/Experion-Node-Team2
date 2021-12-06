@@ -16,19 +16,40 @@ function PatientList(props){
         setPatients(response.data)
     })},[props.details.patientId])
 
+
+    const[doctor, setDoctor] = useState([]);
+    useEffect(()=>{
+        var email = localStorage.getItem('myemail');
+        console.log(email)
+        axios
+        .get(`http://localhost:4000/doctors/doctoremail/${email}`)
+        .then(response=>{
+            console.log('Promise was fullfilled')
+            console.log(response.data)
+            setDoctor(response.data[0])
+
+        })
+    },[]);  
+    console.log(doctor)  
+
+
   return(
+    <>
+    { doctor.doctorId === props.details.doctorId &&
     <div className="forDoctorPage">
-    <Card className="text-center">
-  <Card.Header> Patient Name : {patients.patientName}</Card.Header>
-  <Card.Body>
-    <Card.Title> Patient ID :{patients.patientId}</Card.Title>
-    <Card.Text>
-    </Card.Text>
-    <Button variant="primary"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></Button>
-  </Card.Body>
-  <Card.Footer className="text-muted"></Card.Footer>
-</Card>
-</div>
-)
+    <Card className="text">
+        <Card.Header> Patient Name : {patients.patientName}</Card.Header>
+          <Card.Body>
+          <Card.Title> Patient ID :{patients.patientId}</Card.Title>
+          <div className="floatright">
+          <Button variant="primary"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></Button>
+          </div>
+          </Card.Body>
+        <Card.Footer className="text-muted"></Card.Footer>
+    </Card>
+    </div>
+    }
+    </>
+  )
 }
 export default PatientList;

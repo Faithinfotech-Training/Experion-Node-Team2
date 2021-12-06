@@ -38,7 +38,7 @@ function TestList(){
         {tests.length === 0 ? (<h3>No Tests Available !</h3>) : ( 
           <div className = "staffCards">
           {tests.filter((test) => {
-              if (search == ''){
+              if (search === ''){
                 return test
               }
               else if (test.testName.toLowerCase().includes(search.toLowerCase())){

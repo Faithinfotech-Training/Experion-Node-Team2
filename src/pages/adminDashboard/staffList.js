@@ -40,7 +40,7 @@ function StaffList(){
         {staffs.length === 0 ? (<h3>No staffs registered !</h3>) : ( 
           <div className = "staffCards">
           {staffs.filter((staff) => {
-              if (search == ''){
+              if (search === ''){
                 return staff
               }
               else if (staff.staffName.toLowerCase().includes(search.toLowerCase())){

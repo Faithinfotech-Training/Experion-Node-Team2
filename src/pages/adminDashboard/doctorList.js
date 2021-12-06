@@ -41,7 +41,7 @@ function DoctorList(){
         {staffs.length === 0 ? (<h3>No Doctors registered !</h3>) : ( 
           <div className = "staffCards">
           {staffs.filter((staff) => {
-              if (search == ''){
+              if (search === ''){
                 return staff
               }
               else if (staff.doctorName.toLowerCase().includes(search.toLowerCase())){

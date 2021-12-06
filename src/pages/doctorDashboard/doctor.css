@@ -6,5 +6,7 @@
     background-color: black;
     color:white;
     margin: 2px solid black;
-
+}
+.floatright{
+    float: right;
 }

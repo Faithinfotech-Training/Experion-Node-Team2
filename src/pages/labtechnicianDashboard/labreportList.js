@@ -40,7 +40,7 @@ function LabReportList(){
         {tests.length === 0 ? (<h3>No Reports Generated !</h3>) : ( 
           <div>
           {tests.filter((test) => {
-              if (search == ''){
+              if (search === ''){
                 return test
               }
               else if (test.testName.toLowerCase().includes(search.toLowerCase())){
