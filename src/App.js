@@ -47,6 +47,9 @@ import PatientDetails from "./pages/doctorDashboard/PatientDetails";
 import PrescriptionAdd from "./pages/doctorDashboard/prescription";
 import Tests from "./pages/doctorDashboard/viewTestDetails";
 import Labresult from "./pages/doctorDashboard/testDetails";
+import EditMedicine from "./pages/doctorDashboard/editMedicine";
+import ViewPrescription from "./pages/doctorDashboard/viewPrescription"
+import PrescriptionDetails from "./pages/doctorDashboard/priscriptionDetails";
 
 //LabTechnician
 
@@ -198,6 +201,9 @@ function MyRouter() {
           <Route path="/prescriptionadd/:id" element={<PrescriptionAdd />} />
           <Route path="/patient/tests/:id" element={<Tests/>} />
           <Route path="/patient/labresult/:id" element={<Labresult/>} />
+          <Route path="/viewpriscription" element={<ViewPrescription/>}/>
+          <Route path="/priscdetails/:id" element={<PrescriptionDetails/>}/>
+          <Route path="/prescriptionedit/:id" element={<EditMedicine/>}/>
 
 
           {/* Routes for LabTechnician  */}
