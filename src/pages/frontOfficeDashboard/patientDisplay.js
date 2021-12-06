@@ -2,14 +2,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Patient from "./patient";
+import "./front.css"
 import roleController from "../../helpers/roleLogin/roleLogin";
 
 //destructuring react to get only useState
 function PatientDisplay() {
 
-    if(!roleController.isFrontoffice()){
+    if (!roleController.isFrontoffice()) {
         window.location = '/login'
-      }
+    }
 
     const [inputs, setInputs] = useState([])
 
@@ -25,21 +26,14 @@ function PatientDisplay() {
     }, [])
 
     return (<>
-        <div >
-          <center>  <h1>Registered Patient List</h1></center><br/>
+        <div className="billCards">
+            <center>  <h1>Registered Patient List</h1></center><br />
             <div >
-                <div>
-                    <ul >
-                        {inputs.map(patient =>
-                            <li key={patient.patientId} >
-                                <Patient details={patient} />
-                            </li>
-                        )}
-
-                    </ul>
-
-
-                </div>
+                {inputs.map(patient =>
+                    <div key={patient.patientId} >
+                        <Patient details={patient} />
+                    </div>
+                )}
             </div>
             <hr />
         </div>

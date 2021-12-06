@@ -87,6 +87,8 @@ function MyForm(props) {
                         setInputs(values => ({ ...values, [name]: value }))
                         console.log(inputs)
                     },500) 
+
+                
                 }
             })
             .catch(error => {
@@ -95,6 +97,8 @@ function MyForm(props) {
                 }
             })
     };
+
+
 
     function goToHome() {
         window.location = '/';

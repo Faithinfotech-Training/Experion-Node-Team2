@@ -25,7 +25,7 @@ function AppointmentDelete() {
 
                 setInputs(response.data)
                 alert('Appointment cancelled')
-               // window.location='/appointmentDisplay'
+                window.location='/appointmentDisplay'
             })
     }, [id])
 
