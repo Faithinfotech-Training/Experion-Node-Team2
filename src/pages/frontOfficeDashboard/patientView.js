@@ -30,9 +30,8 @@ function PatientView() {
 
     return (<>
         <div>
-            <h2>Staff List</h2>
             <hr/>
-            <h1>Deatils of {Inputs.patientName}</h1>
+            <h1>Details of {Inputs.patientName}</h1>
             <h4> First Name : {Inputs.patientName}</h4>
             <h4>Date of birth : {Inputs.dateOfBirth}</h4>
             <h4>Address : {Inputs.address}</h4>

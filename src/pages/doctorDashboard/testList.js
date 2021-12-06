@@ -22,13 +22,15 @@ function TestList(props){
 
   return(
     <div className="forDoctorPage">
-    <Card className="text-center">
+    <Card className="text">
   <Card.Header> Lab Report of Test : {props.details.testName}</Card.Header>
   <Card.Body>
     <Card.Title> Patient Name :{patients.patientName}</Card.Title>
     <Card.Text>
     </Card.Text>
+    <div className = "floatright">
     <Button variant="primary" onClick ={() => navigate(`/patient/labresult/${props.details.labReportId}`)}>View Details</Button>
+    </div>
   </Card.Body>
   <Card.Footer className="text-muted"></Card.Footer>
 </Card>

@@ -32,7 +32,6 @@ function PatientDetails(){
         <Card.Header>Patient Details</Card.Header>
         <Card.Body>
           <Card.Title> Patient Name :{patients.patientName}</Card.Title>
-          <Card.Title> Patient ID :{patients.patientId}</Card.Title>
           <Card.Title> DOB :{patients.dateOfBirth}</Card.Title>
           <Card.Title> Address :{patients.address}</Card.Title>
           <Card.Title> Phone Number:{patients.phoneNumber} </Card.Title>
