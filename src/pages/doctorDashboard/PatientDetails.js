@@ -12,7 +12,7 @@ function PatientDetails(){
   if(!roleController.isDoctor()){
     window.location = '/login'
   }
-
+  //viewing the patient details 
     const[patients, setPatients]=useState([]);
     const {id}=useParams()
     const navigate=useNavigate();
@@ -26,7 +26,7 @@ function PatientDetails(){
         })},[id])
         
     
-      return(
+    return(
         <div className="forDoctorPage">
         <Card className="text">
         <Card.Header>Patient Details</Card.Header>
@@ -36,16 +36,13 @@ function PatientDetails(){
           <Card.Title> DOB :{patients.dateOfBirth}</Card.Title>
           <Card.Title> Address :{patients.address}</Card.Title>
           <Card.Title> Phone Number:{patients.phoneNumber} </Card.Title>
-
-          <Card.Text>
-          </Card.Text>
-          <center><Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
-          <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button></center>
+        <center><Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
+        <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button></center>
         </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>
-      </Card>
-      <div><a href="/appointmentlist">Go Back</a></div>
-      </div>
+        </Card>
+        <div><a href="/appointmentlist">Go Back</a></div>
+        </div>
 
       )
     }

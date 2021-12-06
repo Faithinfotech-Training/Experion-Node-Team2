@@ -9,7 +9,7 @@ function ViewTestDetails(){
     if(!roleController.isDoctor()){
         window.location = '/login'
       }
-
+    //tests details viewing 
     const[tests, setTests]=useState([]);
     const {id}=useParams()
         useEffect(()=>{
@@ -23,9 +23,9 @@ function ViewTestDetails(){
         
 
         return(<>
-        <center><h2>Test Details</h2></center>
-                 <div>{tests.map(test=><div key={test.id}> <Tests details={test}/></div>)}</div>
-                 </>)
+               <center><h2>Test Details</h2></center>
+               <div>{tests.map(test=><div key={test.id}> <Tests details={test}/></div>)}</div>
+               </>)
    
    }
 

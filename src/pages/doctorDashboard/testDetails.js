@@ -14,7 +14,7 @@ function TestDetails(){
 
     const[tests, setTests]=useState([]);
     const {id}=useParams()
-    
+    //fetching report details
     useEffect(()=>{
         axios
         .get(`http://localhost:4000/reports/${id}`)

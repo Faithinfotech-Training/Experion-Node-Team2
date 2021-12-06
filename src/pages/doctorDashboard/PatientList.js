@@ -7,6 +7,7 @@ import './doctor.css'
 
 function PatientList(props){
   const[patients, setPatients]=useState([]);
+  //fetching data data in patients from patient table
   useEffect(()=>{
     axios
     .get(`http://localhost:4000/patients/${props.details.patientId}`)
@@ -16,7 +17,7 @@ function PatientList(props){
         setPatients(response.data)
     })},[props.details.patientId])
 
-
+  //fetching data of doctors based on email
     const[doctor, setDoctor] = useState([]);
     useEffect(()=>{
         var email = localStorage.getItem('myemail');

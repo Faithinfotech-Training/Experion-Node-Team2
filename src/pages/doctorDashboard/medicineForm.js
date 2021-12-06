@@ -6,6 +6,7 @@ import dates from '../../helpers/todayDate/getDate';
 function MedicineForm(props){
     const [inputs, setInputs] = useState({});
     console.log(props.details)
+    //fetching the details of patients
     useEffect(()=>{
         axios
         .get(`http://localhost:4000/patients/${props.details}`)
@@ -20,11 +21,11 @@ function MedicineForm(props){
         const value = event.target.value;
         setInputs(values => ({...values, [name] : value}))
     };
-
+  
     function handleSubmit(event){
         event.preventDefault();
         console.log(inputs);
-
+ //posting to the medicine table
         axios.post(`http://localhost:4000/medicines`, inputs)
          .then(response=>{
             console.log('Promise was fullfilled')
@@ -92,7 +93,7 @@ function MedicineForm(props){
             <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Date of Medicine</Form.Label>
             <input className="input" type = "date" name = "dateMedicine"
-                        value = {inputs.dateMedicine || ''} onChange = {handleChange} 
+                        value = {inputs.dateMedicine || ''} onChange = {handleChange} //validate for current date only
                         min = {dates.getDate()} 
                         max = {dates.getDate()}
                         required></input>
