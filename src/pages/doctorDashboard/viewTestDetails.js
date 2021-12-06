@@ -23,9 +23,19 @@ function ViewTestDetails(){
         
 
         return(<>
-               <center><h2>Test Details</h2></center>
-               <div>{tests.map(test=><div key={test.id}> <Tests details={test}/></div>)}</div>
-               </>)
+        <center><h2>Lab Result</h2></center>
+
+        {tests.length === 0 ? (<h3>No Generated Reports !</h3>) : ( 
+          <div className = "staffCards">
+          {tests.map(test => 
+                  <div key = {test.id}>
+                      <Tests details = {test}/>
+                  </div>
+              )}
+      </div>
+      )}
+
+                 </>)
    
    }
 

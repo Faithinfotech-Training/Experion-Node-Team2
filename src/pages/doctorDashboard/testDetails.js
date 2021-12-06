@@ -27,8 +27,8 @@ function TestDetails(){
 
        return(
         <div className="forDoctorPage">
-        <Card className="text-center">
-        <Card.Header>Test Details</Card.Header>
+        <Card className="text">
+        <center><Card.Header>Test Details</Card.Header></center>
         <Card.Body>
           <Card.Title> Test Name : {tests.testName}</Card.Title>
           <Card.Title> Discription: {tests.description}</Card.Title>
