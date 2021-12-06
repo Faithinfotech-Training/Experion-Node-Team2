@@ -16,11 +16,10 @@ function Prescription(){
    return (
         <>
         <center><h1>Prescription</h1></center>
-        <div class="patientId">Patient ID :{id}</div>
         <br/>
-        <MedicineForm/> 
+        <MedicineForm patient={id}/> 
         <hr/>
-        <TestForm/>      
+        <TestForm patient={id}/>      
         </>
     );
 }

@@ -52,6 +52,7 @@ function Listall(){
         
         <center><h2>Appointments</h2></center>
         <center><h2>Dr. {doctor.doctorName} </h2></center>
+        <h3>Date : {today}</h3>
 
             <div>{appoinments.map(appoinment=>
                     <div key={appoinment.id}> 

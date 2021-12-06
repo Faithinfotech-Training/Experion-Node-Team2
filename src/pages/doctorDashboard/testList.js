@@ -23,7 +23,7 @@ function TestList(props){
   return(
     <div className="forDoctorPage">
     <Card className="text-center">
-  <Card.Header> Lab Report ID: {props.details.labReportId}</Card.Header>
+  <Card.Header> Lab Report of Test : {props.details.testName}</Card.Header>
   <Card.Body>
     <Card.Title> Patient Name :{patients.patientName}</Card.Title>
     <Card.Text>

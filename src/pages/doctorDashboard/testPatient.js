@@ -2,10 +2,20 @@ import {useState} from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import dates from '../../helpers/todayDate/getDate';
 
-function TestForm(){
+function TestForm(props){
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
+
+    useEffect(()=>{
+        axios
+        .get(`http://localhost:4000/patients/${props.patient.id}`)
+        .then(response=>{
+            console.log('Promise was fullfilled')
+            console.log(response)
+            setInputs(response.data)
+        })},[props.patient.id])
 
     function handleChange(event){
         const name = event.target.name;
@@ -31,8 +41,7 @@ function TestForm(){
         <div className="form">
         <Form onSubmit = {handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicText">
-                <Form.Label>Patient Id</Form.Label>
-                <input className="input" type = "number" name = "patientId" placeholder = "Enter Patient Id"
+                <input className="input" type = "hidden" name = "patientId" placeholder = "Enter Patient Id"
                         value = {inputs.patientId || ''} onChange = {handleChange} 
                         required></input>
         </Form.Group>
@@ -53,6 +62,8 @@ function TestForm(){
             <Form.Label>Date of Test</Form.Label>
             <input className="input" type = "date" name = "testDate"
                         value = {inputs.testDate || ''} onChange = {handleChange}
+                        min = {dates.getDate()} 
+                        max = {dates.getDate()} 
                         required></input>
             </Form.Group>
        

@@ -40,7 +40,7 @@ function PatientList(props){
     <Card className="text">
         <Card.Header> Patient Name : {patients.patientName}</Card.Header>
           <Card.Body>
-          <Card.Title> Patient ID :{patients.patientId}</Card.Title>
+          <Card.Title>Appoinment Time : {props.details.appointmentTime}</Card.Title>
           <div className="floatright">
           <Button variant="primary"><Link to={`/patientdetails/${props.details.patientId}`}>View Details</Link></Button>
           </div>
