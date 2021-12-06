@@ -38,6 +38,7 @@ function MyForm(props){
             .then(response => { 
                 localStorage.setItem('mytoken', response.data.accessToken)
                 localStorage.setItem('myrole', response.data.roleId)
+                localStorage.setItem('myemail', response.data.user.userName)
                 window.location = '/'        
             })
             .catch(error =>{

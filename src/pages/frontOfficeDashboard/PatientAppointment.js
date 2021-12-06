@@ -117,7 +117,7 @@ function MyForm(props) {
 
             <Button variant="primary" type="submit">Check</Button>&nbsp;&nbsp;
                 
-            <Button variant="danger" type = "submit">Add Doctor</Button>
+            <Button variant="danger" type = "submit" >Add Doctor</Button>
                        
             </Form>
 
