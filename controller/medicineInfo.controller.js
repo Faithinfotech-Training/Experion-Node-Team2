@@ -4,7 +4,8 @@ var medicineController = {
     findMedicine: findMedicine,
     findMedicineById:findMedicineById,
     updateMedicine: updateMedicine,
-    deleteById: deleteById
+    deleteById: deleteById,
+    findMedicineByDate:findMedicineByDate
 }
 
 function addMedicine(req, res) {
@@ -20,6 +21,16 @@ function addMedicine(req, res) {
 
 function findMedicineById(req, res) {
     medicineDao.findById(req.params.medicineId).
+        then((data) => {
+            res.send(data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+function findMedicineByDate(req, res) {
+    medicineDao.findByDate(req.params.dateMedicine).
         then((data) => {
             res.send(data);
         })

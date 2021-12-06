@@ -4,7 +4,8 @@ var medicineInfoDao = {
     create: create,
     findById: findById,
     deleteById: deleteById,
-    updateMedicine: updateMedicine
+    updateMedicine: updateMedicine,
+    findByDate:findByDate
 }
 
 function findAll() {
@@ -14,7 +15,9 @@ function findAll() {
 function findById(medicineid) {
     return medicineInfo.findByPk(medicineid);
 }
-
+function findByDate(dateMedicine) {
+    return medicineInfo.findAll({ where: { dateMedicine:dateMedicine}});
+}
 function deleteById(id) {
     return medicineInfo.destroy({ where: {medicineid: medicineid } });
 }

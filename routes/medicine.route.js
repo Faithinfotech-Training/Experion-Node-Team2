@@ -8,5 +8,6 @@ router.get('/', medicineController.findMedicine);
 router.get('/:medicineId', medicineController.findMedicineById);
 router.put('/:medicineId', medicineController.updateMedicine);
 router.delete('/:medicineId', medicineController.deleteById);
+router.get('/bydate/:dateMedicine',medicineController.findMedicineByDate);
 
 module.exports = router;
