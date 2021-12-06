@@ -45,11 +45,8 @@ var doctorInfoDao = {
     findById: findById,
     deleteById: deleteById,
     update: update,
-<<<<<<< HEAD
-    findByEmail:findByEmail
-=======
+    findByEmail:findByEmail,
     findByName:findByName
->>>>>>> 1a8a2de925cea1d8be5d4f25208bebd2ad4de549
 }
 
 module.exports = doctorInfoDao;
