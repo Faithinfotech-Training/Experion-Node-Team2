@@ -26,7 +26,7 @@ function BillDisplay() {
 
         <center><h1>Bill List</h1></center>
 
-        &nbsp;&nbsp;<input type='text' 
+        &nbsp;&nbsp;<input type='search' 
             name='search' placeholder='Search'
             onChange={event =>setSearch(event.target.value)} /><br/><br/>
 

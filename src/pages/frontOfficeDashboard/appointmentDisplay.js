@@ -32,7 +32,7 @@ function AppointmentDisplay() {
         <div>
             <center><h1>Appointments</h1></center><br/>
 
-            &nbsp;&nbsp;<input type='text' 
+            &nbsp;&nbsp;<input type='search' 
                 name='search' placeholder='Search'
                 onChange={event =>setSearch(event.target.value)} /><br/><br/>
 

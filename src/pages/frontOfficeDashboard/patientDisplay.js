@@ -33,7 +33,7 @@ function PatientDisplay() {
         <div className="billCards">
             <center><h1>Registered Patient List</h1></center><br />
 
-            &nbsp;&nbsp;<input type='text' 
+            &nbsp;&nbsp;<input type='search' 
                 name='search' placeholder='Search'
                 onChange={event =>setSearch(event.target.value)} /><br/><br/>
 
