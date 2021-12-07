@@ -35,8 +35,11 @@ function PatientDetails(){
           <Card.Title> DOB :{patients.dateOfBirth}</Card.Title>
           <Card.Title> Address :{patients.address}</Card.Title>
           <Card.Title> Phone Number:{patients.phoneNumber} </Card.Title>
-        <center><Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
-        <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button></center>
+        <center>
+        <Button variant="primary" onClick={()=>navigate(`/prescriptionadd/${patients.patientId}`)}>ADD CONSULTATION</Button>&nbsp;&nbsp;
+        <Button variant="secondary" onClick={()=>navigate(`/patient/tests/${patients.patientId}`)}>VIEW LABRESULT</Button>&nbsp;&nbsp;
+        <Button variant="secondary" onClick={()=>navigate(`/viewpriscription`)}>VIEW PRESCRIPTION</Button>
+        </center>
         </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>
         </Card>
