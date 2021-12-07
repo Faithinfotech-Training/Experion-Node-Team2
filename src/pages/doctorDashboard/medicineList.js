@@ -26,7 +26,7 @@ function MedicineList(props){
         <Card.Header> Medicine Name : {props.details.medicineName}</Card.Header>
           <Card.Body>
           <div className="floatright">
-          <Button variant="primary"><Link to={`/priscdetails/${props.details.medicineId}`}>View Details</Link></Button>
+          <Button variant="primary"><Link to={`/priscdetails/${props.details.medicineid}`}>View Details</Link></Button>
           </div>
           </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>

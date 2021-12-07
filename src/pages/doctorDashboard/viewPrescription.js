@@ -36,7 +36,7 @@ function Prescription(){
         <div>
         <center><h2>Prescription</h2></center>
             <div>{medicine.map(med=>
-                    <div key={med.medicineId}> 
+                    <div key={med.medicineid}> 
                         <Medicines details= {med}/>
                     </div>)}
                 </div>

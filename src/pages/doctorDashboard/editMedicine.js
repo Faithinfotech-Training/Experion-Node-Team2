@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 import "./doctor.css";
 import roleController from "../../helpers/roleLogin/roleLogin";
+import dates from '../../helpers/todayDate/getDate';
 
 
     
@@ -16,7 +17,7 @@ function MedicineEdit(){
     return (
         <>
         <center><h1>Edit Medicine</h1></center>
-        <MyForm medicineId = {id}/>
+        <MyForm medicineid = {id}/>
         </>
     );
 }
@@ -27,7 +28,7 @@ function MyForm(props){
     const [inputs, setInputs] = useState({});
         //To get the staff details from the staff id
         useEffect(() => {
-            axios.get(`http://localhost:4000/medicines/${props.medicineId}`) //gets data from staff
+            axios.get(`http://localhost:4000/medicines/${props.medicineid}`) //gets data from staff
               .then(response =>{
                   console.log('Promise fullfilled');
                   console.log(response); 
@@ -45,7 +46,7 @@ function MyForm(props){
         event.preventDefault();
         console.log(inputs);
 
-        axios.put(`http://localhost:4000/medicines/${props.medicineId}`, inputs)
+        axios.put(`http://localhost:4000/medicines/${props.medicineid}`, inputs)
             .then(response => { 
                     console.log('Promise Fullfilled');
                     console.log(response);

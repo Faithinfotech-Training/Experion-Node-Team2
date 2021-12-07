@@ -38,11 +38,11 @@ function PrescriptionDetails(){
           <Card.Title> type :{medicine.type}</Card.Title>
           <Card.Title> day:{medicine.day} </Card.Title>
           <Card.Title> comment:{medicine.comment} </Card.Title>
-        <center><Button variant="primary" onClick={()=>navigate(`/prescriptionedit/${medicine.medicineId}`)}>EDIT</Button></center>
+        <center><Button variant="primary" onClick={()=>navigate(`/prescriptionedit/${medicine.medicineid}`)}>EDIT</Button></center>
         </Card.Body>
         <Card.Footer className="text-muted"></Card.Footer>
         </Card>
-        <div><a href="/patientdetails">Go Back</a></div>
+        <div><a href= "/appointmentlist">Go Back</a></div>
         </div>
 
       )
