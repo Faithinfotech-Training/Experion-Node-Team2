@@ -100,7 +100,7 @@ function MyForm(props){
             <Form.Group className="mb-3" controlId="formBasicNumber">
             <Form.Label>Amount  </Form.Label>
             <input className="input" type = "number" name = "billAmount" placeholder = "Enter bill amount"
-                        value = {inputs.billAmount|| ''} onChange = {handleChange} 
+                        value = {inputs.billAmount|| ''} onChange = {handleChange} min = {0}
                         
                         required></input>
             </Form.Group>
