@@ -1,89 +1,82 @@
-"use strict";
-const database = require('../models/userInfo.js');
+// User Controller
 
-const jwt = require('jsonwebtoken');
+const usersInfoDao = require('../dao/userInfo.dao');
 const bcrypt = require('bcryptjs');
-const SECRET_KEY = "secretkey123456";
+const jwt = require('jsonwebtoken');
+require('dotenv').config ()
 
-var userController = {
-    registerUser : registerUser,
-    loginUser : loginUser
-}
 
-//If user alreary exists
-const findUserByEmail = (userName, cb) => {
-    return database.get(
-        `SELECT * FROM userInfo WHERE userName = ?`, [userName], (err, row) =>{
-            cb(err, row)
-        }
-    );
-}
+function addAuthentication(req, res) {
+    let authentication = {}
+    authentication.userName = req.body.userName;
+    authentication.password = bcrypt.hashSync(req.body.password);
+    authentication.roleId  = req.body.roleId;
+    
+    usersInfoDao.create(authentication)
+        .then((data) => {
+            usersInfoDao.findByUserName(authentication.userName)
+            .then(() => {
+                // res.send(data);
+                const expiresIn = 24 * 60 * 60;
+                const accessToken = jwt.sign({ id: authentication.userId }, process.env.TOKEN_SECRET, {
+                    expiresIn: expiresIn
+                });
 
-//If user is not existing
-const createUser = (userInfo, cb) => {
-    return database.run(
-        `INSERT INTO userInfo (userName, password, roleId) VALUES (?, ?, ?)`, userInfo, (err) => {
-            cb(err)
-        }
-    );
-}
+                //users.token = accessToken
+    
+                res.status(200).send({
+                    "user": authentication, 
+                    "accessToken": accessToken, 
+                    "expires_in": expiresIn
+                });
 
-function registerUser(req, res){
-    //Get values from request body
-    const roleId = req.body.roleId;
-    const userName = req.body.userName;
-    const password = bcrypt.hashSync(req.body.password);
+            }).catch((error) => {
+                console.log(error);
+                return res.status(500).send('Server error!');
+            })
 
-    createUser([userName, password, roleId], (err) => {
-        if (err)
-            return res.status(500).send("Email already exists !");
-        //If email exists, error is displayed and out of the whole loop
-        //If email isnt' existing, inserts the data
 
-        //Now we have to find the inserted data to return with token
-        findUserByEmail(userName, (err, userInfo) => {
-            if (err)
-                return res.status(500).send('Server Error !');
-            const expiresIn = 24 * 60 * 60;     //One day token validity
-            const accessToken = jwt.sign({id : userInfo.id}, SECRET_KEY, {
-                expiresIn : expiresIn
-            });
-            res.status(200).send({
-                "user" : userInfo,
-                "accessToken" : accessToken,
-                "expires_in" : expiresIn
-            });
+        })
+        .catch((error) => {
+            console.log(error);
         });
-    });
 }
 
-function loginUser(req, res) {
+
+authenticationInfo = {}
+
+function loginAuthentication(req, res) {
     const userName = req.body.userName;
     const password = req.body.password;
-    //Go thorugh the database to find the email
-    findUserByEmail(userName, (err, userInfo) => {
-        if (err) 
-            return res.status(500).send('Server error !');
-        if (!userInfo)
-            return res.status(404).send('Register Yourself !');
-        //Compare the entered password and password in database
-        const result = bcrypt.compareSync(password, userInfo.password);
-        if (!result)
-            return res.status(401).send('Wrong password !');
-
-        //If all if conditions are bypassed, generate token
-        const expiresIn = 24 * 60 * 60;
-        const accessToken = jwt.sign({id : userInfo.id}, SECRET_KEY, {
-            expiresIn : expiresIn
+    
+    usersInfoDao.findByUserName(userName)
+        .then((data) => {
+            console.log(data)
+            enteredPassword = data.password;
+            console.log(enteredPassword);
+            const result = bcrypt.compareSync(password, enteredPassword);
+            if (!result) return res.status(401).send('Password Wrong!');
+            const expiresIn = 24 * 60 * 60;
+            const accessToken = jwt.sign({ id: data.userId, role: data.roleId }, process.env.TOKEN_SECRET, {
+                expiresIn: expiresIn
+            });
+            authenticationInfo = data;
+            res.status(200).send({
+                "user": data,
+                "accessToken": accessToken,
+                "expires_in": expiresIn,
+                "roleId" : data.roleId
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            return res.status(404).send('Register First!');
         });
-        res.status(200).send({
-            "user" : userInfo,
-            "accessToken" : accessToken,
-            "expires_in" : expiresIn,
-            "roleId" : userInfo.roleId
-        });
-    });
 }
 
+var usersInfoController = {
+    registerUser : addAuthentication,
+    loginUser : loginAuthentication,
+}
 
-module.exports = userController;
+module.exports = usersInfoController;

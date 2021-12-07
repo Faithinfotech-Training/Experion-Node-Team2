@@ -36,7 +36,7 @@ const medicineInfo = db.define('Medicines', {
         allowNull: false
     },
     dateMedicine: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     }
 

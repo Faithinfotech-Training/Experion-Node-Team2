@@ -20,7 +20,7 @@ function addMedicine(req, res) {
 }
 
 function findMedicineById(req, res) {
-    medicineDao.findById(req.params.medicineId).
+    medicineDao.findById(req.params.medicineid).
         then((data) => {
             res.send(data);
         })
@@ -40,7 +40,7 @@ function findMedicineByDate(req, res) {
 }
 
 function deleteById(req, res) {
-    medicineDao.deleteById(req.params.medicineId).
+    medicineDao.deleteById(req.params.medicineid).
         then((data) => {
             res.status(200).json({
                 message: "prescription_medicine deleted successfully",
@@ -53,7 +53,7 @@ function deleteById(req, res) {
 }
 
 function updateMedicine(req, res) {
-    medicineDao.updateMedicine(req.body, req.params.medicineId).
+    medicineDao.updateMedicine(req.body, req.params.medicineid).
         then((data) => {
             res.status(200).json({
                 message: "prescription_medicine updated successfully",

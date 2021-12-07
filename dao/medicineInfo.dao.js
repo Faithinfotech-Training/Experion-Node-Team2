@@ -19,7 +19,7 @@ function findByDate(dateMedicine) {
     return medicineInfo.findAll({ where: { dateMedicine:dateMedicine}});
 }
 function deleteById(id) {
-    return medicineInfo.destroy({ where: {medicineid: medicineid } });
+    return medicineInfo.destroy({ where: {medicineid: id } });
 }
 
 function create(medicine) {
